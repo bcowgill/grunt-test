@@ -1,6 +1,19 @@
 {
+  "private": true,
+  "license": "Unlicense",
+  "version": "0.0.1",
+  "name": "project-builder",
+  "description": "A package.json and Gruntfile.js for private build use. jshint, qunit test, etc.",
+  "keywords": ["grunt build", "jshint",  "qunit", "uglify", "concat"],
+  "author": "Brent S.A. Cowgill",
   "engines": {
     "node": ">= 0.10.0"
+  },
+  "directories": {
+    "doc": "./doc",
+    "man": "./man",
+    "lib": "./lib",
+    "bin": "./bin"
   },
   "devDependencies": {
     "grunt": "~0.4.2",

@@ -1,6 +1,9 @@
+package.json Spec: https://www.npmjs.org/doc/json.html
+example npm's package.json http://registry.npmjs.org/npm/latest
+
 brent.cowgill@bcowgill-dt:~/workspace/play/d3/WebContent/grunt-test (master)$ mkdir grunt-test-jshint-uglify
 brent.cowgill@bcowgill-dt:~/workspace/play/d3/WebContent/grunt-test (master)$ cd grunt-test-jshint-uglify/
-brent.cowgill@bcowgill-dt:~/workspace/play/d3/WebContent/grunt-test/grunt-test-jshint-uglify (master)$ less ../npm-init/README.txt 
+brent.cowgill@bcowgill-dt:~/workspace/play/d3/WebContent/grunt-test/grunt-test-jshint-uglify (master)$ less ../npm-init/README.txt
 brent.cowgill@bcowgill-dt:~/workspace/play/d3/WebContent/grunt-test/grunt-test-jshint-uglify (master)$ grunt-init basic
 Running "init:basic" (init) task
 This task will create one or more files in the current directory, based on the
@@ -25,4 +28,7 @@ Writing package.json...OK
 Initialized from template "basic".
 
 Done, without errors.
+brent.cowgill@bcowgill-dt:~/workspace/play/d3/WebContent/grunt-test/grunt-test-jshint-uglify (master %)$ vim package.json
 brent.cowgill@bcowgill-dt:~/workspace/play/d3/WebContent/grunt-test/grunt-test-jshint-uglify (master %)$
+
+
