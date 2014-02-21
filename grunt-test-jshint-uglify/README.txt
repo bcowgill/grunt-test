@@ -29,6 +29,9 @@ Initialized from template "basic".
 
 Done, without errors.
 brent.cowgill@bcowgill-dt:~/workspace/play/d3/WebContent/grunt-test/grunt-test-jshint-uglify (master %)$ vim package.json
-brent.cowgill@bcowgill-dt:~/workspace/play/d3/WebContent/grunt-test/grunt-test-jshint-uglify (master %)$
+brent.cowgill@bcowgill-dt:~/workspace/play/d3/WebContent/grunt-test/grunt-test-jshint-uglify (master %)$ npm install
+... installs all the grunt stuff.
+brent.cowgill@bcowgill-dt:~/workspace/play/d3/WebContent/grunt-test/grunt-test-jshint-uglify (master %)$ grunt
+... runs the grunt build. jshint, qunit, etc fail because nothing there
 
 

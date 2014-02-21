@@ -6,7 +6,7 @@
   "description": "A package.json and Gruntfile.js for private build use. jshint, qunit test, etc.",
   "keywords": ["grunt build", "jshint",  "qunit", "uglify", "concat"],
   "author": "Brent S.A. Cowgill",
-  "engines": {
+  "en gines": {
     "node": ">= 0.10.0"
   },
   "directories": {
@@ -22,5 +22,8 @@
     "grunt-contrib-qunit": "~0.3.0",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-uglify": "~0.2.7"
+  },
+  "optionalDevDependencies": {
+    "sublime-grunt-build": "~1.1.1"
   }
 }
