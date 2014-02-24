@@ -6,5 +6,8 @@
 			"path": "/home/brent.cowgill/workspace/play/d3/WebContent/grunt-test/grunt-test-jshint-uglify"
 		}
 	],
-	"settings": { "build_on_save": 1 }
+	"settings":
+	{
+		"build_on_save": 1
+	}
 }
