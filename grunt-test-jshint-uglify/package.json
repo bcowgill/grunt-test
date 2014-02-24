@@ -13,7 +13,7 @@
     "uglify", "concat"
   ],
   "author": "Brent S.A. Cowgill",
-  "en gines": {
+  "engines": {
     "node": ">= 0.10.0"
   },
   "directories": {
