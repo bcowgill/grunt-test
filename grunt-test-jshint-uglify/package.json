@@ -3,8 +3,15 @@
   "license": "Unlicense",
   "version": "0.0.1",
   "name": "project-builder",
+  "title": "project-builder",
+  "main": "project-builder.js",
   "description": "A package.json and Gruntfile.js for private build use. jshint, qunit test, etc.",
-  "keywords": ["grunt build", "jshint",  "qunit", "uglify", "concat"],
+  "keywords": [
+    "grunt build",
+    "jshint",
+    "qunit",
+    "uglify", "concat"
+  ],
   "author": "Brent S.A. Cowgill",
   "en gines": {
     "node": ">= 0.10.0"

@@ -47,14 +47,11 @@ module.exports = function(grunt) {
         globals: {}
       },
       gruntfile: {
-        src: 'Gruntfile.js'
+        src: ['package.json', 'Gruntfile.js']
       },
       lib_test: {
         src: ['lib/**/*.js', 'test/**/*.js']
       },
-      qunitchainer: {
-        src: ['QUnitChainer/*.js', 'QUnitChainer/_test_passes/*.js', 'QUnitChainer/_test_failures/*.js', 'QUnitChainer/sample/*.js', 'QUnitChainer/spec/*.js']
-      }
     },
     qunit: {
       files: ['test/**/*.html']
@@ -79,6 +76,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+  grunt.registerTask('qunit', ['jshint', 'qunit', 'concat', 'uglify']);
 
 };
