@@ -1,6 +1,7 @@
-function someJavascript () {
-	var is_defined;
-	return is_defined;
+/*exported someJavascript */
+// inline jshint config settings: http://jshint.org/docs/ http://jshint.org/docs/options/
+
+function someJavascript (something) {
+	return something.toUpperCase();
 }
 
-someJavascript();

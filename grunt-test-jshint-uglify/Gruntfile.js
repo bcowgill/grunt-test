@@ -51,6 +51,9 @@ module.exports = function(grunt) {
       },
       lib_test: {
         src: ['lib/**/*.js', 'test/**/*.js']
+      },
+      qunitchainer: {
+        src: ['QUnitChainer/*.js', 'QUnitChainer/_test_passes/*.js', 'QUnitChainer/_test_failures/*.js', 'QUnitChainer/sample/*.js', 'QUnitChainer/spec/*.js']
       }
     },
     qunit: {
