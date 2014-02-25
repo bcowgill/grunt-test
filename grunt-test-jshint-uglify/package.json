@@ -22,6 +22,12 @@
     "lib": "./lib",
     "bin": "./bin"
   },
+  "config": {
+    "port": "8919"
+  },
+  "scripts": {
+    "devwebserver": "webserver.sh"
+  },
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.7.2",
