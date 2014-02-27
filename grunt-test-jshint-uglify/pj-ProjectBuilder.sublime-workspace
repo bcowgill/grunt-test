@@ -11,7 +11,7 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 914,
+				"buffer_size": 1006,
 				"line_ending": "Unix"
 			}
 		},
@@ -349,7 +349,7 @@
 	"groups":
 	[
 		{
-			"selected": 19,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -358,15 +358,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 914,
+						"buffer_size": 1006,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								684,
-								684
+								617,
+								617
 							]
 						],
 						"settings":
@@ -376,7 +376,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 212.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -459,7 +459,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1246.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -514,7 +514,7 @@
 						{
 							"syntax": "Packages/CSS/CSS.tmLanguage",
 							"tab_size": 3,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 969.0,
