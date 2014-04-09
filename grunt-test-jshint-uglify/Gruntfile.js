@@ -74,6 +74,53 @@ module.exports = function(grunt) {
       },
       dist: {
         src: ['dist/**/*.js']
+      },
+      permissive: { // when you want to jshint with more permissive settings
+        options: {
+          'bitwise': false,
+          'curly': false,
+          'eqeqeq': false,
+          'forin': false,
+          'freeze': false,
+          'immed': false,
+          'latedef': false,
+          'newcap': false,
+          'noarg': false,
+          'noempty': false,
+          'nonew': false,
+          'plusplus': false,
+          'quotmark': false,
+          'undef': false,
+          'unused': false,
+          'strict': false,
+          'trailing': false,
+          'asi': true,
+          'boss': true,
+          'debug': true,
+          'esnext': true,
+          'evil': true,
+          'expr': true,
+          'funcscope': true,
+          'gcl': true,
+          'globalstrict': true,
+          'iterator': true,
+          'lastsemic': true,
+          'laxbreak': true,
+          'laxcomma': true,
+          'loopfunc': true,
+          'moz': true,
+          'multistr': true,
+          'notypeof': true,
+          'proto': true,
+          'scripturl': true,
+          'smarttabs': true,
+          'shadow': true,
+          'sub': true,
+//          'noyield': true,
+          'maxerr': 5000,
+          'globals': '{}'
+        },
+        src: ['lib/**/*.js', 'test/**/*.js']
       }
     },
     csslint: {
@@ -128,6 +175,7 @@ module.exports = function(grunt) {
   grunt.registerTask('all', ['jshint:gruntfile', 'concat', 'uglify',
     'csslint:strict', 'lint5', 'jshint:lib_test', 'jshint:dist']);
   grunt.registerTask('single', ['jshint:single']);
+  grunt.registerTask('permissive', ['jshint:permissive']);
   grunt.registerTask('qunit', ['jshint', 'qunit', 'concat', 'uglify']);
 
 };
