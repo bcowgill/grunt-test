@@ -1,4 +1,5 @@
 /*jshint indent: 2 */
+// test/benchmark-this.js
 /*global console, Benchmark */
 // Sample benchmarking tests http://benchmarkjs.com/
 (function () {
