@@ -40,7 +40,7 @@ brent.cowgill@bcowgill-dt:~/workspace/play/d3/WebContent/grunt-test/grunt-test-j
 ... runs the grunt build. jshint, qunit, etc fail because nothing there
 
 Next jshint configuration based on https://github.com/bcowgill/jshint-test
-
+Added csslint and lint5 configuration
 
 
 

@@ -1,4 +1,4 @@
-/*jshint indent: 2 */
+/*jshint indent: 2, maxstatements: 100 */
 /*global module:false*/
 module.exports = function(grunt) {
   'use strict';
@@ -66,9 +66,38 @@ module.exports = function(grunt) {
       gruntfile: {
         src: ['package.json', 'Gruntfile.js']
       },
+      single: {
+        src: ['package.json'] // set to just check a single file
+      },
       lib_test: {
         src: ['lib/**/*.js', 'test/**/*.js']
       },
+      dist: {
+        src: ['dist/**/*.js']
+      }
+    },
+    csslint: {
+      strict: {
+        options: { import: 2 },
+        src: ['css/*.css']
+      },
+      lax: {
+        options: { import: false },
+        src: ['css/*.css']
+      }
+    },
+    lint5: {
+      dirPath: './html/',
+      defaults: {
+        'email': 'a@a.com',
+        'username': 'abcd'
+      },
+      templates: [
+        'index.html'
+      ],
+      ignoreList: [
+        'message to be ignored'
+      ]
     },
     qunit: {
       files: ['test/**/*.html']
@@ -91,9 +120,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-csslint');
+  grunt.loadNpmTasks('grunt-lint5');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+  grunt.registerTask('default', ['all']);
+  grunt.registerTask('all', ['jshint:gruntfile', 'concat', 'uglify',
+    'csslint:strict', 'lint5', 'jshint:lib_test', 'jshint:dist']);
+  grunt.registerTask('single', ['jshint:single']);
   grunt.registerTask('qunit', ['jshint', 'qunit', 'concat', 'uglify']);
 
 };
