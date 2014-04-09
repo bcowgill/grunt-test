@@ -46,6 +46,9 @@ Added csslint and lint5 configuration
 Added benchmark.js  http://benchmarkjs.com/
   npm install benchmark --save-dev
   and a test/benchmark-test.html
+Getting Qunit testing going
+cp node_modules/qunitjs/test/index.html test/qunit/qunit-test.html
+added test/qunit/qunit-test.html .js and lib/object-to-test.js
 
 
 

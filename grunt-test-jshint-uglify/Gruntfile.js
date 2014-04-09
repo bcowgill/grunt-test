@@ -18,7 +18,7 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['lib/<%= pkg.name %>.js'],
+        src: ['lib/*.js'],
         dest: 'dist/<%= pkg.name %>.js'
       }
     },
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
     },
     jshint: {
       options: {
-        'indent': 3,
+        //'indent': 3,
         'maxparams': 4,
         'maxdepth': 3,
         'maxstatements': 11,
@@ -140,7 +140,9 @@ module.exports = function(grunt) {
         'username': 'abcd'
       },
       templates: [
-        'html/index.html', 'test/benchmark-test.html'
+        'html/index.html',
+        'test/benchmark-test.html',
+        'test/qunit/qunit-test.html'
       ],
       ignoreList: [
         'message to be ignored'
