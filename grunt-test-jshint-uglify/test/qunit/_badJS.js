@@ -1,6 +1,8 @@
-function (unused) {
+/*exported anonymous */
+function anonymous (unused) {
+   'use strict';
    var onlyOne;
-   var varPerFunction; 
-   return notDefined;
+   var varPerFunction;
+   return [unused, onlyOne, varPerFunction]; //, notDefined];
 }
 

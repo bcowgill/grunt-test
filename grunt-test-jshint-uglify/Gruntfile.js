@@ -1,6 +1,7 @@
+/*jshint indent: 2 */
 /*global module:false*/
 module.exports = function(grunt) {
-
+  'use strict';
   // Project configuration.
   grunt.initConfig({
     // Metadata.
@@ -32,19 +33,35 @@ module.exports = function(grunt) {
     },
     jshint: {
       options: {
-        curly: true,
-        eqeqeq: true,
-        immed: true,
-        latedef: true,
-        newcap: true,
-        noarg: true,
-        sub: true,
-        undef: true,
-        unused: true,
-        boss: true,
-        eqnull: true,
-        browser: true,
-        globals: {}
+        'indent': 3,
+        'maxparams': 4,
+        'maxdepth': 3,
+        'maxstatements': 11,
+        'maxcomplexity': 5,
+        'maxlen': 100,
+        'bitwise': true,
+        'curly': true,
+        'eqeqeq': true,
+        'forin': true,
+        'freeze': true,
+        'immed': true,
+        'latedef': true,
+        'newcap': true,
+        'noarg': true,
+        'noempty': true,
+        'nonew': true,
+        'plusplus': true,
+        'quotmark': true,
+        'undef': true,
+        'unused': 'strict',
+        'strict': true,
+        'trailing': true,
+        'laxcomma': true,
+        'laxbreak': true,
+        'multistr': true,
+        'smarttabs': true,
+        'maxerr': 5000,
+        'globals': '{}'
       },
       gruntfile: {
         src: ['package.json', 'Gruntfile.js']

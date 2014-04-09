@@ -39,4 +39,8 @@ brent.cowgill@bcowgill-dt:~/workspace/play/d3/WebContent/grunt-test/grunt-test-j
 brent.cowgill@bcowgill-dt:~/workspace/play/d3/WebContent/grunt-test/grunt-test-jshint-uglify (master %)$ grunt
 ... runs the grunt build. jshint, qunit, etc fail because nothing there
 
+Next jshint configuration based on https://github.com/bcowgill/jshint-test
+
+
+
 

@@ -2,8 +2,13 @@
 	"folders":
 	[
 		{
-			"follow_symlinks": true,
-			"path": "/home/brent.cowgill/workspace/play/d3/WebContent/grunt-test/grunt-test-jshint-uglify"
+			"path": "/D/d/s/github/grunt-test/grunt-test-jshint-uglify"
+		},
+		{
+			"path": "/D/d/s/github/jshint-test"
+		},
+		{
+			"path": "/D/d/docs/work-search/jonathan-shaw-ovo-energy/code-test-ovo-energy"
 		}
 	],
 	"settings":

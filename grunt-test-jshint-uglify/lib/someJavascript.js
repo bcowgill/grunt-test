@@ -2,6 +2,7 @@
 // inline jshint config settings: http://jshint.org/docs/ http://jshint.org/docs/options/
 
 function someJavascript (something) {
+	'use strict';
 	return something.toUpperCase();
 }
 
