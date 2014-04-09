@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Benchmark JS in Browser</title>
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+  </head>
+  <body>
+    <!-- should omit protocol in case app is http/https but need to supply it when file opened outside of a web server -->
+    <script src="../node_modules/benchmark/benchmark.js" charset="utf-8"></script>
+    <script src="../test/benchmark-this.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- http://benchmarkjs.com/ -->
+    <!-- Optionally, expose Java’s nanosecond timer by adding the nano applet to the <body>:    <applet code="nano" archive="nano.jar"></applet>
+
+    Or enable Chrome’s microsecond timer by using the command line switch:
+
+    - -enable-benchmarking
+
+-->
+  <p>Benchmark testing is showing output in the console.</p>
+  <ul>
+    <li>F12 -- IE and others</li>
+    <li>Ctrl-Shift-J  -- Chrome</li>
+    <li>Ctrl-Alt-I  -- Safari</li>
+    <li>Ctrl/Cmd-Shift-K -- Firefox</li>
+    <li>Ctrl-Shift-I  -- Opera</li>
+  </ul>
+  <p>to open the console.</p>
+  </body>
+</html>

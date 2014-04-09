@@ -140,7 +140,7 @@ module.exports = function(grunt) {
         'username': 'abcd'
       },
       templates: [
-        'index.html'
+        'index.html', 'benchmark-test.html'
       ],
       ignoreList: [
         'message to be ignored'

@@ -4,7 +4,9 @@ References:
 package.json Spec: https://www.npmjs.org/doc/json.html
 example npm's package.json: http://registry.npmjs.org/npm/latest
 tooling sublime text for grunt: https://www.npmjs.org/package/sublime-grunt-build
+html5 lint https://github.com/alicoding/grunt-lint5
 qunit npm package: https://www.npmjs.org/package/qunit
+benchmark http://benchmarkjs.com/
 
 Shell history:
 brent.cowgill@bcowgill-dt:~/workspace/play/d3/WebContent/grunt-test (master)$ mkdir grunt-test-jshint-uglify
@@ -41,6 +43,9 @@ brent.cowgill@bcowgill-dt:~/workspace/play/d3/WebContent/grunt-test/grunt-test-j
 
 Next jshint configuration based on https://github.com/bcowgill/jshint-test
 Added csslint and lint5 configuration
+Added benchmark.js  http://benchmarkjs.com/
+  npm install benchmark --save-dev
+
 
 
 
