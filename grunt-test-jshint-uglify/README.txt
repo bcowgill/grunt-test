@@ -45,6 +45,9 @@ Next jshint configuration based on https://github.com/bcowgill/jshint-test
 Added csslint and lint5 configuration
 Added benchmark.js  http://benchmarkjs.com/
   npm install benchmark --save-dev
+  and a test/benchmark-test.html
+
+
 
 
 

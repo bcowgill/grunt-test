@@ -134,13 +134,13 @@ module.exports = function(grunt) {
       }
     },
     lint5: {
-      dirPath: './html/',
+      dirPath: './',
       defaults: {
         'email': 'a@a.com',
         'username': 'abcd'
       },
       templates: [
-        'index.html', 'benchmark-test.html'
+        'html/index.html', 'test/benchmark-test.html'
       ],
       ignoreList: [
         'message to be ignored'
