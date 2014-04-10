@@ -6,6 +6,7 @@ example npm's package.json: http://registry.npmjs.org/npm/latest
 tooling sublime text for grunt: https://www.npmjs.org/package/sublime-grunt-build
 html5 lint https://github.com/alicoding/grunt-lint5
 qunit npm package: https://www.npmjs.org/package/qunit
+qunit cookbook: http://qunitjs.com/cookbook/
 benchmark http://benchmarkjs.com/
 
 Shell history:
@@ -47,6 +48,7 @@ Added benchmark.js  http://benchmarkjs.com/
   npm install benchmark --save-dev
   and a test/benchmark-test.html
 Getting Qunit testing going
+   npm install qunit-assert-close --save-dev
 cp node_modules/qunitjs/test/index.html test/qunit/qunit-test.html
 added test/qunit/qunit-test.html .js and lib/object-to-test.js
 

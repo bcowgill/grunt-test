@@ -39,6 +39,7 @@
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-uglify": "~0.2.7",
     "qunitjs": "~1.14.0",
+    "qunit-assert-close": "~1.1.0",
     "extend": "~1.2.1",
     "benchmark": "~1.0.0"
   },

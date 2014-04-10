@@ -73,6 +73,7 @@ module.exports = function(grunt) {
         src: ['lib/**/*.js', 'test/**/*.js']
       },
       dist: {
+        options: { 'maxstatements': 100 },
         src: ['dist/**/*.js']
       },
       permissive: { // when you want to jshint with more permissive settings
