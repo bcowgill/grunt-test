@@ -8,6 +8,8 @@ html5 lint https://github.com/alicoding/grunt-lint5
 qunit npm package: https://www.npmjs.org/package/qunit
 qunit cookbook: http://qunitjs.com/cookbook/
 benchmark http://benchmarkjs.com/
+jasmine http://jasmine.github.io/2.0/introduction.html
+   http://evanhahn.com/how-do-i-jasmine/
 
 Shell history:
 brent.cowgill@bcowgill-dt:~/workspace/play/d3/WebContent/grunt-test (master)$ mkdir grunt-test-jshint-uglify
@@ -47,11 +49,12 @@ Added csslint and lint5 configuration
 Added benchmark.js  http://benchmarkjs.com/
   npm install benchmark --save-dev
   and a test/benchmark-test.html
-Getting Qunit testing going
+Getting Qunit testing (in browser) going
    npm install qunit-assert-close --save-dev
 cp node_modules/qunitjs/test/index.html test/qunit/qunit-test.html
 added test/qunit/qunit-test.html .js and lib/object-to-test.js
-
+Getting jasmine testing (in browser) going
+   npm install jasmine-core --save-dev
 
 
 

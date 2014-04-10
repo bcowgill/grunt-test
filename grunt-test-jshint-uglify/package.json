@@ -41,7 +41,8 @@
     "qunitjs": "~1.14.0",
     "qunit-assert-close": "~1.1.0",
     "extend": "~1.2.1",
-    "benchmark": "~1.0.0"
+    "benchmark": "~1.0.0",
+    "jasmine-core": "~2.0.0"
   },
   "optionalDevDependencies": {
     "QUnitChainer": "bcowgill/QUnitChainer",

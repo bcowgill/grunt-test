@@ -27,6 +27,14 @@ module.exports = function(grunt) {
           'node_modules/qunit-assert-close/qunit-assert-close.js'
         ],
         dest: 'dist/qunit/qunit-bundle.js'
+      },
+      jasmine: {
+        src: [
+          'node_modules/jasmine-core/lib/jasmine-core/jasmine.js',
+          'node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js',
+          'node_modules/jasmine-core/lib/jasmine-core/boot.js'
+        ],
+        dest: 'dist/jasmine/jasmine-bundle.js'
       }
     },
     uglify: {
@@ -36,6 +44,14 @@ module.exports = function(grunt) {
       dist: {
         src: '<%= concat.dist.dest %>',
         dest: 'dist/<%= pkg.name %>.min.js'
+      },
+      qunit: {
+        src: '<%= concat.qunit.dest %>',
+        dest: 'dist/qunit/qunit-bundle.min.js'
+      },
+      jasmine: {
+        src: '<%= concat.jasmine.dest %>',
+        dest: 'dist/jasmine/jasmine-bundle.min.js'
       }
     },
     jshint: {

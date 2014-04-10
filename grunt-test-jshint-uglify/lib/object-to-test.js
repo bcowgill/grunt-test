@@ -17,12 +17,20 @@ var TestMe = function () {
 		real: 0
 	};
 
+	this.me = function () {
+		return FAIL.mode === 'failure' ? new TestMe() : this;
+	};
+
 	this.mode = function () {
 		return FAIL.mode;
 	};
 
 	this.name = function (string) {
 		return string.toUpperCase() + FAIL.string;
+	};
+
+	this.something = function (string) {
+		return FAIL.mode === 'failure' ? string : string.toUpperCase();
 	};
 
 	this.number = function () {
@@ -33,7 +41,26 @@ var TestMe = function () {
 		if (FAIL.mode === 'failure' && resultExpect === 'resultnot') {
 			return 0.3;
 		}
+		if (FAIL.mode === 'failure' && resultExpect === 'resultnotless') {
+			return 0.1;
+		}
+		if (FAIL.mode === 'failure' && resultExpect === 'resultmore') {
+			return 0.1;
+		}
 		return 0.1 + 0.2 + FAIL.real;
+	};
+
+	this.defined = function () {
+		return FAIL.mode === 'failure' ? void 0 : 'defined';
+	};
+	this.undef = function () {
+		return FAIL.mode === 'failure' ? 'defined' : void 0;
+	};
+	this.nul = function () {
+		return FAIL.mode === 'failure' ? void 0 : null;
+	};
+	this.notnul = function () {
+		return FAIL.mode === 'failure' ? null : void 0;
 	};
 
 	this.deep = function () {

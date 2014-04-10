@@ -1,0 +1,189 @@
+NAME                  DESCRIPTION                                                   AUTHOR                DATE              VERSION     KEYWORDS
+abu                   Jasmine test skeleton builder for Tetra.js                    =redking              2013-04-09 10:28  0.4.1       jasmine tetra
+ajsh                  asynchronous jasmine specification helper                     =dgf                  2013-10-21 16:41  0.1.0
+aladdin               Phantom test runner for Jasmine                               =rlayte               2012-09-16 17:37  0.3.3       jasmine testing bdd tdd headless
+angela                Command-line interface tool to test Web applications from the command-line. The tool runs suites of tests written with Jasmine in some Web browser (Chrome, Firefox, Safari, PhantomJS, Android) using WebDriver. =tidoust 2013-12-19 14:45  1.1.0       test jasmine webdriver cli
+anvil.jasmine         A jasmine test runner for anvil.js                            =jcreamer             2012-10-02 14:23  0.0.2       anvil jasmine tests javascript unit tests jasmine test
+atropa-jasmine-spec-runner-generator-html A node module to generate Jasmine Spec Runner html pages. =kastor               2013-03-19 12:27  0.1.0-2     atropa-jasmine-spec-runner-generator-html atropa utilities jasmine test
+banish-jasmine-iit-ddescribe Raise an error if the Jasmine tests contain at least one iit or ddescribe block. =dorzey 2013-09-29 17:04  0.0.2       gruntplugin, jasmine, grunt, test, bdd
+bdd-using             DRY your Jasmine or Mocha tests using the data provider pattern =kristerkari        2014-04-04 04:27  0.1.0       mocha jasmine using
+bdd-wrappers          BDD wrappers for jasmine and mocha describe/it to help writing tests in GIVEN WHEN THEN AND fashion =podefr 2014-01-11 20:47  0.0.4       BDD GIVEN WHEN THEN AND test jasmine mocha
+beantest              Beantest: autotest jasmine-node tests                         =davidpeter           2011-11-16 07:58  0.0.7       autotest testing jasmine node
+bootcamp              A pure SASS testing framework in the style of Jasmine         =thejameskyle         2014-02-25 02:01  1.1.4       bootcamp sass scss test jasmine gruntplugin bower
+browserstack-test     Run your unit tests automatically on BrowserStack             =bramstein            2013-08-27 07:41  0.2.10      BrowserStack test Mocha Jasmine
+btakita-jasmine-ajax  A library for faking Ajax responses in your Jasmine suite     =btakita              2013-09-24 08:08  0.1.0
+cappuccino            hot mocking library on jasmine and node.js                    =functioncallback     2011-11-02 23:58  0.0.13
+chai-datetime         date / time comparison matchers for chai                      =mguterl              2013-12-18 20:28  1.1.2       chai testing jasmine
+chai-fuzzy            fuzzy matchers for chai                                       =elliotf              2013-12-08 21:33  1.4.0       chai testing jasmine
+chocolate             A full stack Node.js web framework built using Coffeescript   =jclevy               2014-04-07 14:22  0.0.10      fullstack reactive coffeescript framework online ide web app markdown jasmine ace jquery mootools coffeekup docco git impress
+coffee-errors         Patches error stack to display correct line numbers. CoffeeScript has built in support for this, but it only works when the script is executed through the `coffee` command. If you are running mocha, node-dev, jasmine or any other method, the functionality isn't on. =alexgorbatchev 2014-01-18 17:46  0.8.6       javascript language coffeescript compiler errors
+dexter                Dexter is a simple Test Helper to mock methods and to fake the Ajax interface. It's framework independent, running with QUnit, Jasmine, Mocha, etc. =leobalter 2014-02-26 23:01  0.5.1       javascript testing unit mock tdd bdd
+expectations          jasmine-style 'expect' calls for mocha and other test frameworks =spmason           2013-10-15 15:07  0.2.5       expect mocha jasmine assertion
+expectThat.jasmine-node Assertion library for CoffeeScript and Jasmine-Node         =dmohl                2012-01-15 21:33  0.2.2       CoffeeScript jasmine-node unit test
+factory_girl          port features from factory_girl rails to nodejs               =mquy90               2013-09-29 15:13  0.1.0       factory seed jasmine data
+frisby                Frisby.js: REST API Endpoint Testing built on Jasmine         =brightbit            2014-03-24 21:41  0.8.0       testing api REST jasmine bdd frisby
+generator-ember-rk    Ember.js generator for Yeoman.                                =richardkall          2014-03-19 21:30  1.0.2       coffee ember jasmine modernizr normalize sass yeoman-generator
+generator-front-end-basic A basic front-end project generator. Installs LESS/SASS, concat, watch, jasmine, jshint. =austinhappel 2013-12-13 20:11  0.1.0       yeoman-generator front end
+generator-jasmine     Yeoman generator for Jasmine                                  =sindresorhus =addyosmani =paulirish =passy 2013-09-06 20:46 0.1.1       yeoman-generator scaffold unit test bdd
+generator-jasmine-node A Jasmine-Node unit test generator for Yeoman                =brettshollenberger   2013-10-29 02:19  0.0.2       yeoman-generator
+generator-jekyll-rk   Jekyll generator for Yeoman.                                  =richardkall          2014-03-19 21:29  1.0.1       jekyll coffee jasmine modernizr normalize sass yeoman-generator
+generator-karma-jquery Yeoman generator for building jQuery plugins with Karma and Jasmine =robdodson      2013-12-16 17:24  0.1.3       yeoman-generator karma jquery jasmine
+generator-nj          A generator for Yeoman                                        =iamdionysus          2014-01-30 06:49  0.1.2       yeoman-generator node jasmine
+generator-requirejs-jasmine-karma A generator for yeoman (RequireJS, Jasmine, Karma) =aleksandara          2013-12-27 10:10  0.1.2       yeoman-generator
+generator-stacked     A Backbone.js Require.js test driven workflow.                =cl0udc0ntr0l         2013-09-19 21:05  0.1.5       yeoman-generator Backbone.js Require.js Mocha Jasmine, bootstrap backbone require boilerplate backbone require workflow test diven development behavior driven development TDD BDD Grunt Bower twitter workflow
+generator-webapp-rk   Customized web app generator for Yeoman.                      =richardkall          2014-03-19 21:28  1.1.2       coffee jasmine modernizr normalize sass yeoman-generator
+grunt-amd-test        Generates test runners for AMD-based projects, with QUnit and jasmine support =zship 2013-08-27 18:47  0.4.7       gruntplugin amd
+grunt-contrib-jasmine Run jasmine specs headlessly through PhantomJS.               =jsoverson =tkellen =cowboy =shama =vladikoff =sindresorhus =jmeas 2014-03-19 23:36 0.3.1       gruntplugin jasmine unit phantomjs headless tests
+grunt-contrib-jasmine-requirejs-template This is a template for the grunt task `grunt-contrib-jasmine` =thurmda              2013-07-10 19:58  0.0.3
+grunt-cordova-jasmine Automate Jasmine test suite execution for Cordova plugins inside emulators/devices =tolis-e 2013-12-19 17:34  0.1.0       android cordova plugin jasmine mobile test automation
+grunt-jasmine         The best sample grunt tasks ever.                             =eastkiki             2013-08-21 06:15  0.1.0       gruntplugin
+grunt-jasmine-bundle  [![Build Status](https://travis-ci.org/testdouble/grunt-jasmine-bundle.png)](https://travis-ci.org/testdouble/grunt-jasmine-bundle) =searls 2014-02-20 16:15  0.2.0       jasmine jasmine-given jasmine-only jasmine-before-all jasmine-stealth
+grunt-jasmine-coverage Grunt task for running Jasmine specs and generate test coverage =mebusw             2013-02-19 08:20  0.1.0       gruntplugin jasmine istanbul phantomjs coverage
+grunt-jasmine-html-runner Grunt task to run jasmine html runner using phantomjs.    =magalhas             2013-04-13 02:16  0.1.1       phantom bdd tdd testing jasmine headless grunt gruntplugin task
+grunt-jasmine-html-spec-runner Grunt task for running Jasmine specs from a normal SpecRunner.html file. =zeelux    2013-03-12 14:16  0.2.5       gruntplugin
+grunt-jasmine-legacy  A Grunt task for running Jasmine v1.3 tests using RequireJS and PhantomJS =eschwartz 2014-04-01 19:40  1.0.3       grunt jasmine v1.3 legacy requirejs amd phantomjs headless
+grunt-jasmine-node    Grunt task for running jasmine-node                           =s9tpepper            2014-03-12 18:16  0.2.1       gruntplugin grunt plugins builds ci jasmine jasmine-node
+grunt-jasmine-node-coffee Grunt task for running jasmine-node with coffeescript support. Based off of grunt-jasmine-node by Omar Gonzalez (s9tpepper). =beautifulcoder 2014-03-11 12:03  0.1.1       gruntplugin grunt plugins builds ci jasmine jasmine-node coffee
+grunt-jasmine-node-cover Grunt task for running jasmine-node with coverage          =openhoat             2013-01-29 19:53  0.0.1
+grunt-jasmine-node-coverage Grunt task for running jasmine-node using istanbul for code coverage reports. Based off of grunt-jasmine-node by Omar Gonzalez (s9tpepper). =jribble 2014-04-07 15:28  0.1.10      gruntplugin grunt plugins builds ci jasmine jasmine-node istanbul coverage
+grunt-jasmine-node-coverage-validation Grunt task for jasmine-node using istanbul for code coverage. Validates coverage configuration and fails the task for under coverage. Based off of grunt-jasmine-node-coverage by Jarrod Ribble. =nagrajn 2013-07-28 12:37  0.0.4       gruntplugin grunt plugins builds ci jasmine jasmine-node istanbul coverage validation
+grunt-jasmine-node-light A simple Grut task that runs the jasmine-node tests        =gurdiga              2013-11-08 11:05  0.0.7       grunt task jasmine
+grunt-jasmine-node-lite Grunt task for jasmine-node-lite                            =magicmoose           2013-06-16 02:01  0.0.3       gruntplugin jasmine-node-lite unittests
+grunt-jasmine-node-task Grunt task for running jasmine specs in node                =lmagee               2012-07-08 13:34  0.1.0       gruntplugin
+grunt-jasmine-runner  Grunt task for running Jasmine specs                          =jsoverson            2012-10-12 22:38  0.6.0       gruntplugin jasmine phantomjs
+grunt-jasmine-spec-server a server to run jasmine spec files selectively            =jbenet               2012-12-10 11:55  0.0.2       grunt gruntplugin jasmine spec testing javascript
+grunt-jasmine-task    Grunt task for running Jasmine specs                          =creynders            2012-09-11 06:01  0.2.3       gruntplugin
+grunt-jazz            Set up convenient commandline switches for grunt-jasmine      =benlivermore         2013-02-02 12:05  0.2.1       jazz, jasmine
+grunt-jessie          Grunt task for running Jasmine tests via Jessie.              =kennethjor           2013-07-30 16:05  0.0.3       jasmine jessie grunt gruntplugin
+grunt-sauce-driver    Grunt task for running Selenium WebDriver tests on SauceLabs. =burnnat              2013-11-23 15:22  0.1.1       gruntplugin grunt saucelabs webdriver wd jasmine siesta testing
+grunt-saucelabs       Grunt task running tests using Sauce Labs. Supports QUnit, Jasmine, Mocha and YUI tests =axemclion =axemclion-travis =sourishkrout =jonahss 2014-03-28 00:10 5.1.1       gruntplugin grunt saucelabs test jasmine mocha qunit yui
+grunt-sencha-jasmine  A Grunt task to make Jasmine testing on Ext.js and Sencha Touch projects easier =mattgoldspink 2014-01-04 16:12  0.2.4       gruntplugin
+grunt-tdd             Run browser and Node JS tests on Buster, Mocha or Jasmine and get the reports in the browser =christianalfoni 2014-02-14 09:33  0.1.8       gruntplugin buster tdd jasmine mocha test unit phantomjs node
+grunt-template-jasmine-curljs Curljs template for grunt-contrib-jasmine             =gehan                2013-10-25 16:39  0.1.6       grunt gruntplugin template curljs jasmine test
+grunt-template-jasmine-istanbul Code coverage template mix-in for grunt-contrib-jasmine, using istanbul =maenu      2014-02-02 22:43  0.3.0       grunt template jasmine istanbul
+grunt-template-jasmine-requirejs Requirejs template for grunt-contrib-jasmine       =jsoverson =cloudchen 2014-03-14 02:47  0.1.10      grunt template requirejs jasmine test
+grunt-template-jasmine-requirejs-preloader Requirejs + modulesLoader template for grunt-contrib-jasmine + preload plugins =juanchaur 2014-03-18 15:45  0.0.3       grunt template requirejs jasmine test preload plugins
+grunt-template-jasmine-requirejs-simple Requirejs template for grunt-contrib-jasmine =bragin.na            2014-03-31 08:08  0.0.8       grunt template requirejs jasmine test
+grunt-template-jasmine-slow Slow spec report template mix-in for grunt-contrib-jasmine =dannyamey            2013-08-16 17:08  0.1.0
+grunt-template-jasmine-steal StealJS template for grunt-contrib-jasmine             =jaredstehler         2013-05-06 19:48  0.3.1       grunt template steal jasmine test
+grunt-template-jasmine-templates Allows for javascript template engines to be used within jasmine =stilva            2013-08-14 05:57  0.0.0-c     grunt template handlebars underscore jasmine test
+grunt-webdriver-jasmine-runner A grunt plugin that runs jasmine tests using webdriver. =bgok =mattparrish    2014-01-31 18:05  0.2.0       gruntplugin webdriver jasmine
+gulp-coverage         Instrument and generate code coverage independent of test runner =dylanb            2014-02-25 16:52  0.1.20      coverage code coverage mocha jasmine gulpplugin
+gulp-developerconsole A Gulp plugin that injects a console presenting test results into the main page. =elifa 2014-02-04 22:27  0.0.1       gulpfriendly gulp jshint jasmine developerconsole
+gulp-jasmine          Run Jasmine tests                                             =sindresorhus         2014-03-03 20:11  0.2.0       gulpplugin jasmine test testing unit framework runner tdd bdd qunit spec tap
+gulp-jasmine2-phantomjs Run Jasmine tests with PhantomJS                            =sandermak            2014-03-07 20:55  0.0.3       gulpplugin test jasmine phantomjs
+hem                   stiches CommonJS, and ties up other lose ends of web-app development. =maccman =aeischeid =cengebretson 2014-02-14 23:50 0.1.7       spine commonsJS coffeescript stylus jade eco testacular jasmine
+hubot-mock-adapter    A mock Adapter for unit testing Hubot scripts                 =blalor               2013-06-28 02:57  1.0.0       hubot jasmine
+isapi.js              Chained Rest functions for testing API with Mocha or Jasmine. =d1b1                 2013-05-30 10:42  2.0.6       mocha api chain test jasmine
+izan-spec             Utility library for jasmine-node                              =kevlar               2014-02-01 22:35  0.0.5
+jasbin                Simple command line runner for jasmine, a BDD Javascript Testing Framework =eugeneware 2011-03-20 02:43  1.0.11      testing bdd jasmine jasbin
+jasmine-as-promised   Extensions to Jasmine unit testing to transparently support Promises in async testing scenarios =thomasburleson 2014-03-07 17:00  0.0.8       jasmine promises unit testing async
+jasmine-async         Modified http://github.com/derickbailey/jasmine.async to work with node.js/ node-jasmine. =simonmcmanus 2013-06-03 10:57  0.0.1
+jasmine-async-errors  Jasmine-oriented domain wrapper to catch those nasty asynchronous errors in your tests =floriancargoet 2013-12-16 14:12  0.0.2       jasmine domain trycatch tests asynchronous errors
+jasmine-bail-fast     Bail after first test failure                                 =hurrymaplelad        2013-08-15 23:14  0.0.1       jasmine bail fail fast
+jasmine-before-all    Adds a done-friendly beforeAll setup to jasmine               =searls               2013-12-08 06:01  0.1.0       jasmine bdd
+jasmine-browserstack  A Jasmine reporter that can be used to run Jasmine tests automatically on BrowserStack =bramstein 2013-08-07 08:46  0.2.0       Jasmine reporter BrowserStack
+jasmine-collection-matchers Jasmine Matchers to collections (toHaveSameItems, toHaveUniqueItems) =just-boris    2014-04-03 13:55  0.0.3       jasmine matcher collections
+jasmine-core          Official packaging of Jasmine's core files for use by Node.js projects. =dwfrank    2014-01-24 06:35  2.0.0
+jasmine-core-runner   Run Jasmine 2 specs using PhantomJS                           =sclevine             2014-04-04 09:39  0.0.1       gulp jasmine phantom phantomjs
+jasmine-custom-message custom failure message on any jasmine assertion              =avrelian             2014-01-18 20:40  0.6.1       jasmine error message failure message custom message
+jasmine-dom           Run your jasmine html SpecRunner in node.js.                  =andrewpmckenzie      2011-12-22 01:51  0.3.3       javascript testing bdd jasmine
+jasmine-expect        35+ additional matchers for the Jasmine BDD JavaScript test library =gotnosugarbaby 2013-10-31 10:14  1.21.0      jasmine BDD TDD testing
+jasmine-fixture       Makes injecting HTML snippets into the DOM easy & clean!      =searls               2014-01-17 04:20  1.0.8       jasmine bdd
+jasmine-flow          Flow Based Testing for Jasmine                                =btakita              2013-10-10 04:25  0.2.0
+jasmine-focused       Focus jasmine specs                                           =kevinsawicki         2014-02-24 18:27  1.0.4
+jasmine-given         Adds a Given-When-Then DSL to jasmine as an alternative style for specs =searls     2014-01-21 23:25  2.6.0       jasmine bdd
+jasmine-growl-reporter [![NPM version](https://badge.fury.io/js/jasmine-growl-reporter.png)](http://badge.fury.io/js/jasmine-growl-reporter) [![Dependency Status](https://gemnasium.com/AlphaHydrae/jasmine-growl-reporter.png)](https://gemnasium.com/AlphaHydrae/jasmine-growl-reporter) [![Build Status](https://secure.travis-ci.org/AlphaHydrae/jasmine-growl-reporter.png)](http://travis-ci.org/AlphaHydrae/jasmine-growl-reporter) =alphahydrae 2014-03-06 20:31  0.2.0
+jasmine-html-runner   Runs Jasmine's HTML Runner using phantomjs.                   =magalhas             2013-10-16 21:57  0.3.0       phantom bdd tdd testing jasmine headless mock requirejs httpd
+jasmine-injector      Mock injector created to make mocking jasmine unit tests easy. =dbmeads =vkadam     2013-11-19 23:12  0.0.3-rc.4
+jasmine-intercept     intercept jasmine spec results to prevent expected failures appearing as failed in the reporter =dfkaye 2014-02-07 22:16  0.0.11
+jasmine-jquery        jQuery fixture functions for jasmine                          =dkastner             2011-08-30 23:04  1.3.3
+jasmine-jscoverage-addon Jasmine JSCoverageAddon                                    =dreamlab             2013-05-07 10:21  1.0.0
+jasmine-jsonpath      A plugin for jasmine to enable jsonpath(http://goessner.net/articles/JsonPath/) =juntao 2014-02-09 06:56  0.1.0       jasmine jsonpath
+jasmine-matcher-wrapper Wraps Jasmine 1.x matchers for use with Jasmine 2           =searls               2014-02-14 17:59  0.0.3
+jasmine-matchers      Extends the matchers jasmine provides.                        =klipstein =wolframkriesing 2014-02-21 11:25 0.2.3
+jasmine-mocks         Tiny mock library for Jasmine                                 =tildedave            2012-04-22 22:53  0.0.2
+jasmine-n-matchers    A set of matchers to assert a spy was called n times          =jgrund               2014-01-28 15:43  0.0.3       jasmine matchers assert spy
+jasmine-nodal         jasmine 2 for Node.js                                         =streetstrider        2014-03-03 11:50  1.1.0       jasmine jasmine-core jasmine-2 node jasmine-node tdd cli
+jasmine-node          DOM-less simple JavaScript BDD testing framework for Node     =mhevery =tebriel     2014-03-29 14:52  1.14.3      testing bdd
+jasmine-node-exec     jasmine-node-support ====================                     =btakita              2013-02-15 20:22  0.1.0
+jasmine-node-karma    DOM-less simple JavaScript BDD testing framework for Node     =huzutechtools        2013-04-16 14:49  1.6.1       testing bdd
+jasmine-node-lite     a lightweight jasmine node runner                             =magicmoose           2013-06-15 20:44  0.0.5       jasmine unittest
+jasmine-node-promises Duck punches jasmine-node to support returning promises from `it` blocks =nrstott   2013-12-14 06:15  1.0.0       jasmine promises q testing tdd bdd
+jasmine-node-sugar    Some additional methods that make my life easier when testing with Jasmine in Node.js =bestander 2013-02-01 03:58  0.0.3       jasmine testing
+jasmine-object-matchers Jasmine Object Matchers ================                    =brianvaughn          2014-03-24 18:55  0.0.2
+jasmine-only          Exclusivity spec helpers for jasmine: `describe.only` and `it.only` =davemo =searls 2013-09-16 23:31  0.1.0       jasmine bdd
+jasmine-phantom-node  javascript test runner that uses phantom-node to execute jasmine specs =toranb      2013-01-31 01:06  0.2.0       testing bdd
+jasmine-pit           Writing tests for promises in jasmine is kind of a pain in the ass. jasmine-pit makes doing such things a tiny bit easier by providing an augmented version of `it()` (called `pit()`) that allows you to simply return a promise that may eventually assert expect()s (or propogate errors). =jeffmo 2013-12-23 14:41  1.0.2       testing promises jasmine pit jasmine-pit promise error
+jasmine-promise-matchers Jasmine Promise Matchers ================                  =brianvaughn          2014-03-24 18:55  0.0.2
+jasmine-reporters     Reporters for the Jasmine BDD Framework                       =bloveridge           2014-03-23 07:51  0.4.0
+jasmine-runner        Jasmine BDD utility tool and commandline runner               =jamescarr            2011-05-13 08:19  0.2.9       testing spec test BDD
+jasmine-sencha        Sencha Touch and Ext JS adaptor for Jasmine                   =codecatalyst         2013-06-20 03:16  1.0.0       Jasmine Sencha Sencha Touch Ext JS
+jasmine-server        jasmine server                                                =velaskec             2012-12-09 01:32  0.0.1       jasmine SauceLabs Jenkins CI
+jasmine-should-include-fragment Additional matcher for testing whether an object matches a fragment of attributes =hderms 2013-08-22 21:21  0.0.0       jasmine TDD BDD
+jasmine-sinon         Jasmine BDD matchers for Sinon.JS                             =froots               2013-12-09 18:06  0.3.1       jasmine sinon
+jasmine-spec-prototype Adds the prototype hash to Suites, to allow overridable methods. =btakita           2013-02-26 08:53  0.1.0       json jasmine node
+jasmine-spec-reporter Spec reporter for jasmine behavior-driven development framework =bcaudan            2014-04-06 17:37  0.0.6       jasmine reporter bdd protractor
+jasmine-specced       Utility library for jasmine-node                              =kevlar               2014-01-14 21:27  0.0.1
+jasmine-standalone    Packaged version of standalone Jamine.                        =kanzure              2013-04-21 06:17  1.3.1       jasmine testing test BDD TDD
+jasmine-stealth       Makes Jasmine spies a bit more robust                         =searls               2014-03-24 15:24  0.0.16
+jasmine-stealth-node  Node.js module providing helpers that add a little sugar to Jasmine's spies. =techie.brandon 2012-11-03 19:26  0.0.12      bdd jasmine stealth jasmine-stealth
+jasmine-tagged        Tag and filter jasmine specs                                  =mcolyer =kevinsawicki 2014-02-24 18:28 1.1.1
+jasmine-tapreporter   Jasmine reporter that reports a result in TAP format.         =kozy4324             2012-04-21 10:00  0.2.2
+jasmine-waits-for-callback Allows jasmine waitsFor blocks to take 1 or more callbacks =nathansobo           2013-09-16 23:15  0.1.0       jasmine async spec test
+jasmine-webdriver-controller Adds methods to jasmine that enable it to send commands to a webdriver server =bgok 2013-06-07 23:53  0.1.1       gruntplugin webdriver jasmine
+jasmine-where         provides where() clause to jasmine, similar to Cucumber scenario-outline examples or Spock where blocks =dfkaye 2014-02-07 22:16  0.0.11
+jasminum              A light, modular, promissory, isomorphic Jasmine test scaffold clone =kriskowal     2014-03-27 20:21  0.0.4       jasmine test testing bdd promise isomorphic
+jasminy               A Headless Jasmine TDD Tool                                   =collinwat            2011-09-12 05:57  0.0.1       jasmine headless CoffeeScript
+jessie                Node runner for Jasmine JavaScript BDD testing framework      =marcinbunsch         2013-08-28 12:19  0.5.0       testing bdd
+jezebel               A REPL and continuous test runner for Jasmine tests           =benrady              2012-01-31 17:03  0.4.0
+js-fixtures           jasmine-like fixtures without testing framework dependencies  =badunk               2014-02-04 20:08  1.5.1       test fixture mocha testing jasmine
+jscoverage-reporter   JSCoverage reporter for Jasmine                               =danielr              2012-04-23 18:15  0.1.0       testing jasmine jscoverage
+jshub                 Serves and runs your JavaScript tests locally or in a Cloud (SauceLabs, BowserStack, ...) =velaskec 2012-12-09 17:22  0.0.1       jasmine SauceLabs BowserStack browser tests test testing Jenkins CI
+jute                  Javascript Unit Test Environment                              =zzo                  2013-09-10 04:10  0.0.68      selenium test testing unit tests jasmine phantomjs
+karma-bdd-using       DRY your Karma + Jasmine or Mocha tests using the data provider pattern =kristerkari 2014-04-04 04:26  0.1.0       karma-plugin karma-adapter mocha jasmine using
+karma-benchmarkjasmine A Karma plugin - adapter for Jasmine based benchmarking tool.This repository is forked from karma-jasmine =rohit.b 2014-02-26 13:06  0.0.8       karma-plugin karma-adapter jasmine
+karma-benchmarkjasmine-reporter A karma reporter for karma-benchmarkjasmine         =rohit.b              2014-03-14 06:50  0.0.9
+karma-jasmine         A Karma plugin - adapter for Jasmine testing framework.       =vojtajina            2014-02-15 18:24  0.1.5       karma-plugin karma-adapter jasmine
+karma-jasmine-imagediff A Karma plugin - adapter for Jasmine Imagediff matching framework. =chrisfinch      2013-09-02 09:07  0.1.0       karma-plugin karma-adapter jasmine imagediff
+karma-jasmine-step-definitions step definitions for karma and jasmine               =jhoguet              2013-11-19 03:04  0.0.4       karma jasmine step definitions cucumber tdd bdd
+karma-nested-reporter A Karma plugin. Report results with each describe indented.   =gotnosugarbaby       2013-11-30 19:22  0.1.1       jasmine karma-plugin karma-reporter mocha nested testing
+karma-perftacular     Continuous JavaScript Performance Monitoring with Benchmark.js & Karma/Testacular =gotnosugarbaby 2014-02-06 12:28  0.2.1       jsperf jasmine jenkins benchmark.js karma testacular
+kitkat                Kontinuos Integrated Testing Koffee Application Template      =mehtryx              2011-09-22 13:57  0.3.0       integration testing framework expresso jasmine coffeescript rhino
+literate-jasmine      write jasmine tests in markdown                               =cymen                2014-02-20 22:41  0.1.1
+mary                  Dr. Mary - JavaScript (CoffeeScript) BDD in Object-Oriented way. =alexey.petrushin  2012-01-21 21:02  0.1.1       BDD Jasmine TDD Testing Spec Specification RSpec
+matchers              Additional matchers for Jasmine                               =cezary               2012-11-21 06:24  0.0.1
+memo-is               Memoization for Mocha/Jasmine specs (like RSpec's #let)       =d11wtq               2012-08-19 09:45  0.0.2       spec mocha jasmine memoize
+mimosa-jasmine-node   Mimosa module for kicking of your node test suite - whenever you make changes to your code! =craigcav 2014-02-26 19:04  0.0.7       mimosa mmodule jasmine jasmine-node auto-watch testing
+miniboilerplate       Looking to create a jQuery plugin in CoffeeScript using Test-driven development? If so, MiniBoilerplate is what you've been looking for. =matthieu 2012-10-06 03:56  1.1.0       development workflow rapid test jasmine jquery plugin headless javascript coffeescript guard boilerplate default toolkit base
+minijasminenode       Super simple wrapper around Jasmine for Node                  =juliemr              2014-04-04 23:39  0.4.0       testing bdd
+ng-test               Less boilerplatey more declarativy Karma + Jasmine tests for your ng-di or angular.js code =loot 2014-02-04 03:29  0.2.1       jasmine ngTest ng-test test angular ng-di
+node-app-scaffold     Scaffolding for a Node application using Express, Caveman, LESS, jQuery, Jasmine and CasperJS. =andrewchilds 2014-03-08 19:44  0.1.0
+o-jasmine             Run a server to run jasmine tests.                            =lquixada             2013-04-11 17:54  0.0.4-1     jasmine specs tests server
+o-phantom             Run jasmine tests on phantomjs.                               =lquixada             2013-04-11 17:55  0.0.3       phantom jasmine specs tests server
+oink                  A simple test runner built on webkit-server.                  =tristandunn          2012-05-04 20:26  0.2.0       jasmine testing unit webkit-server
+perftacular           Continuous JavaScript Performance Monitoring with Benchmark.js & Karma/Testacular =gotnosugarbaby 2013-06-17 18:20  0.1.2       jsperf jasmine jenkins benchmark.js karma testacular
+phantom-jasmine       Phantom test runner for Jasmine                               =rlayte               2012-09-07 16:41  0.3.0       testing bdd headless
+phantomjs-test-provisions Testing for PhantomJS scripts.                            =kanzure              2013-04-27 06:57  0.0.12      phantomjs testing test unit testing BDD TDD jasmine
+phantomjs-test-starter Starter Template for testing PhantomJS ‘Applications’ with Jasmine, Grunt, and Istanbul =gotnosugarbaby 2013-11-26 17:00  1.0.0       PhantomJS headless crawl spider test jasmine istanbul coverage browser testing
+promise-matchers      Custom jasmine matchers for testing asynchronous javascript   =d215steinberg        2014-01-22 21:59  0.9.5       jasmine BDD TDD testing asynchronous
+protractor-html-screenshot-reporter An npm module and grunt plugin which generates your Protractor test reports in HTML with screenshots =jintoppy 2014-04-02 19:52  0.0.5       screenshot selenium protractor jasmine reporter gruntplugin protractor html report
+protractor-screenshot-reporter Use the screenshot reporter to capture screenshots from your Selenium nodes after each executed Protractor test case. =swissmanu 2014-03-18 14:31  0.0.4       screenshot selenium protractor jasmine reporter
+protractor-screenshot-reporter-with-postprocessing Use the screenshot reporter to capture screenshots from your Selenium nodes after each executed Protractor test case, and see the result in HTML =jintoppy 2014-03-17 19:23  0.0.3       screenshot selenium protractor jasmine reporter protractor html report
+rajah                 Jasmine 2.0 runner for Node.js and Google Apps Script.        =tyskdm               2014-04-09 10:27  0.1.0
+rox-client-grunt      Grunt client with Jasmine listener for ROX Center.            =alphahydrae          2014-01-23 08:43  0.1.0       gruntplugin
+saucy                 run javascript tests on sauce labs                            =ivolo                2012-01-18 21:24  0.0.2       test bdd tdd sauce sauce labs mocha jasmine selenium
+spec-detective        A cool way to find out if your spec's in feature files and the like have met expectations. =mackstar 2014-03-31 10:09  0.0.5       spec feature karma jasmine test output
+specking              A node wrapper for the BDD framework Jasmine, allowing for customized setup for each spec file. This allows for more control over the environment the spec is running in. =wailqill 2011-09-25 12:38  0.1.0       bdd spec unittest jasmine test
+spine.app             Spine app generator                                           =maccman =aeischeid   2014-03-31 14:26  0.4.6       spine commonsJS coffeescript hem scaffold jasmine
+testling-jasmine      run jasmine tests in all the browsers with testling           =substack             2012-08-24 19:22  0.0.3       test browser jasmine bdd
+tintan                Titanium development with style. A suite of Jake build tasks which integrate with Sublime Text and Titanium Studio. Usable on all platforms. =vborja =doublerebel 2013-09-17 22:59  0.4.1       titanium mobile iced coffee clojure sublime jasmine bdd tdd
+tirunner              Very simple application runner for Appcelerator Titanium      =guidone              2013-07-22 09:56  0.5.7       test titanium nodejs jasmine
+underscore.url        Coffeescript + Jasmine + Node.js Template for Packaged Javascript Libraries =viatropos 2011-10-17 19:08  0.2.0       factory tdd bdd unit-test node
+UnderscoreMatchersForJasmine Underscore and backbone Matchers for Jasmine-Node      =raganwald            2012-05-08 13:43  0.0.5
+warp-node             http request wrapper for jasmine integration testing          =zyndiecate           2013-07-03 23:56  1.1.0
+webdriverjs           A nodejs bindings implementation for selenium 2.0/webdriver   =camilo.tapia =danjenkins =christian-bromann =vvo 2014-04-04 00:18 1.6.0       webdriverjs webdriver selenium saucelabs sauce labs mocha nodeUnit buster phantomjs chai vows jasmine assert cucumber testingbot
+where.js              data-driven test method for JavaScript test libraries         =dfkaye               2014-03-16 06:18  0.0.11      where where-data data-table data-driven jasmine mocha nodeunit qunit tape testem
+yadda                 A true BDD framework for JavaScript                           =cressie176           2014-03-25 20:32  0.10.7      BDD Specification Natural Test Behaviour Driven Jasmine Mocha QUnit Nodeunit
+yeti                  Yeti automates browser testing.                               =reid                 2014-02-13 19:21  0.2.11      YUI yuitest TDD BDD test mocha doh jasmine qunit
+you-are-a-runner      Run Jasmine tests without an HTML file                        =brian-c              2013-01-14 00:38  0.0.5

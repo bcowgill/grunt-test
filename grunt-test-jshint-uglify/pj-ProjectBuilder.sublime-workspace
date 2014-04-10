@@ -11,23 +11,7 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 1006,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": ".gitignore",
-			"settings":
-			{
-				"buffer_size": 19,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "README.txt",
-			"settings":
-			{
-				"buffer_size": 2056,
+				"buffer_size": 1195,
 				"line_ending": "Unix"
 			}
 		},
@@ -35,23 +19,7 @@
 			"file": "Gruntfile.js",
 			"settings":
 			{
-				"buffer_size": 2151,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "QUnitChainer/QUnitChainer.js",
-			"settings":
-			{
-				"buffer_size": 56608,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "QUnitChainer/qunitchainer.css",
-			"settings":
-			{
-				"buffer_size": 5676,
+				"buffer_size": 5655,
 				"line_ending": "Unix"
 			}
 		},
@@ -59,140 +27,67 @@
 			"file": ".jshintignore",
 			"settings":
 			{
-				"buffer_size": 54,
+				"buffer_size": 95,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "/*\n   Testing functions which could be useful elsewhere.\n*/\n\n/*jslint browser: true, sloppy: true, white: false, plusplus: true, maxerr: 1000, indent: 3 */\n/*global QUnitChainer, expect, it, jQuery */\n/*properties\n    browserIsIE, checked, css, html, replace, toEqual,\n*/\n/*exported getKeys, cmpHTML, itShouldHaveCheckBox, testCheckBoxFalse, testCheckBoxTrue, getPosition */\nfunction getKeys(rObj) {\n   var key = '', Keys = [];\n   for (key in rObj) {\n      if (rObj.hasOwnProperty(key)) {\n         Keys.push(key);\n      }\n   }\n   return Keys;\n}\n\nfunction cmpHTML(html) {\n   var bDebug = false, idx = 0, search, replace, Tags = ['hr', 'b', 'pre', 'br'];\n\n   // Compress spaces in output for easier comparisons, preserve newlines\n   html = html.replace(/\\n+/g, '--[CR]--');\n   html = html.replace(/\\s+/g, ' ');\n   html = html.replace(/--\\[CR\\]--/g, '\\n');\n\n   // in IE only we sometimes have leading/trailing spaces on html() content so we strip them\n   html = html.replace(/^\\s+/, '');\n   html = html.replace(/\\s+$/, '');\n\n   // in IE only, HTML tags are uppercased!! so sanitize any HTML you are comparing\n   // this code only handle simple open/close tags in the Tags list provided\n   for (idx = 0; idx < Tags.length; ++idx) {\n      // opening tag\n      search = '<' + Tags[idx] + '>';\n      replace = search.toUpperCase();\n      search = new RegExp(search, 'g');\n      html = html.replace(search, replace);\n\n      // closing tag\n      search = '</' + Tags[idx] + '>';\n      replace = search.toUpperCase();\n      search = new RegExp(search, 'g');\n      html = html.replace(search, replace);\n   }\n\n   // Non IE browsers don't include the spaces and newline\n   if (!QUnitChainer.browserIsIE()) {\n      html = html.replace(/<HR> \\n<B>/, '<HR><B>');\n   }\n\n   if (bDebug) {\n      // make spaces and newlines visible when debugging the comparison of output\n      html = html.replace(/\\n/g, '[CR]');\n      html = html.replace(/\\s/g, '[S]');\n   }\n   return html;\n}\n\nfunction itShouldHaveCheckBox(name, id) {\n   it('should have a ' + id + ' checkbox on the page', function () {\n      expect(jQuery('input[type=\"checkbox\"][name=\"' + id + '\"][id=\"' + id + '\"]').length).toEqual(1);\n   });\n   it('should have a label for the ' + name + ' checkbox', function () {\n      expect(jQuery('label[for=\"' + id + '\"]').html()).toEqual(name);\n   });\n}\n\nfunction testCheckBoxFalse(key) {\n   it(\"should have checkbox \" + key + \" UNCHECKED\", function () {\n      expect(key + ' ' + jQuery('input[type=\"checkbox\"][name=\"' + key + '\"]')[0].checked).toEqual(key + ' false');\n   });\n}\n\nfunction testCheckBoxTrue(key) {\n   it(\"should have checkbox \" + key + \" CHECKED\", function () {\n      expect(key + ' ' + jQuery('input[type=\"checkbox\"][name=\"' + key + '\"]')[0].checked).toEqual(key + ' true');\n   });\n}\n\nfunction getPosition(rJQ) {\n   var pos = [rJQ.css('position'), rJQ.css('top'), rJQ.css('left')].join(' ');\n   return pos;\n}\n\n",
-			"file": "QUnitChainer/spec/SpecHelper.js",
-			"file_size": 2903,
-			"file_write_time": 130374712057785831,
+			"file": "lib/object-to-test.js",
 			"settings":
 			{
-				"buffer_size": 2903,
+				"buffer_size": 2707,
+				"line_ending": "Windows",
+				"name": "object-to-test.js"
+			}
+		},
+		{
+			"file": "README.txt",
+			"settings":
+			{
+				"buffer_size": 2810,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "/*\n   QUnitChainer BDD Test Specification with Jasmine\n\n   https://github.com/pivotal/jasmine/wiki\n\n   Jasmine value matcher functions:\n   https://github.com/pivotal/jasmine/wiki/Matchers\n\n   Setup/Teardown with before/after\n   https://github.com/pivotal/jasmine/wiki/Before-and-After\n\n   Mock objects using Spies\n   https://github.com/pivotal/jasmine/wiki/Spies\n\n   Asynchronous Tests\n   https://github.com/pivotal/jasmine/wiki/Asynchronous-specs\n */\n\n/*jslint browser: true, sloppy: true, white: false, nomen: true, plusplus: true, maxerr: 1000, indent: 3 */\n\n/*globals QUnit, QUnitChainer, afterEach, beforeEach, cmpHTML, console: true, describe, document,\n  itShouldHaveCheckBox, testCheckBoxFalse, testCheckBoxTrue, expect, getKeys, getPosition, it,\n  jasmine, jQuery, spyOn, window, waits, runs\n*/\n/*exported Test */\n/*properties\n    '-', CheckBoxLabel, CheckBoxes, ExpectDebugStorage, ExpectDumpStorage,\n    ExpectEndAlertMessage, ExpectMatchAlertMessage, ExpectNoModuleName,\n    ExpectTestModuleName, ExpectTestName, ExpectTestPlanTitle, ExpectUserAgent,\n    KEY, NUM_INPUTS, NUM_PROPERTIES, NoTestRunsMessage, Properties, QUnit,\n    TestRunStorageFail, TestRunStoragePass, Tests, VERSION, actual,\n    addMatchers, 'after change', alert, andCallThrough, andReturn, argsForCall,\n    attr, autoRunInterval, bAlertStorage, bAutoRun, bControl, bDumpStorage,\n    bFollowChain, bHasHandlers, bIsControlPage, bIsFF, bIsIE, bLog, bPause,\n    bShowFailTitle, bShowFixture, bShowPassed, begin, bindUIEvents,\n    browserIsIE, callCount, cancelAutoRun, checkStorage, checked,\n    cleanTestPlan, cleanUserAgent, clearAllStorage, clearProperties,\n    clearTestResults, click, console, currentEnv_, debugStorage, done, failed,\n    fewerSpecsIE, getAllStorage, getDefaultProperties, getProperties,\n    getProperty, getTestResults, getURLProperties, handleAutoRun, header, host,\n    href, html, in, init, initControlPage, initTests, injectControlPage,\n    innerHTML, installQUnitHandlers, jqInjectAt, location, log, logIt,\n    match, maybeAlertStorage, message, module, moduleDone, moduleIdx, moduleStart,\n    myAlert, name, nextSpecId_, nextSuiteId_, nextTestPlan, not, passed, plan,\n    protocol, qunitHTML, renderPage, reset, runtime, saveToStorage,\n    setLocation, setProperty, showControlPage, showFixture, skey, skip,\n    skipTODO, storage, storeProperties, storeTestResults, stringifyObj,\n    testDone, testIdx, testPlan, testStart, tests, text, this, title,\n    toBeDefined, toBeEqualAsHtml, toBeUndefined, toEqual, toHaveBeenCalled,\n    toHaveBeenCalledWith, toMatch, total, totalSpecs, totalSuites,\n    urlParamsTrue, userAgent, value, wipeQUnitOutput\n*/\n\n// You should test this in Firefox with firebug open and closed as window.console\n// behaves differently in these cases.\nif (!window.console) {\n   window.console = {log: function () {}};\n}\n\nvar Test = {\n   'bLog': false,\n\n   // Total number of describe() and it() blocks to test\n   'totalSuites': 50,\n   'totalSpecs': 203,\n   'fewerSpecsIE': 9,\n   'skipTODO':     true,\n   'skip':         true,\n\n   'VERSION':        '1.6.1 $Id$',\n   'NUM_PROPERTIES': 9,\n   'NUM_INPUTS':     12,\n   'Properties':     ['bAutoRun', 'bAlertStorage', 'bFollowChain', 'bPause', 'bLog', 'bDumpStorage', 'bShowPassed', 'bShowFailTitle', 'bShowFixture'],\n   'CheckBoxes':     ['bAutoRun', 'bAlertStorage', 'bPause', 'bLog', 'bDumpStorage', 'bShowPassed', 'bShowFailTitle', 'bShowFixture'],\n   'CheckBoxLabel':  ['auto run', 'alert', 'pause', 'logging', 'dump', 'passed', 'FAIL in title', '#qunit-fixture'],\n   'qunitHTML':      [\n      '<h1 id=\"qunit-header\"><a href=\"sample/q-test.html\"> QUnit example</a> <label><input name=\"noglobals\" type=\"checkbox\">noglobals</label><label><input name=\"notrycatch\" type=\"checkbox\">notrycatch</label></h1>',\n      '<h2 id=\"qunit-banner\" class=\"qunit-fail\"></h2>',\n      '<div id=\"qunit-testrunner-toolbar\"><input type=\"checkbox\" id=\"qunit-filter-pass\"><label for=\"qunit-filter-pass\">Hide passed tests</label></div>',\n      '<h2 id=\"qunit-userAgent\">userAgent</h2>',\n      '<p id=\"qunit-testresult\" class=\"result\">Tests completed in ? milliseconds.<br><span class=\"passed\">?</span> tests of <span class=\"total\">?</span> passed, <span class=\"failed\">?</span> failed.</p>',\n      '<ol id=\"qunit-tests\"></ol>',\n      '<div id=\"qunit-fixture\">QUNIT FIXTURE</div>',\n      ''\n   ].join('\\n'),\n\n   'urlParamsTrue':  'url?bAutoRun&bAlertStorage&bFollowChain&bPause&bLog&bDumpStorage&bLogEvent&bTrace&bUnicodeTitle&autoRunInterval=60&bShowPassed&bShowFailTitle&bShowFixture',\n\n   'TestRunStorageFail': '{\"mozilla\":{\"http://localhost:8888/qunit-chainer/q-test3.html\":{\"plan\":\"http://localhost:8888/qunit-chainer/q-test3.html\",\"userAgent\":\"Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.2) Gecko/20100115 Firefox/3.6\",\"header\":\"QUnit example - no tests\",\"failed\":0,\"passed\":0,\"total\":0,\"log\":{}}},\"after change\":{\"http://localhost:8888/qunit-chainer/q-test4.html\":{\"plan\":\"http://localhost:8888/qunit-chainer/q-test4.html\",\"userAgent\":\"Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.2) Gecko/20100115 Firefox/3.6\",\"header\":\"QUnit example - one passing test\",\"failed\":0,\"passed\":1,\"total\":1,\"log\":{}}}}',\n   'TestRunStoragePass': '{\"after change\":{\"http://localhost:8888/qunit-chainer/q-test4.html\":{\"plan\": \"http://localhost:8888/qunit-chainer/q-test4.html\",\"userAgent\": \"Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.2) Gecko/20100115 Firefox/3.6\",\"header\": \"QUnit example - no tests\",\"failed\": 0,\"passed\": 1,\"total\": 1,\"log\":{}}}}',\n   'NoTestRunsMessage':  \"\\nNo test runs are stored in sessionStorage[QUCTest] use the run tests button to run some test plans.\\n\",\n\n   'ExpectDumpStorage':       '<hr> \\n<b>sessionStorage[QUCTestSettings]</b><pre><br>{<br>   \"bFollowChain\": false,<br>   \"bAutoRun\": true,<br>   \"bPause\": true,<br>   \"bLog\": true,<br>   \"bDumpStorage\": true,<br>   \"bAlertStorage\": true,<br> \"bShowPassed\": true,<br> \"bShowFailTitle\": true,<br> \"bShowFixture\": true<br>}<br></pre><b>sessionStorage[QUCTestHistory]</b><pre><br>[<br> \"test-plan.html\"<br>]<br></pre><b>sessionStorage[QUCTest]</b><pre><br>{<br>   \"mozilla\": <br>{<br>   \"http://localhost:8888/qunit-chainer/q-test3.html\": <br>{<br>   \"plan\": \"http://localhost:8888/qunit-chainer/q-test3.html\",<br>   \"userAgent\": \"Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.2) Gecko/20100115 Firefox/3.6\",<br>   \"header\": \"QUnit example - no tests\",<br>   \"failed\": 0,<br>   \"passed\": 0,<br>   \"total\": 0,<br>   \"log\": <br>{<br>   <br>}<br><br>}<br><br>}<br>,<br>   \"after change\": <br>{<br>   \"http://localhost:8888/qunit-chainer/q-test4.html\": <br>{<br>   \"plan\": \"http://localhost:8888/qunit-chainer/q-test4.html\",<br>   \"userAgent\": \"Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.2) Gecko/20100115 Firefox/3.6\",<br>   \"header\": \"QUnit example - one passing test\",<br>   \"failed\": 0,<br>   \"passed\": 1,<br>   \"total\": 1,<br>   \"log\": <br>{<br>   <br>}<br><br>}<br><br>}<br><br>}<br></pre>',\n   'ExpectDebugStorage':      'DEBUG\\n' + window.location.protocol + '//' + window.location.host + '\\nsessionStorage\\nlength: 3\\n 0: QUCTest: \\n {\"after change\":{\"http://local...\\n 1: QUCTestHistory: {\"history\":[\"test-plan.html\"]}\\n 2: QUCTestSettings: \\n {\"bFollowChain\":true,\"bAutoRun...',\n\n   'ExpectTestPlanTitle':     'QUnit Test Example',\n   'ExpectUserAgent':         'userAgentMan',\n   'ExpectTestModuleName':    'Failing Unit Test with setup and teardown code',\n   'ExpectNoModuleName':      'Unknown Test Module, add a call to module() to this test plan',\n   'ExpectTestName':          'Sample test fails',\n   'ExpectMatchAlertMessage': 'Tests finished, chaining to next-test-plan.html\\nfrom ',\n   'ExpectEndAlertMessage':   'All test plans finished, showing results.',\n\n   '-': '-'\n};\nif (QUnitChainer.browserIsIE()) {\n   Test.totalSpecs -= Test.fewerSpecsIE;\n}\n\nvar Plan = {};\n\n\nbeforeEach(function () {\n   QUnitChainer.logIt(Test.bLog, 'beforeEach(to init) called');\n   // Wipe the output div so the output is fresh each time\n   jQuery('#test-dom-output').html('');\n\n   // Prepare the QUnitChainer object to be empty\n   QUnitChainer.myAlert = function () {};\n   Plan = { 'storage': \"sessionStorage\", 'skey': \"QUCTest\"};\n   QUnitChainer.init(Plan);\n   QUnitChainer.clearProperties();\n   QUnitChainer.clearTestResults();\n\n   this.addMatchers({\n      toBeEqualAsHtml: function (expected) { return cmpHTML(this.actual) === cmpHTML(expected); }\n   });\n});\n\nafterEach(function () {\n   QUnitChainer.logIt(Test.bLog, 'afterEach(to cancel interval timer) called');\n   QUnitChainer.reset();\n   QUnitChainer.cancelAutoRun();\n});\n\ndescribe(\"QUnitChainer.checkStorage() - test plan will not work unless browser version supports storage (this could fail if you load the page from disk or from localhost instead of from a hosted domain.)\", function () {\n   it(\"should support \" + QUnitChainer.storage, function () {\n      expect(QUnitChainer.checkStorage()).toEqual(true);\n   });\n});\n\ndescribe(\"QUnitChainer.logIt() - calls window.console.log (not FF, not IE)\", function () {\n   var saveConsole;\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to spy on logging) called');\n      saveConsole = window.console;\n      spyOn(window.console, 'log');\n      QUnitChainer.bIsFF = false;\n      QUnitChainer.bIsIE = false;\n   });\n   afterEach(function () {\n      QUnitChainer.bIsFF = undefined;\n      QUnitChainer.bIsIE = undefined;\n      if (saveConsole) {\n         window.console = saveConsole;\n      }\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to spy on logging) called');\n   });\n\n\n   it(\"should call window.console.log\", function () {\n      QUnitChainer.logIt(true, { 'in': 'function', 'message': 'something to log' });\n      expect(window.console.log).toHaveBeenCalled();\n      expect(window.console.log.callCount).toEqual(2);\n      expect(window.console.log.argsForCall[0]).toEqual(['function']);\n      expect(window.console.log.argsForCall[1]).toEqual([{ 'in': 'function', 'message': 'something to log' }]);\n   });\n});\n\ndescribe(\"QUnitChainer.logIt() - calls window.console.log (as IE)\", function () {\n   var saveConsole;\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to spy on logging 2) called');\n      saveConsole = window.console;\n      spyOn(window.console, 'log');\n      QUnitChainer.bIsFF = false;\n      QUnitChainer.bIsIE = true;\n   });\n   afterEach(function () {\n      QUnitChainer.bIsFF = undefined;\n      QUnitChainer.bIsIE = undefined;\n      if (saveConsole) {\n         window.console = saveConsole;\n      }\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to spy on logging 2) called');\n   });\n\n\n   it(\"should call window.console.log\", function () {\n      QUnitChainer.logIt(true, { 'in': 'function', 'message': 'something to log' });\n      expect(window.console.log).toHaveBeenCalled();\n      expect(window.console.log.callCount).toEqual(1);\n      expect(window.console.log.argsForCall[0]).toEqual(['{\"in\":\"function\",\"message\":\"something to log\"}']);\n   });\n});\n\ndescribe(\"QUnitChainer.logIt() - calls window.console.log (as IE)\", function () {\n   var saveConsole;\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to spy on logging 2) called');\n      saveConsole = window.console;\n      spyOn(window.console, 'log');\n      QUnitChainer.bIsFF = false;\n      QUnitChainer.bIsIE = true;\n   });\n   afterEach(function () {\n      QUnitChainer.bIsFF = undefined;\n      QUnitChainer.bIsIE = undefined;\n      if (saveConsole) {\n         window.console = saveConsole;\n      }\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to spy on logging 2) called');\n   });\n\n\n   it(\"should call window.console.log\", function () {\n      QUnitChainer.logIt(true, { 'in': 'function', 'message': 'something to log' });\n      expect(console.log).toHaveBeenCalled();\n      expect(console.log.callCount).toEqual(1);\n      expect(console.log.argsForCall[0]).toEqual(['{\"in\":\"function\",\"message\":\"something to log\"}']);\n   });\n});\n\ndescribe(\"QUnitChainer.getDefaultProperties() - default Properties are all false\", function () {\n   var idx, rProperties = null;\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to get Properties) called');\n      rProperties = QUnitChainer.getDefaultProperties();\n   });\n\n   it(\"should have only \" + Test.NUM_PROPERTIES + \" Properties values\", function () {\n      expect(getKeys(rProperties).length).toEqual(Test.NUM_PROPERTIES);\n   });\n\n   // Must put these tests inside a function to prevent a closure in the for loop below.\n   function testPropertiesFalse(key) {\n      it(\"should have \" + key + \" set to false\", function () {\n         expect(key + ' ' + rProperties[key]).toEqual(key + ' false');\n      });\n      it(\"should have initial Property of \" + key + \" set to false\", function () {\n         expect(key + ' ' + QUnitChainer.getProperty(key)).toEqual(key + ' false');\n      });\n   }\n\n   for (idx = 0; idx < Test.Properties.length; ++idx) {\n      testPropertiesFalse(Test.Properties[idx]);\n   }\n});\n\ndescribe(\"QUnitChainer.stringify() - convert obj to JSON string\", function () {\n   it('should be defined', function () {\n      expect(QUnitChainer.stringifyObj).toBeDefined();\n   });\n\n   it('should suround braces with line breaks', function () {\n      var obj = {},\n         expected = \"<br/>{<br/>   <br/>}<br/>\",\n         result = QUnitChainer.stringifyObj(obj);\n\n      expect(result).toEqual(expected);\n   });\n\n   it('should suround brackets with line breaks', function () {\n      var obj = [],\n         expected = \"<br/>[<br/>   <br/>]<br/>\",\n         result = QUnitChainer.stringifyObj(obj);\n\n      expect(result).toEqual(expected);\n   });\n\n   it('should line break after commas', function () {\n      var obj = [1, 2],\n         expected = \"<br/>[<br/>   1,<br/>   2<br/>]<br/>\",\n         result = QUnitChainer.stringifyObj(obj);\n\n      expect(result).toEqual(expected);\n   });\n\n   it('should space out colons', function () {\n      var obj = {'this': 'that'},\n         expected = '<br/>{<br/>   \"this\": \"that\"<br/>}<br/>',\n         result = QUnitChainer.stringifyObj(obj);\n\n      expect(result).toEqual(expected);\n   });\n});\n\ndescribe(\"QUnitChainer.cleanURL() - clean the URL\", function () {\n   it('should remove after the question mark', function () {\n      expect(QUnitChainer.cleanURL('http://w.f.c?this')).toEqual('http://w.f.c');\n   });\n   it('should remove multiple forward slashes', function () {\n      expect(QUnitChainer.cleanURL('//w.f.c///what/is?this')).toEqual('/w.f.c/what/is');\n   });\n   it('should not remove the double slash in http', function () {\n      expect(QUnitChainer.cleanURL('http://w.f.c///what/is?this')).toEqual('http://w.f.c/what/is');\n   });\n   it('should not remove the double slash in https', function () {\n      expect(QUnitChainer.cleanURL('https://w.f.c///what/is?this')).toEqual('https://w.f.c/what/is');\n   });\n});\n\n// TODO implement url parameter setting?\ndescribe(\"QUnitChainer.getURLProperties() - properties can be set from the URL\", function () {\n   var idx, rProperties = null;\n\n   if (Test.skip) {\n      return;\n   }\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to get Properties from URL) called');\n      rProperties = QUnitChainer.getURLProperties(\"bPause\");\n   });\n\n   it(\"should have only \" + Test.NUM_PROPERTIES + \" Properties values\", function () {\n      expect(getKeys(rProperties).length).toEqual(Test.NUM_PROPERTIES);\n   });\n\n   // Must put these tests inside a function to prevent a closure in the for loop below.\n   function testPropertiesTrue(key) {\n      it(\"should have \" + key + \" set to true\", function () {\n         expect(key + ' ' + rProperties[key]).toEqual(key + ' true');\n      });\n   }\n\n   for (idx = 0; idx < Test.Properties.length; ++idx) {\n      testPropertiesTrue(Test.Properties[idx]);\n   }\n});\n\ndescribe(\"QUnitChainer.clearAllStorage - storage is clear\", function () {\n   var rAllStorage;\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to save storage) called');\n\n      rAllStorage = QUnitChainer.getAllStorage();\n      QUnitChainer.clearAllStorage();\n   });\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore storage) called');\n      QUnitChainer.clearAllStorage();\n      QUnitChainer.saveToStorage(rAllStorage);\n   });\n\n   it(\"should have nothing in storage\", function () {\n      var rStorage = QUnitChainer.getAllStorage();\n      expect(rStorage).toEqual({});\n   });\n});\n\ndescribe(\"QUnitChainer.getAllStorage/saveToStorage - storage can be saved and set\", function () {\n   var rAllStorage;\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to save storage 2) called');\n\n      rAllStorage = QUnitChainer.getAllStorage();\n      QUnitChainer.clearAllStorage();\n      QUnitChainer.saveToStorage({ 'KEY': 'SAVETOSTORAGE' });\n   });\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore storage 2) called');\n      QUnitChainer.clearAllStorage();\n      QUnitChainer.saveToStorage(rAllStorage);\n   });\n\n   it(\"should have KEY: SAVETOSTORAGE in storage\", function () {\n      var rStorage = QUnitChainer.getAllStorage();\n      expect(rStorage).toEqual({ 'KEY': 'SAVETOSTORAGE' });\n   });\n});\n\ndescribe(\"QUnitChainer.setProperty/getProperty/storeProperties/getProperties - storage Properties can be set true\", function () {\n   var idx, rProperties = null;\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set Properties) called');\n\n      for (idx = 0; idx < Test.Properties.length; ++idx) {\n         QUnitChainer.setProperty(Test.Properties[idx], true);\n      }\n      QUnitChainer.storeProperties();\n      for (idx = 0; idx < Test.Properties.length; ++idx) {\n         QUnitChainer.setProperty(Test.Properties[idx], false);\n      }\n      rProperties = QUnitChainer.getProperties();\n   });\n\n   it(\"should have only \" + Test.NUM_PROPERTIES + \" Properties values\", function () {\n      expect(getKeys(rProperties).length).toEqual(Test.NUM_PROPERTIES);\n   });\n\n   // Must put these tests inside a function to prevent a closure in the for loop below.\n   function testPropertiesTrue(key) {\n      it(\"should have \" + key + \" set to true\", function () {\n         expect(key + ' ' + rProperties[key]).toEqual(key + ' true');\n      });\n   }\n\n   for (idx = 0; idx < Test.Properties.length; idx += Test.Properties.length) {\n      testPropertiesTrue(Test.Properties[idx]);\n   }\n});\n\ndescribe(\"QUnitChainer.clearHistory/setHistory/getHistory - history list can be saved and manipulated\", function () {\n   var rAllStorage;\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to save storage) called');\n\n      rAllStorage = QUnitChainer.getAllStorage();\n      QUnitChainer.clearHistory();\n      QUnitChainer.History = [];\n   });\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore storage) called');\n      QUnitChainer.clearAllStorage();\n      QUnitChainer.saveToStorage(rAllStorage);\n   });\n\n   it(\"should have nothing in test plan history\", function () {\n      var raHistory = QUnitChainer.getHistory();\n      expect(raHistory).toEqual([]);\n   });\n\n   it(\"should store things to history\", function () {\n      var raHistory;\n      QUnitChainer.storeHistory(['z', 'a', 'b', 'c']);\n      raHistory = QUnitChainer.getHistory();\n      expect(raHistory).toEqual(['z', 'a', 'b', 'c']);\n   });\n\n   it(\"should keep history sorted and unique\", function () {\n      var raHistory;\n      QUnitChainer.addHistory('z');\n      QUnitChainer.addHistory('b');\n      QUnitChainer.addHistory('c');\n      QUnitChainer.addHistory('a');\n      QUnitChainer.storeHistory();\n      raHistory = QUnitChainer.getHistory();\n      expect(raHistory).toEqual(['a', 'b', 'c', 'z']);\n   });\n});\n\ndescribe(\"QUnitChainer.getLocation() - getting document location strips random number\", function () {\n   it('should remove ?random=', function () {\n      expect(QUnitChainer.getLocation('http://www.ft.com?random=9812749754')).toEqual('http://www.ft.com');\n      expect(QUnitChainer.getLocation('http://www.ft.com?random=9812749754&something=what')).toEqual('http://www.ft.com?something=what');\n   });\n   it('should remove &random=', function () {\n      expect(QUnitChainer.getLocation('http://www.ft.com?something=what&random=9812749754')).toEqual('http://www.ft.com?something=what');\n      expect(QUnitChainer.getLocation('http://www.ft.com?this=that&random=9812749754&something=what')).toEqual('http://www.ft.com?this=that&something=what');\n   });\n});\n\ndescribe(\"QUnitChainer.addRandomParam() - setting document location adds a random number\", function () {\n   it('should add ?random=', function () {\n      expect(QUnitChainer.addRandomParam('http://www.ft.com')).toMatch(/^http:\\/\\/www\\.ft\\.com\\?random=\\d+$/);\n      expect(QUnitChainer.addRandomParam('http://www.ft.com?random=98374982')).toMatch(/^http:\\/\\/www\\.ft\\.com\\?random=\\d+$/);\n      expect(QUnitChainer.addRandomParam('http://www.ft.com?random=98374982')).not.toEqual('http:\\/\\/www.ft.com?random=98374982');\n   });\n   it('should add &random=', function () {\n      expect(QUnitChainer.addRandomParam('http://www.ft.com?something=what')).toMatch(/^http:\\/\\/www\\.ft\\.com\\?something=what\\&random=\\d+$/);\n      expect(QUnitChainer.addRandomParam('http://www.ft.com?random=98374982&this=that')).toMatch(/^http:\\/\\/www\\.ft\\.com\\?this=that\\&random=\\d+$/);\n      expect(QUnitChainer.addRandomParam('http://www.ft.com?this=that&random=9812749754&something=what')).toMatch(/^http:\\/\\/www\\.ft\\.com\\?this=that\\&something=what\\&random=\\d+$/);\n   });\n});\n\ndescribe(\"QUnitChainer.injectControlPage() Control Page - inject into document\", function () {\n   it('should default to non-control page mode', function () {\n      expect(QUnitChainer.bIsControlPage).toEqual(false);\n   });\n});\n\ndescribe(\"QUnitChainer.injectControlPage() Control Page - inject into document\", function () {\n   beforeEach(function () {\n      QUnitChainer.injectControlPage('#test-dom-output');\n   });\n\n   it('should have a h1#qunit-header on the page', function () {\n      expect(jQuery('h1#qunit-header').length).toEqual(1);\n   });\n\n   it('should have a h2#qunit-banner on the page', function () {\n      expect(jQuery('h2#qunit-banner').length).toEqual(1);\n   });\n\n   it('should have a div#qunit-testrunner-toolbar on the page', function () {\n      expect(jQuery('div#qunit-testrunner-toolbar').length).toEqual(1);\n   });\n\n   it('should have a h2#qunit-userAgent on the page', function () {\n      expect(jQuery('h2#qunit-userAgent').length).toEqual(1);\n   });\n\n   it('should have a ol#qunit-tests on the page', function () {\n      expect(jQuery('ol#qunit-tests').length).toEqual(1);\n   });\n\n   it('should have a div#qunitchainer-dump on the page', function () {\n      expect(jQuery('div#qunitchainer-dump').length).toEqual(1);\n   });\n\n   it('should have a div#qunit-fixture on the page', function () {\n      expect(jQuery('div#qunit-fixture').length).toEqual(1);\n      expect(jQuery('div#qunit-fixture').html()).toEqual('If you can see this then the #qunit-fixture DIV in your test plans will be visible.');\n   });\n\n});\n\ndescribe(\"QUnitChainer.showControlPage() Control Page - show control page\", function () {\n   var idx, title = 'nothing';\n   beforeEach(function () {\n      title = document.title;\n      QUnitChainer.showControlPage('#test-dom-output');\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title 1) called');\n      document.title = title;\n   });\n\n   it('should have a document title of \"\\u2716 0 - QUnitChainer Control Page\"', function () {\n      expect(jQuery('title').html()).toEqual(\"\\u2716 0 - QUnitChainer Control Page\");\n   });\n\n   it('should have a header of \"QUnitChainer Control Page\"', function () {\n      expect(jQuery('#qunit-header').text()).toEqual(\"QUnitChainer Control Page\");\n   });\n\n   it('should have some form inputs', function () {\n      expect(jQuery('#test-dom-output input').length).toEqual(Test.NUM_INPUTS);\n   });\n\n   it('should have a text input field for the test plan to run', function () {\n      expect(jQuery('input#testPlan[type=\"text\"][name=\"testPlan\"][id=\"testPlan\"][size=\"40\"]').length).toEqual(1);\n   });\n\n   it('should have a run tests button on the page', function () {\n      expect(jQuery('input[type=\"button\"][name=\"runTests\"][id=\"runTests\"][value=\"run tests\"]').length).toEqual(1);\n   });\n\n   it('should have a clear tests button on the page', function () {\n      expect(jQuery('input[type=\"button\"][name=\"clearTests\"][id=\"clearTests\"][value=\"clear tests\"]').length).toEqual(1);\n   });\n\n   it('should have a clear storage button on the page', function () {\n      expect(jQuery('input[type=\"button\"][name=\"clearStorage\"][id=\"clearStorage\"][value=\"clear storage\"]').length).toEqual(1);\n   });\n\n   for (idx = 0; idx < Test.CheckBoxes.length; ++idx) {\n      itShouldHaveCheckBox(Test.CheckBoxLabel[idx], Test.CheckBoxes[idx]);\n   }\n\n   it('should show the auto refresh period', function () {\n      expect(jQuery('#autoRunInterval').text()).toEqual(\"15 sec\");\n   });\n\n   it('should have a message showing no tests plans are in storage', function () {\n      expect(jQuery('#qunit-tests').text()).toBeEqualAsHtml(Test.NoTestRunsMessage);\n   });\n\n   it('should have a header of \"QUnitChainer Control Page\"', function () {\n      expect(jQuery('#qunit-header').text()).toEqual(\"QUnitChainer Control Page\");\n   });\n\n});\n\ndescribe(\"QUnitChainer.showControlPage() Control Page - checkbox state defaults unchecked\", function () {\n   var idx, title = 'nothing';\n\n   beforeEach(function () {\n      title = document.title;\n      QUnitChainer.showControlPage('#test-dom-output');\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title 2) called');\n      document.title = title;\n   });\n\n   for (idx = 0; idx < Test.CheckBoxes.length; ++idx) {\n      testCheckBoxFalse(Test.CheckBoxes[idx]);\n   }\n});\n\ndescribe(\"QUnitChainer.updateControlFields() Control Page - checkbox state defaults true, text field updated\", function () {\n   var idx, title = 'nothing', rStorage = null;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set checkbox properties) called');\n      title = document.title;\n      Plan = {\n         'nextTestPlan': \"next-test-plan.html\",\n         'storage': \"sessionStorage\",\n         'skey': \"QUCTest\"\n      };\n      QUnitChainer.init(Plan);\n      for (idx = 0; idx < Test.Properties.length; ++idx) {\n         QUnitChainer.setProperty(Test.Properties[idx], true);\n      }\n      QUnitChainer.storeProperties();\n      QUnitChainer.showControlPage('#test-dom-output');\n      rStorage = QUnitChainer.getProperties();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title and Plan 1) called');\n      document.title = title;\n      Plan = {};\n   });\n\n   it(\"should have text field testPlan set to next-test-plan.html\", function () {\n      expect('testPlan ' + jQuery('input[type=\"text\"][name=\"testPlan\"]')[0].value).toEqual('testPlan next-test-plan.html');\n   });\n\n   for (idx = 0; idx < Test.CheckBoxes.length; ++idx) {\n      testCheckBoxTrue(Test.CheckBoxes[idx]);\n   }\n\n   it(\"should have bFollowChain cleared in storage\", function () {\n      expect(rStorage.bFollowChain).toEqual(false);\n   });\n});\n\ndescribe(\"QUnitChainer.debugStorage() - Provide debugging info about storage\", function () {\n   var idx, rAllStorage;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set properties and test summary storage for storage debugging) called');\n      rAllStorage = QUnitChainer.getAllStorage();\n      QUnitChainer.clearAllStorage();\n      for (idx = 0; idx < Test.Properties.length; ++idx) {\n         QUnitChainer.setProperty(Test.Properties[idx], true);\n      }\n      QUnitChainer.storeProperties();\n      QUnitChainer.storeHistory(['test-plan.html']);\n      QUnitChainer.storeTestResults(JSON.parse(Test.TestRunStoragePass));\n   });\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore storage) called');\n      QUnitChainer.clearAllStorage();\n      QUnitChainer.saveToStorage(rAllStorage);\n   });\n\n   it(\"should have storage formatted in a debug string\", function () {\n      expect(QUnitChainer.debugStorage('DEBUG', 30)).toBeEqualAsHtml(Test.ExpectDebugStorage);\n   });\n});\n\ndescribe(\"QUnitChainer.showStorage() Control Page - Properties and Test Summary Storage dumped when flag set\", function () {\n   var idx, title = 'nothing';\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set properties and test summary storage for storage dump) called');\n      title = document.title;\n      Plan = {\n         'nextTestPlan': \"next-test-plan2.html\",\n         'storage': \"sessionStorage\",\n         'skey': \"QUCTest\"\n      };\n      QUnitChainer.init(Plan);\n      for (idx = 0; idx < Test.Properties.length; ++idx) {\n         QUnitChainer.setProperty(Test.Properties[idx], true);\n      }\n      QUnitChainer.storeProperties();\n      QUnitChainer.storeHistory(['test-plan.html']);\n      QUnitChainer.storeTestResults(JSON.parse(Test.TestRunStorageFail));\n      QUnitChainer.showControlPage('#test-dom-output');\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title and Plan 2) called');\n      document.title = title;\n      Plan = {};\n   });\n\n   it(\"should have Properties displayed in storage dump area\", function () {\n      expect(jQuery('#qunitchainer-dump').html()).toBeEqualAsHtml(Test.ExpectDumpStorage);\n   });\n});\n\ndescribe(\"QUnitChainer.showTestSummary() Control Page - Banner class set for Success and passing tests hidden\", function () {\n   var title = 'nothing';\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set test storage to test for success banner');\n      title = document.title;\n      Plan = {\n         'nextTestPlan': \"next-test-plan3.html\",\n         'storage': \"sessionStorage\",\n         'skey': \"QUCTest\"\n      };\n      QUnitChainer.init(Plan);\n      QUnitChainer.storeTestResults(JSON.parse(Test.TestRunStoragePass));\n      QUnitChainer.showControlPage('#test-dom-output');\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title and Plan 3) called');\n      document.title = title;\n      Plan = {};\n   });\n\n   it('should have a document title of \"\\u2714 1 - QUnitChainer Control Page\"', function () {\n      expect(jQuery('title').html()).toEqual(\"\\u2714 1 - QUnitChainer Control Page\");\n   });\n\n   it('should have a test result of \"0 failing test plan, 1 passing test plan\"', function () {\n      expect(jQuery('#qunit-testresult.result').html()).toEqual(\"0 failing test plan, 1 passing test plan\");\n   });\n\n   it(\"should have the success class added to the banner line\", function () {\n      expect(jQuery('#qunit-banner').attr('class')).toEqual('qunit-pass');\n   });\n\n   it(\"should have the hidepass class added to the #qunit-tests div\", function () {\n      expect(jQuery('#qunit-tests').attr('class')).toEqual('hidepass');\n\n   });\n});\n\ndescribe(\"QUnitChainer.showTestSummary() Control Page - Test Summary rendered, passing tests not hidden and banner class set for Failure\", function () {\n   var idx, title = 'nothing';\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set properties and test summary storage for test summary) called');\n      title = document.title;\n      Plan = {\n         'nextTestPlan': \"next-test-plan4.html\",\n         'storage': \"sessionStorage\",\n         'skey': \"QUCTest\"\n      };\n      QUnitChainer.init(Plan);\n      for (idx = 0; idx < Test.Properties.length; ++idx) {\n         QUnitChainer.setProperty(Test.Properties[idx], true);\n      }\n      QUnitChainer.setProperty('bDumpStorage', false);\n      QUnitChainer.storeProperties();\n      QUnitChainer.storeTestResults(JSON.parse(Test.TestRunStorageFail));\n      QUnitChainer.showControlPage('#test-dom-output');\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title and Plan 4) called');\n      document.title = title;\n      Plan = {};\n   });\n\n   it('should have a document title of \"FAIL 1 - QUnitChainer Control Page\"', function () {\n      expect(jQuery('title').html()).toEqual(\"FAIL 1 - QUnitChainer Control Page\");\n   });\n\n   it('should have a test result of \"1 failing test plan, 1 passing test plan\"', function () {\n      expect(jQuery('#qunit-testresult.result').html()).toEqual(\"1 failing test plan, 1 passing test plan\");\n//      <p id=\"qunit-testresult\" class=\"result\">Tests completed in 53 milliseconds.<br><span class=\"passed\">0</span> tests of <span class=\"total\">0</span> passed, <span class=\"failed\">0</span> failed.</p>\n   });\n\n   it(\"should have the failure class added to the banner line\", function () {\n      expect(jQuery('#qunit-banner').attr('class')).toEqual('qunit-fail');\n   });\n\n   it(\"should NOT have the hidepass class added to the #qunit-tests div\", function () {\n      expect(jQuery('#qunit-tests.hidepass').length).toEqual(0);\n\n   });\n\n   it(\"should have two user agent entries (uses module-name)\", function () {\n      expect(jQuery('#test-dom-output .module-name').length).toEqual(2);\n   });\n\n   it(\"should have first user agent 'mozilla'\", function () {\n      expect(jQuery('#test-dom-output .module-name')[0].innerHTML).toEqual('mozilla');\n   });\n   it(\"should have second user agent 'after change'\", function () {\n      expect(jQuery('#test-dom-output .module-name')[1].innerHTML).toEqual('after change');\n   });\n\n   it(\"should have one test plan under 'mozilla'\", function () {\n      expect(jQuery('#test-dom-output #qunit-tests>li:first>ol>li').length).toEqual(1);\n   });\n   it(\"should have one test plan under 'after change'\", function () {\n      expect(jQuery('#test-dom-output #qunit-tests>li:last>ol>li').length).toEqual(1);\n   });\n\n   it(\"should have red failure on 'mozilla'\", function () {\n      expect(jQuery('#test-dom-output #qunit-tests>li:first').attr('class')).toEqual('fail');\n   });\n   it(\"should have green pass on 'after change'\", function () {\n      expect(jQuery('#test-dom-output #qunit-tests>li:last').attr('class')).toEqual('pass');\n   });\n\n   it(\"should have q-test3.html test plan in 'mozilla'\", function () {\n      expect(jQuery('#test-dom-output #qunit-tests>li:first a').text()).toEqual('q-test3.html');\n   });\n   it(\"should have A HREF to re-run the q-test3.html test plan\", function () {\n      expect(jQuery('#test-dom-output #qunit-tests>li:first a').attr('href')).toMatch(/^http:\\/\\/localhost:8888\\/qunit-chainer\\/q-test3\\.html\\?random=\\d+$/);\n   });\n   it(\"should have QUnit example - no tests for q-test3.html test plan in 'mozilla'\", function () {\n      expect(jQuery('#test-dom-output #qunit-tests>li:first li>span.test-message').text()).toEqual('QUnit example - no tests');\n   });\n   it(\"should have red failure for q-test3.html test plan in 'mozilla'\", function () {\n      expect(jQuery('#test-dom-output #qunit-tests>li:first li').attr('class')).toEqual('fail');\n   });\n   it(\"should have (0,0,0) as fail/pass/total for q-test3.html test plan in 'mozilla'\", function () {\n      expect(jQuery('#test-dom-output #qunit-tests>li:first li>b.counts').text()).toEqual('(0, 0, 0)');\n   });\n\n   it(\"should have q-test4.html test plan in 'after change'\", function () {\n      expect(jQuery('#test-dom-output #qunit-tests>li:last a').text()).toEqual('q-test4.html');\n   });\n   it(\"should have A HREF to re-run the q-test4.html test plan\", function () {\n      expect(jQuery('#test-dom-output #qunit-tests>li:last a').attr('href')).toMatch(/^http:\\/\\/localhost:8888\\/qunit-chainer\\/q-test4\\.html\\?random=\\d+$/);\n   });\n   it(\"should have QUnit example - one passing test for q-test4.html test plan in 'after change'\", function () {\n      expect(jQuery('#test-dom-output #qunit-tests>li:last li>span.test-message').text()).toEqual('QUnit example - one passing test');\n   });\n   it(\"should have green success for q-test4.html test plan in 'after change'\", function () {\n      expect(jQuery('#test-dom-output #qunit-tests>li:last li').attr('class')).toEqual('pass');\n   });\n   it(\"should have (0,1,1) as fail/pass/total for q-test4.html test plan in 'after change'\", function () {\n      expect(jQuery('#test-dom-output #qunit-tests>li:last li>b.counts').text()).toEqual('(0, 1, 1)');\n   });\n\n});\n\ndescribe(\"QUnitChainer.setControlPageTestStatus() Control Page - if Plan.title exists, use it as title\", function () {\n   var title = 'nothing', TITLE = 'CUSTOM TITLE FOR TEST PLAN';\n   beforeEach(function () {\n      title = document.title;\n      Plan = { 'title': TITLE };\n      QUnitChainer.init(Plan);\n      QUnitChainer.showControlPage('#test-dom-output');\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title 1) called');\n      document.title = title;\n   });\n\n   it('should have a document title of \"\\u2716 0 - ' + TITLE + '\"', function () {\n      expect(jQuery('title').html()).toEqual(\"\\u2716 0 - \" + TITLE);\n   });\n\n   it('should have a header of \"' + TITLE + '\"', function () {\n      expect(jQuery('#qunit-header').text()).toEqual(TITLE);\n   });\n});\n\ndescribe(\"QUnitChainer.clickPause() Control Page - clicking Pause checkbox clears Auto Run checkbox\", function () {\n   var title = 'nothing', rStorage = null;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set auto run checkbox for pause test) called');\n      title = document.title;\n\n      QUnitChainer.setProperty('bAutoRun', true);\n      QUnitChainer.setProperty('bDumpStorage', true);\n      QUnitChainer.storeProperties();\n      QUnitChainer.showControlPage('#test-dom-output');\n\n      QUnitChainer.bindUIEvents();\n      jQuery('#bPause').click();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title 3) called');\n      document.title = title;\n   });\n\n   // TODO THESE TESTS FAIL IN IE BUT THE CODE WORKS WHEN IT RUNS ON ITS OWN!!\n   if (!QUnitChainer.browserIsIE()) {\n      it('should have the pause and auto-run checkboxes checked and saved to storage', function () {\n         waits(100);\n         runs(function () {\n            rStorage = QUnitChainer.getProperties();\n            expect('#bPause ' + jQuery('#bPause')[0].checked).toEqual('#bPause true');\n            expect('#bAutoRun ' + jQuery('#bAutoRun')[0].checked).toEqual('#bAutoRun false');\n            expect('bPause ' + rStorage.bPause).toEqual('bPause true');\n            expect('bAutoRun ' + rStorage.bAutoRun).toEqual('bAutoRun false');\n         });\n      });\n   }\n});\n\ndescribe(\"QUnitChainer.clickAutoRun() Control Page - clicking Auto Run checkbox clears Pause checkbox\", function () {\n   var title = 'nothing', rStorage = null;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set pause checkbox for auto run test) called');\n      title = document.title;\n      QUnitChainer.setProperty('bPause', true);\n      QUnitChainer.setProperty('bDumpStorage', true);\n      QUnitChainer.storeProperties();\n      QUnitChainer.showControlPage('#test-dom-output');\n\n      QUnitChainer.bindUIEvents();\n      jQuery('#bAutoRun').click();\n\n      rStorage = QUnitChainer.getProperties();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title 4) called');\n      document.title = title;\n   });\n\n   // TODO THESE TESTS FAIL FAIL IN IE BUT THE CODE WORKS WHEN IT RUNS ON ITS OWN!!\n   if (!QUnitChainer.browserIsIE()) {\n      it('should have the auto run, pause checkboxes cleared and saved to storage', function () {\n         expect('#bAutoRun ' + jQuery('#bAutoRun')[0].checked).toEqual('#bAutoRun true');\n         expect('#bPause ' + jQuery('#bPause')[0].checked).toEqual('#bPause false');\n         expect('bAutoRun ' + rStorage.bAutoRun).toEqual('bAutoRun true');\n         expect('bPause ' + rStorage.bPause).toEqual('bPause false');\n      });\n   }\n});\n\ndescribe(\"QUnitChainer.clickLog() Control Page - clicking Log checkbox changes value in storage\", function () {\n   var title = 'nothing', rStorage = null;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for log checkbox test) called');\n      title = document.title;\n      QUnitChainer.setProperty('bDumpStorage', true);\n      QUnitChainer.storeProperties();\n      QUnitChainer.showControlPage('#test-dom-output');\n\n      QUnitChainer.bindUIEvents();\n      jQuery('#bLog').click();\n\n      rStorage = QUnitChainer.getProperties();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title 5) called');\n      document.title = title;\n   });\n\n   // TODO THESE TESTS FAIL FAIL IN IE BUT THE CODE WORKS WHEN IT RUNS ON ITS OWN!!\n   if (!QUnitChainer.browserIsIE()) {\n      it('should have the log checkbox checked and in storage', function () {\n         expect('#bLog ' + jQuery('#bLog')[0].checked).toEqual('#bLog true');\n         expect('bLog ' + rStorage.bLog).toEqual('bLog true');\n      });\n   }\n});\n\ndescribe(\"QUnitChainer.clickDumpStorage() Control Page - clicking Dump Storage checkbox changes value in storage\", function () {\n   var title = 'nothing', rStorage = null;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for dump storage checkbox on test) called');\n      title = document.title;\n      QUnitChainer.showControlPage('#test-dom-output');\n\n      QUnitChainer.bindUIEvents();\n      jQuery('#bDumpStorage').click();\n\n      rStorage = QUnitChainer.getProperties();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title 6) called');\n      document.title = title;\n   });\n\n   // TODO THESE TESTS FAIL FAIL IN IE BUT THE CODE WORKS WHEN IT RUNS ON ITS OWN!!\n   if (!QUnitChainer.browserIsIE()) {\n      it('should have the dump storage checkbox checked and in storage and visible on page', function () {\n         expect('#bDumpStorage ' + jQuery('#bDumpStorage')[0].checked).toEqual('#bDumpStorage true');\n         expect('bDumpStorage ' + rStorage.bDumpStorage).toEqual('bDumpStorage true');\n         expect(jQuery('#qunitchainer-dump').html()).toMatch('\"bDumpStorage\": true');\n      });\n   }\n});\n\ndescribe(\"QUnitChainer.clickDumpStorage() Control Page - clicking Dump Storage checkbox off changes value in storage and hides the dump\", function () {\n   var title = 'nothing', rStorage = null;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for dump storage checkbox off test) called');\n      title = document.title;\n      QUnitChainer.setProperty('bDumpStorage', true);\n      QUnitChainer.storeProperties();\n      QUnitChainer.showControlPage('#test-dom-output');\n\n      QUnitChainer.bindUIEvents();\n      jQuery('#bDumpStorage').click();\n\n      rStorage = QUnitChainer.getProperties();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title 7) called');\n      document.title = title;\n   });\n\n   // TODO THESE TESTS FAIL FAIL IN IE BUT THE CODE WORKS WHEN IT RUNS ON ITS OWN!!\n   if (!QUnitChainer.browserIsIE()) {\n      it('should have the dump storage checkbox unchecked and in storage and visible on page', function () {\n         expect('#bDumpStorage ' + jQuery('#bDumpStorage')[0].checked).toEqual('#bDumpStorage false');\n         expect('bDumpStorage ' + rStorage.bDumpStorage).toEqual('bDumpStorage false');\n         expect(jQuery('#qunitchainer-dump').html()).toEqual('');\n      });\n   }\n});\n\ndescribe(\"QUnitChainer.clickAlertStorage() Control Page - clicking Alert Storage checkbox changes value in storage\", function () {\n   var title = 'nothing', rStorage = null;\n\n   QUnitChainer.logIt(Test.bLog, 'In the Test');\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for alert storage checkbox test) called');\n      title = document.title;\n\n      QUnitChainer.setProperty('bDumpStorage', true);\n      QUnitChainer.storeProperties();\n      QUnitChainer.showControlPage('#test-dom-output');\n\n      QUnitChainer.bindUIEvents();\n\n      spyOn(QUnitChainer, 'maybeAlertStorage').andCallThrough();\n      spyOn(QUnitChainer, 'myAlert').andReturn();\n      spyOn(window, 'alert').andReturn();\n\n      jQuery('#bAlertStorage').click();\n\n      rStorage = QUnitChainer.getProperties();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title 8) called');\n      document.title = title;\n   });\n\n   QUnitChainer.logIt(Test.bLog, 'Do the tests');\n   // TODO THESE TESTS FAIL FAIL IN IE BUT THE CODE WORKS WHEN IT RUNS ON ITS OWN!!\n   if (!QUnitChainer.browserIsIE()) {\n      it('should have the alert storage checkbox checked and saved in storage', function () {\n         expect('#bAlertStorage ' + jQuery('#bAlertStorage')[0].checked).toEqual('#bAlertStorage true');\n         expect('bAlertStorage ' + rStorage.bAlertStorage).toEqual('bAlertStorage true');\n\n         expect(QUnitChainer.maybeAlertStorage).not.toHaveBeenCalled();\n         expect(QUnitChainer.myAlert).not.toHaveBeenCalled();\n         expect(window.alert).not.toHaveBeenCalled();\n      });\n   }\n});\n\ndescribe(\"QUnitChainer.clickShowFailTitle() Control Page - clicking Show Fail Title checkbox changes title from unicode to text\", function () {\n   var title = 'nothing', rStorage = null;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for Show Fail Title checkbox test) called');\n\n      title = document.title;\n      Plan = { 'nextTestPlan': \"next-test-plan5.html\" };\n      QUnitChainer.showControlPage('#test-dom-output');\n      QUnitChainer.bindUIEvents();\n      jQuery('#bShowFailTitle').click();\n      rStorage = QUnitChainer.getProperties();\n   });\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title and Plan 6) called');\n      document.title = title;\n      Plan = {};\n   });\n\n   // TODO THESE TESTS FAIL FAIL IN IE BUT THE CODE WORKS WHEN IT RUNS ON ITS OWN!!\n   if (!QUnitChainer.browserIsIE()) {\n      it(\"should have bShowFailTitle property set and changed the title to text\", function () {\n         expect(rStorage.bShowFailTitle).toEqual(true);\n         expect(jQuery('title').html()).toEqual(\"FAIL 0 - QUnitChainer Control Page\");\n      });\n   }\n});\n\ndescribe(\"QUnitChainer.clickShowPassed() Control Page - clicking Show Passed checkbox unhides the passing test plans\", function () {\n   var title = 'nothing', rStorage = null, classBefore = 'nothing';\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for bShowPassed checkbox click test');\n\n      title = document.title;\n      Plan = { 'nextTestPlan': \"next-test-plan6.html\" };\n      QUnitChainer.init({ 'storage': \"sessionStorage\", 'skey': \"QUCTest\"});\n      QUnitChainer.storeTestResults(JSON.parse(Test.TestRunStoragePass));\n      QUnitChainer.showControlPage('#test-dom-output');\n      classBefore = jQuery('#qunit-tests').attr('class');\n      QUnitChainer.bindUIEvents();\n      jQuery('#bShowPassed').click();\n      rStorage = QUnitChainer.getProperties();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title and Plan 7) called');\n      document.title = title;\n      Plan = {};\n   });\n\n   // TODO THESE TESTS FAIL FAIL IN IE BUT THE CODE WORKS WHEN IT RUNS ON ITS OWN!!\n   if (!QUnitChainer.browserIsIE()) {\n      it(\"should have bShowPassed property set and should have removed the hidepass class from the #qunit-tests div\", function () {\n         expect(classBefore).toEqual('hidepass');\n         expect(rStorage.bShowPassed).toEqual(true);\n         expect(jQuery('#qunit-tests.hidepass').length).toEqual(0);\n      });\n   }\n});\n\ndescribe(\"QUnitChainer.clickShowFixture() Control Page - clicking Show Fixture checkbox positions the qunit-fixture so it is visible\", function () {\n   var title = 'nothing', rStorage = null, posBefore = 'nothing', posAfter = 'somewhere';\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for bShowFixture checkbox click test');\n\n      title = document.title;\n      Plan = { 'nextTestPlan': \"next-test-plan7.html\" };\n      QUnitChainer.init({ 'storage': \"sessionStorage\", 'skey': \"QUCTest\"});\n      QUnitChainer.storeTestResults(JSON.parse(Test.TestRunStoragePass));\n      QUnitChainer.showControlPage('#test-dom-output');\n      posBefore = getPosition(jQuery('#qunit-fixture'));\n      QUnitChainer.bindUIEvents();\n      jQuery('#bShowFixture').click();\n      rStorage = QUnitChainer.getProperties();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title and Plan 7) called');\n      document.title = title;\n      Plan = {};\n   });\n\n   // TODO THESE TESTS FAIL FAIL IN IE BUT THE CODE WORKS WHEN IT RUNS ON ITS OWN!!\n   if (!QUnitChainer.browserIsIE()) {\n      it(\"should have bShowFixture property set and should have positioned the #qunit-fixture div so it is visible\", function () {\n         expect(posBefore).toEqual('absolute -10000px -10000px');\n         expect(rStorage.bShowFixture).toEqual(true);\n         posAfter = getPosition(jQuery('#qunit-fixture'));\n         expect(posAfter).toEqual('relative 0px 0px');\n      });\n   }\n});\n\ndescribe(\"QUnitChainer.clickClearStorage() Control Page - clicking Clear Storage button clears all of storage\", function () {\n   var idx, title = 'nothing', rProperties = null, rTestSummary = null;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for clear storage button test) called');\n      title = document.title;\n      QUnitChainer.storeTestResults(JSON.parse(Test.TestRunStoragePass));\n      QUnitChainer.setProperty('bDumpStorage', true);\n      QUnitChainer.storeProperties();\n      QUnitChainer.showControlPage('#test-dom-output');\n      QUnitChainer.bindUIEvents();\n      jQuery('#clearStorage').click();\n      rProperties = QUnitChainer.getProperties();\n      rTestSummary = QUnitChainer.getTestResults();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title 9) called');\n      document.title = title;\n   });\n\n   // Must put these tests inside a function to prevent a closure in the for loop below.\n   function testPropertiesFalse(key) {\n      it(\"should have \" + key + \" set to false\", function () {\n         expect(key + ' ' + rProperties[key]).toEqual(key + ' false');\n      });\n      it(\"should have storage Property of \" + key + \" set to false\", function () {\n         expect(key + ' ' + QUnitChainer.getProperty(key)).toEqual(key + ' false');\n      });\n      if (key !== 'bFollowChain') {\n         it(\"should have \" + key + \" checkbox unchecked\", function () {\n            expect(key + ' ' + jQuery('#' + key)[0].checked).toEqual(key + ' false');\n         });\n      }\n   }\n\n   for (idx = 0; idx < Test.Properties.length; ++idx) {\n      testPropertiesFalse(Test.Properties[idx]);\n   }\n\n   it('should have no test summary data', function () {\n      expect(JSON.stringify(rTestSummary)).toEqual('{}');\n   });\n   it('should have a message showing no tests plans are in storage', function () {\n      expect(jQuery('#qunit-tests').text()).toBeEqualAsHtml(Test.NoTestRunsMessage);\n   });\n});\n\ndescribe(\"QUnitChainer.clickClearTests() Control Page - clicking Clear Tests button clears tests\", function () {\n   var idx, title = 'nothing', rProperties = null, rTestSummary = null;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for clear tests button test) called');\n      title = document.title;\n      QUnitChainer.storeTestResults(JSON.parse(Test.TestRunStoragePass));\n      for (idx = 0; idx < Test.Properties.length; ++idx) {\n         QUnitChainer.setProperty(Test.Properties[idx], true);\n      }\n      QUnitChainer.storeProperties();\n      QUnitChainer.showControlPage('#test-dom-output');\n      QUnitChainer.bindUIEvents();\n      jQuery('#clearTests').click();\n      rProperties = QUnitChainer.getProperties();\n      rTestSummary = QUnitChainer.getTestResults();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title 10) called');\n      document.title = title;\n   });\n\n   // Must put these tests inside a function to prevent a closure in the for loop below.\n   function testPropertiesTrue(key) {\n      if (key !== 'bFollowChain') {\n         it(\"should have \" + key + \" set to true\", function () {\n            expect(key + ' ' + rProperties[key]).toEqual(key + ' true');\n         });\n         it(\"should have storage Property of \" + key + \" set to true\", function () {\n            expect(key + ' ' + QUnitChainer.getProperty(key)).toEqual(key + ' true');\n         });\n         it(\"should have \" + key + \" checkbox checked\", function () {\n            expect(key + ' ' + jQuery('#' + key)[0].checked).toEqual(key + ' true');\n         });\n      }\n   }\n\n   for (idx = 0; idx < Test.Properties.length; ++idx) {\n      testPropertiesTrue(Test.Properties[idx]);\n   }\n\n   it('should have no test summary data', function () {\n      expect(JSON.stringify(rTestSummary)).toEqual('{}');\n   });\n   it('should have a message showing no tests plans are in storage', function () {\n      expect(jQuery('#qunit-tests').text()).toBeEqualAsHtml(Test.NoTestRunsMessage);\n   });\n});\n\ndescribe(\"QUnitChainer.clickRunTests() Control Page - Follow Chain set and document location changed\", function () {\n   var title = 'nothing', raTestPlanHistory = null, rStorage = null;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for Run Tests button test) called');\n\n      // Spy on the setLocation function and prevent it from actually changing the document.location\n      spyOn(QUnitChainer, 'setLocation').andReturn();\n\n      // Prevent document submission so we remain in control\n      // TODO THIS IS NOT WORKING!!\n      //jQuery('form').submit(function () {\n      //  alert('yeah!'); return false; });\n\n      title = document.title;\n      Plan = {\n         'nextTestPlan': \"next-test-plan8.html\",\n         'storage':      \"sessionStorage\",\n         'skey':         \"QUCTest\"\n      };\n\n      QUnitChainer.clearHistory();\n      QUnitChainer.storeHistory(['ztest.html']);\n\n      QUnitChainer.init(Plan);\n      QUnitChainer.showControlPage('#test-dom-output');\n      QUnitChainer.bindUIEvents();\n      jQuery('#runTests').click();\n      rStorage = QUnitChainer.getProperties();\n      raTestPlanHistory = QUnitChainer.getHistory();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title and Plan 5) called');\n      QUnitChainer.clearHistory();\n      document.title = title;\n      Plan = {};\n   });\n\n   it(\"should have bFollowChain property set and invoked setLocation() with next test plan name\", function () {\n      expect(rStorage.bFollowChain).toEqual(true);\n      expect(raTestPlanHistory).toEqual([\"next-test-plan8.html\", \"ztest.html\"]);\n      expect(QUnitChainer.setLocation).toHaveBeenCalledWith('next-test-plan8.html');\n   });\n});\n\ndescribe(\"QUnitChainer.init() Control Page - Plan.bControl true causes init to display the control page and invoke autorun handler\", function () {\n   var autoRunInterval = QUnitChainer.autoRunInterval, title = document.title;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up Plan.bControl true) called');\n      title = document.title;\n      autoRunInterval = QUnitChainer.autoRunInterval;\n      Plan = {\n         'bControl':     true,\n         'nextTestPlan': \"next-test-plan9.html\",\n         'jqInjectAt':   '#test-dom-output'\n      };\n\n      // Turn on auto run to check if the handler is invoked\n      QUnitChainer.setProperty('bAutoRun', true);\n      QUnitChainer.storeProperties();\n\n      spyOn(QUnitChainer, 'initControlPage').andCallThrough();\n      spyOn(QUnitChainer, 'injectControlPage').andCallThrough();\n      spyOn(QUnitChainer, 'showControlPage').andCallThrough();\n      spyOn(QUnitChainer, 'renderPage').andCallThrough();\n      spyOn(QUnitChainer, 'bindUIEvents').andCallThrough();\n      spyOn(QUnitChainer, 'handleAutoRun').andCallThrough();\n\n      // Spy on the setLocation function and prevent it from actually changing the document.location\n      spyOn(QUnitChainer, 'setLocation').andReturn();\n\n      // Make the auto run call happen faster than normal\n      QUnitChainer.autoRunInterval = 100;\n      QUnitChainer.init(Plan);\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title, Plan and autoRunInterval) called');\n      document.title = title;\n      QUnitChainer.autoRunInterval = autoRunInterval;\n      Plan = {};\n   });\n\n   it(\"should have called methods to display the control page and then invoked the autorun\", function () {\n      runs(function () {\n         expect('bIsControlPage ' + QUnitChainer.bIsControlPage).toEqual('bIsControlPage true');\n         expect(QUnitChainer.initControlPage).toHaveBeenCalled();\n         expect(QUnitChainer.injectControlPage).toHaveBeenCalledWith('#test-dom-output');\n         expect(QUnitChainer.showControlPage).toHaveBeenCalledWith('#test-dom-output');\n         expect(QUnitChainer.renderPage).toHaveBeenCalled();\n         expect(QUnitChainer.bindUIEvents).toHaveBeenCalled();\n      });\n      // Give it time for the auto run timeout to happen\n      waits(200);\n      runs(function () {\n         expect(QUnitChainer.handleAutoRun).toHaveBeenCalled();\n         expect(QUnitChainer.setLocation).toHaveBeenCalledWith('next-test-plan9.html');\n      });\n   });\n});\n\ndescribe(\"QUnitChainer.init() QUnit Run Mode - QUnit existence and no Plan.bControl causes qunit run mode handlers to be installed\", function () {\n   var title = document.title;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up QUnit run mode) called');\n      title = document.title;\n      Plan = {\n         'nextTestPlan': \"next-test-plan10.html\",\n         'jqInjectAt':   '#test-dom-output'\n      };\n      window.QUnit = {};\n      jQuery('#test-dom-output').html(Test.qunitHTML);\n\n      spyOn(QUnitChainer, 'installQUnitHandlers').andCallThrough();\n      spyOn(QUnitChainer, 'initTests').andCallThrough();\n      spyOn(QUnitChainer, 'initControlPage').andReturn();\n      spyOn(QUnitChainer, 'showFixture').andCallThrough();\n\n      // Spy on the setLocation function and prevent it from actually changing the document.location\n      spyOn(QUnitChainer, 'setLocation').andReturn();\n\n      QUnitChainer.init(Plan);\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title, Plan and QUnit) called');\n      document.title = title;\n      Plan = {};\n      window.QUnit = null;\n   });\n\n   it(\"should have called methods to enter QUnit run mode with fixture hidden\", function () {\n      expect('bIsControlPage ' + QUnitChainer.bIsControlPage).toEqual('bIsControlPage false');\n      expect('bHasHandlers ' + QUnitChainer.bHasHandlers).toEqual('bHasHandlers true');\n      expect(QUnitChainer.initControlPage).not.toHaveBeenCalled();\n      expect(QUnitChainer.installQUnitHandlers).toHaveBeenCalled();\n      expect(QUnitChainer.initTests).toHaveBeenCalled();\n      expect(QUnitChainer.showFixture).toHaveBeenCalledWith(false);\n      expect(QUnit.begin).toBeDefined();\n      expect(QUnit.done).toBeDefined();\n      expect(QUnit.moduleStart).toBeDefined();\n      expect(QUnit.moduleDone).toBeDefined();\n      expect(QUnit.testStart).toBeDefined();\n      expect(getPosition(jQuery('#qunit-fixture'))).toEqual('absolute -10000px -10000px');\n\n   });\n});\n\ndescribe(\"QUnitChainer.init() QUnit Run Mode - QUnit mode with fixture visible due to bShowFixture flag\", function () {\n   var title = document.title;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up QUnit run mode with visible fixture) called');\n      title = document.title;\n      Plan = {\n         'nextTestPlan': \"next-test-plan11.html\",\n         'jqInjectAt': '#test-dom-output'\n      };\n      window.QUnit = {};\n      jQuery('#test-dom-output').html(Test.qunitHTML);\n\n      // Turn on show fixture flag\n      QUnitChainer.setProperty('bShowFixture', true);\n      QUnitChainer.storeProperties();\n\n      spyOn(QUnitChainer, 'showFixture').andCallThrough();\n\n      // Spy on the setLocation function and prevent it from actually changing the document.location\n      spyOn(QUnitChainer, 'setLocation').andReturn();\n\n      QUnitChainer.init(Plan);\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title, Plan and QUnit 0) called');\n      document.title = title;\n      Plan = {};\n      window.QUnit = null;\n   });\n\n   it(\"should have the qunit fixture visible\", function () {\n      expect(QUnitChainer.showFixture).toHaveBeenCalledWith(true);\n      expect(getPosition(jQuery('#qunit-fixture'))).toEqual('relative 0px 0px');\n   });\n});\n\ndescribe(\"QUnitChainer.begin() QUnit Run Mode - When QUnit tests begin, capture document location, test page header, set document title\", function () {\n   var title = document.title;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for QUnit begin) called');\n      title = document.title;\n      window.QUnit = {};\n\n      // Spy on the setLocation function and prevent it from actually changing the document.location\n      spyOn(QUnitChainer, 'setLocation').andReturn();\n\n      // add QUnit test plan header and user Agent to page\n      jQuery('#test-dom-output').html('<h1 id=\"qunit-header\">' + Test.ExpectTestPlanTitle + '</h1><h2 id=\"qunit-userAgent\">' + Test.ExpectUserAgent + '</h2>');\n\n      Plan = {'jqInjectAt': '#test-dom-output'};\n      QUnitChainer.init(Plan);\n      QUnit.begin();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title and QUnit 1) called');\n      document.title = title;\n      Plan = {};\n      window.QUnit = null;\n   });\n\n   it(\"should have called methods to enter QUnit run mode\", function () {\n      expect(QUnitChainer.Tests.plan).toEqual(document.location.href);\n      expect(QUnitChainer.Tests.header).toEqual(Test.ExpectTestPlanTitle);\n      expect(jQuery('title').html()).toEqual(Test.ExpectTestPlanTitle);\n   });\n});\n\ndescribe(\"QUnitChainer.moduleStart() QUnit Run Mode - moduleStart records info about the module and clears test counter\", function () {\n   var title = document.title;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for QUnit moduleStart) called');\n      title = document.title;\n      window.QUnit = {};\n\n      // Spy on the setLocation function and prevent it from actually changing the document.location\n      spyOn(QUnitChainer, 'setLocation').andReturn();\n\n      // add QUnit test plan header to page\n      jQuery('#test-dom-output').html('<h1 id=\"qunit-header\">' + Test.ExpectTestPlanTitle + '</h1>');\n\n      Plan = {'jqInjectAt': '#test-dom-output'};\n      QUnitChainer.init(Plan);\n      QUnitChainer.testIdx = 42;\n      QUnit.begin();\n      QUnit.moduleStart({\"name\": Test.ExpectTestModuleName});\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title and QUnit 2) called');\n      document.title = title;\n      Plan = {};\n      window.QUnit = null;\n   });\n\n   it(\"should have saved module name, updated module count, and reset test count\", function () {\n      expect(QUnitChainer.moduleIdx).toEqual(0);\n      expect(QUnitChainer.testIdx).toEqual(-1);\n      expect(QUnitChainer.Tests.module).toEqual(Test.ExpectTestModuleName);\n   });\n});\n\ndescribe(\"QUnitChainer.testStart() QUnit Run Mode - testStart records info about the test\", function () {\n   var title = document.title;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for QUnit testStart) called');\n      title = document.title;\n      window.QUnit = {};\n\n      // Spy on the setLocation function and prevent it from actually changing the document.location\n      spyOn(QUnitChainer, 'setLocation').andReturn();\n\n      // add QUnit test plan header and user Agent to page\n      jQuery('#test-dom-output').html('<h1 id=\"qunit-header\">' + Test.ExpectTestPlanTitle + '</h1><h2 id=\"qunit-userAgent\">' + Test.ExpectUserAgent + '</h2>');\n\n      Plan = {'jqInjectAt': '#test-dom-output'};\n      QUnitChainer.init(Plan);\n      QUnit.begin();\n      QUnit.moduleStart({\"name\": Test.ExpectTestModuleName});\n      QUnit.testStart({\"name\": Test.ExpectTestName});\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title and QUnit 3) called');\n      document.title = title;\n      window.QUnit = null;\n   });\n\n   it(\"should have saved test name, module name and updated test counter\", function () {\n      expect(QUnitChainer.testIdx).toEqual(0);\n      expect(QUnitChainer.Tests.module).toEqual(Test.ExpectTestModuleName);\n      expect(QUnitChainer.Tests.test).toEqual(Test.ExpectTestName);\n   });\n});\n\ndescribe(\"QUnitChainer.testStart() QUnit Run Mode - testStart with no module() call still records info about the test\", function () {\n   var title = document.title;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for QUnit testStart with no module() call) called');\n      title = document.title;\n      window.QUnit = {};\n\n      // Spy on the setLocation function and prevent it from actually changing the document.location\n      spyOn(QUnitChainer, 'setLocation').andReturn();\n\n      // add QUnit test plan header and user Agent to page\n      jQuery('#test-dom-output').html('<h1 id=\"qunit-header\">' + Test.ExpectTestPlanTitle + '</h1><h2 id=\"qunit-userAgent\">' + Test.ExpectUserAgent + '</h2>');\n\n      Plan = {'jqInjectAt': '#test-dom-output'};\n      QUnitChainer.init(Plan);\n      QUnit.begin();\n      QUnit.testStart({\"name\": Test.ExpectTestName});\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title and QUnit 3.1) called');\n      document.title = title;\n      Plan = {};\n      window.QUnit = null;\n   });\n\n   it(\"should have saved test name, module name and updated test counter\", function () {\n      expect(QUnitChainer.testIdx).toEqual(0);\n      expect(QUnitChainer.Tests.module).toEqual(Test.ExpectNoModuleName);\n      expect(QUnitChainer.Tests.test).toEqual(Test.ExpectTestName);\n   });\n});\n\ndescribe(\"QUnitChainer.moduleDone() QUnit Run Mode - moduleDone accumulates stats on tests passed/failed and total\", function () {\n   var title = document.title;\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for QUnit moduleDone) called');\n      title = document.title;\n      window.QUnit = {};\n\n      // Spy on the setLocation function and prevent it from actually changing the document.location\n      spyOn(QUnitChainer, 'setLocation').andReturn();\n\n      // add QUnit test plan header and user Agent to page\n      jQuery('#test-dom-output').html('<h1 id=\"qunit-header\">' + Test.ExpectTestPlanTitle + '</h1><h2 id=\"qunit-userAgent\">' + Test.ExpectUserAgent + '</h2>');\n\n      Plan = {'jqInjectAt': '#test-dom-output'};\n      QUnitChainer.init(Plan);\n\n      // Set up with a previous record of tests which pass/fail/total\n      QUnitChainer.Tests.failed = 1;\n      QUnitChainer.Tests.passed = 1;\n      QUnitChainer.Tests.total  = 2;\n\n      QUnit.begin();\n      QUnit.moduleStart({\"name\": Test.ExpectTestModuleName});\n      QUnit.testStart({\"name\": Test.ExpectTestName});\n\n      QUnit.moduleDone({\"name\": Test.ExpectTestModuleName, \"failed\": 2, \"passed\": 4, \"total\": 6});\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title and QUnit 4) called');\n      document.title = title;\n      Plan = {};\n      window.QUnit = null;\n   });\n\n   it(\"should have counted failed, passed and total tests\", function () {\n      expect(QUnitChainer.Tests.failed).toEqual(3);\n      expect(QUnitChainer.Tests.passed).toEqual(5);\n      expect(QUnitChainer.Tests.total).toEqual(8);\n   });\n});\n\ndescribe(\"QUnitChainer.done() QUnit Run Mode - done with bFollowChain false and bPause true cleans user agent/test plan and stores results in storage, WITHOUT pausing or chaining to next test plan\", function () {\n   var title = document.title, rAlert = window.alert, rTests = {};\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for QUnit done with follow chain true and no next test plan) called');\n      title = document.title;\n      Plan = {\n         'bPause':  true,\n         'jqInjectAt': '#test-dom-output'\n      };\n\n      window.QUnit = {};\n      window.alert = function () {};\n\n      QUnitChainer.cleanUserAgent = function (userAgent) { return userAgent; };\n      QUnitChainer.cleanTestPlan = function (testPlan) { return testPlan; };\n\n      // add QUnit test plan header and user Agent to page\n      jQuery('#test-dom-output').html('<h1 id=\"qunit-header\">' + Test.ExpectTestPlanTitle + '</h1><h2 id=\"qunit-userAgent\">' + Test.ExpectUserAgent + '</h2>');\n\n      QUnitChainer.init(Plan);\n\n      // Spy on the setLocation function and prevent it from actually changing the document.location\n      spyOn(QUnitChainer, 'setLocation').andReturn();\n      spyOn(QUnitChainer, 'cleanUserAgent').andReturn('userAgent');\n      spyOn(QUnitChainer, 'cleanTestPlan').andReturn('testPlan');\n\n      spyOn(QUnitChainer, 'myAlert').andReturn();\n      spyOn(window, 'alert').andCallThrough();\n\n      QUnitChainer.storeTestResults(JSON.parse(Test.TestRunStoragePass));\n\n      QUnit.begin();\n      QUnit.moduleStart({\"name\": Test.ExpectTestModuleName});\n      QUnit.testStart({\"name\": Test.ExpectTestName});\n      QUnit.moduleDone({\"name\": Test.ExpectTestModuleName, \"failed\": 2, \"passed\": 4, \"total\": 6});\n      QUnit.done({\"failed\": 3, \"passed\": 7, \"total\": 10, \"runtime\": 164});\n\n      rTests = QUnitChainer.getTestResults();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title, QUnit, alert etc 1) called');\n      document.title = title;\n      Plan = {};\n      window.QUnit = null;\n      window.alert = rAlert;\n      delete QUnitChainer.cleanTestPlan;\n      delete QUnitChainer.cleanUserAgent;\n   });\n\n   it(\"should clean the userAgent and testPlan name then save data to storage and chain to the next test plan\", function () {\n      var testPlan = document.location.href.replace(/\\?.*$/, '');\n\n      expect(QUnitChainer.Tests.module).toBeUndefined();\n      expect(QUnitChainer.Tests.tests).toBeUndefined();\n      expect(QUnitChainer.Tests.userAgent).toEqual(Test.ExpectUserAgent);\n      expect(QUnitChainer.cleanUserAgent).toHaveBeenCalledWith(Test.ExpectUserAgent);\n      expect(QUnitChainer.cleanTestPlan).toHaveBeenCalledWith(testPlan);\n\n      // Verify that test plan records made it into storage (including previous test run in storage)\n      expect(rTests.userAgent).toBeDefined();\n      expect(rTests['after change']).toBeDefined();\n\n      // Verify that the alert dialog is not shown\n      expect(QUnitChainer.myAlert).not.toHaveBeenCalled();\n      expect(window.alert).not.toHaveBeenCalled();\n\n      // Verify that the next test plan is not invoked\n      expect(QUnitChainer.setLocation).not.toHaveBeenCalled();\n   });\n});\n\ndescribe(\"QUnitChainer.done() QUnit Run Mode - done with bFollowChain false and bPause true cleans user agent/test plan and stores results in storage, WITHOUT pausing or chaining to next test plan\", function () {\n   var title = document.title, rAlert = window.alert, rTests = {};\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for QUnit done with follow chain true and no next test plan) called');\n      title = document.title;\n      Plan = {\n         'bPause':  true,\n         'jqInjectAt': '#test-dom-output'\n      };\n\n      window.QUnit = {};\n      window.alert = function () {};\n\n      QUnitChainer.cleanUserAgent = function (userAgent) { return userAgent; };\n      QUnitChainer.cleanTestPlan = function (testPlan) { return testPlan; };\n\n      // add QUnit test plan header and user Agent to page\n      jQuery('#test-dom-output').html('<h1 id=\"qunit-header\">' + Test.ExpectTestPlanTitle + '</h1><h2 id=\"qunit-userAgent\">' + Test.ExpectUserAgent + '</h2>');\n\n      QUnitChainer.init(Plan);\n\n      // Spy on the setLocation function and prevent it from actually changing the document.location\n      spyOn(QUnitChainer, 'setLocation').andReturn();\n      spyOn(QUnitChainer, 'cleanUserAgent').andReturn('userAgent');\n      spyOn(QUnitChainer, 'cleanTestPlan').andReturn('testPlan');\n\n      spyOn(QUnitChainer, 'myAlert').andReturn();\n      spyOn(window, 'alert').andCallThrough();\n\n      QUnitChainer.storeTestResults(JSON.parse(Test.TestRunStoragePass));\n\n      QUnit.begin();\n      QUnit.moduleStart({\"name\": Test.ExpectTestModuleName});\n      QUnit.testStart({\"name\": Test.ExpectTestName});\n      QUnit.moduleDone({\"name\": Test.ExpectTestModuleName, \"failed\": 2, \"passed\": 4, \"total\": 6});\n      QUnit.done({\"failed\": 3, \"passed\": 7, \"total\": 10, \"runtime\": 164});\n\n      rTests = QUnitChainer.getTestResults();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title, QUnit, alert etc 1) called');\n      document.title = title;\n      Plan = {};\n      window.QUnit = null;\n      window.alert = rAlert;\n      delete QUnitChainer.cleanTestPlan;\n      delete QUnitChainer.cleanUserAgent;\n   });\n\n   it(\"should clean the userAgent and testPlan name then save data to storage and chain to the next test plan\", function () {\n      var testPlan = document.location.href.replace(/\\?.*$/, '');\n      expect(QUnitChainer.Tests.module).toBeUndefined();\n      expect(QUnitChainer.Tests.tests).toBeUndefined();\n      expect(QUnitChainer.Tests.userAgent).toEqual(Test.ExpectUserAgent);\n      expect(QUnitChainer.cleanUserAgent).toHaveBeenCalledWith(Test.ExpectUserAgent);\n      expect(QUnitChainer.cleanTestPlan).toHaveBeenCalledWith(testPlan);\n\n      // Verify that test plan records made it into storage (including previous test run in storage)\n      expect(rTests.userAgent).toBeDefined();\n      expect(rTests['after change']).toBeDefined();\n\n      // Verify that the alert dialog is not shown\n      expect(QUnitChainer.myAlert).not.toHaveBeenCalled();\n      expect(window.alert).not.toHaveBeenCalled();\n\n      // Verify that the next test plan is not invoked\n      expect(QUnitChainer.setLocation).not.toHaveBeenCalled();\n   });\n});\n\ndescribe(\"QUnitChainer.done() QUnit Run Mode - done with ?filter= in the document URL does not store results in storage (this represents running a single test case)\", function () {\n   var title = document.title, rTests = {};\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for QUnit done with ?filter=) called');\n      title = document.title;\n      Plan = {\n         'nextTestPlan': \"next-test-plan12.html\",\n         'jqInjectAt': '#test-dom-output'\n      };\n\n      window.QUnit = {};\n\n      QUnitChainer.init(Plan);\n\n      // Spy on the setLocation function and prevent it from actually changing the document.location\n      spyOn(QUnitChainer, 'setLocation').andReturn();\n\n      QUnit.begin();\n      // Override the document location to include ?filter=\n      QUnitChainer.Tests.plan = QUnitChainer.Tests.plan + \"?filter=Some%20Test%20Case\";\n      QUnit.moduleStart({\"name\": Test.ExpectTestModuleName});\n      QUnit.testStart({\"name\": Test.ExpectTestName});\n      QUnit.moduleDone({\"name\": Test.ExpectTestModuleName, \"failed\": 2, \"passed\": 4, \"total\": 6});\n      QUnit.done({\"failed\": 3, \"passed\": 7, \"total\": 10, \"runtime\": 164});\n\n      rTests = QUnitChainer.getTestResults();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title after ?filter=) called');\n      document.title = title;\n      Plan = {};\n      window.QUnit = null;\n   });\n\n   it(\"should not save data to storage\", function () {\n      // Verify that test plan records are not in storage\n\n      expect(rTests.userAgent).toBeUndefined();\n      expect(rTests).toEqual({});\n   });\n});\n\ndescribe(\"QUnitChainer.done() QUnit Run Mode - module() not called during tests, ensure we store results in storage correctly\", function () {\n   var title = document.title, rAlert = QUnitChainer.myAlert, rTests = {};\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for QUnit tests with no module() call) called');\n      title = document.title;\n\n      window.QUnit = {};\n      QUnitChainer.myAlert = function () {};\n\n      QUnitChainer.cleanUserAgent = function (userAgent) { return userAgent; };\n      QUnitChainer.cleanTestPlan = function (testPlan) { return testPlan; };\n\n      // add QUnit test plan header and user Agent to page\n      jQuery('#test-dom-output').html('<h1 id=\"qunit-header\">' + Test.ExpectTestPlanTitle + '</h1><h2 id=\"qunit-userAgent\">' + Test.ExpectUserAgent + '</h2>');\n\n      Plan = {'jqInjectAt': '#test-dom-output'};\n      QUnitChainer.init(Plan);\n\n      // Spy on the setLocation function and prevent it from actually changing the document.location\n      spyOn(QUnitChainer, 'setLocation').andReturn();\n      spyOn(QUnitChainer, 'cleanUserAgent').andReturn('userAgent');\n      spyOn(QUnitChainer, 'cleanTestPlan').andReturn('testPlan');\n\n      spyOn(QUnitChainer, 'maybeAlertStorage').andCallThrough();\n      spyOn(QUnitChainer, 'myAlert').andCallThrough();\n      spyOn(window, 'alert').andReturn();\n\n      QUnit.begin();\n      QUnit.testStart({\"name\": Test.ExpectTestName});\n      QUnit.testDone({\"name\": Test.ExpectTestName, \"failed\": 2, \"passed\": 4, \"total\": 6 });\n      QUnit.done({\"failed\": 3, \"passed\": 7, \"total\": 10, \"runtime\": 164});\n\n      rTests = QUnitChainer.getTestResults();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title, QUnit, alert etc 3) called');\n      document.title = title;\n      Plan = {};\n      window.QUnit = null;\n      QUnitChainer.myAlert = rAlert;\n      delete QUnitChainer.cleanTestPlan;\n      delete QUnitChainer.cleanUserAgent;\n   });\n\n   it(\"should clean the userAgent and testPlan name then save data to storage and chain to the next test plan\", function () {\n      expect(QUnitChainer.Tests.module).toBeUndefined();\n      expect(QUnitChainer.Tests.tests).toBeUndefined();\n      expect(QUnitChainer.Tests.userAgent).toEqual(Test.ExpectUserAgent);\n\n      // Verify that test plan records made it into storage\n      // Expected '{\"userAgent\":{\"testPlan\":{\"plan\":\"http://local.ft.com/qunit-chainer/SpecRunner.html\",\"userAgent\":\"userAgentMan\",\"header\":\"QUnit Test Example\",\n      // \"failed\":2,\"passed\":4,\"total\":6,\"log\":{}}}}'\n\n      expect(rTests.userAgent).toBeDefined();\n      expect(rTests.userAgent.testPlan).toBeDefined();\n      expect(rTests.userAgent.testPlan.plan).toEqual(document.location.href);\n      expect(rTests.userAgent.testPlan.userAgent).toEqual(Test.ExpectUserAgent);\n      expect(rTests.userAgent.testPlan.header).toEqual(Test.ExpectTestPlanTitle);\n      expect(rTests.userAgent.testPlan.failed).toEqual(2);\n      expect(rTests.userAgent.testPlan.passed).toEqual(4);\n      expect(rTests.userAgent.testPlan.total).toEqual(6);\n\n      // Verify that the alert dialog is not shown\n\n      expect(window.alert).not.toHaveBeenCalled();\n   });\n});\n\ndescribe(\"QUnitChainer.done() QUnit Run Mode - done with bPause and bFollowChain true and no next test plan cleans user agent/test plan and stores results in storage, showing the control page after pausing\", function () {\n   var title = document.title, rAlert = window.alert, message = 'nothing', rTests = {};\n\n   beforeEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'beforeEach(to set up for QUnit done with follow chain true and no next test plan) called');\n      title = document.title;\n      Plan = {\n         'bPause':  true,\n         'jqInjectAt': '#test-dom-output'\n      };\n\n      window.QUnit = {};\n      QUnitChainer.myAlert = function (msg) { message = msg; };\n\n      QUnitChainer.cleanUserAgent = function (userAgent) { return userAgent; };\n      QUnitChainer.cleanTestPlan = function (testPlan) { return testPlan; };\n\n      // add QUnit test plan header and user Agent to page\n      jQuery('#test-dom-output').html('<h1 id=\"qunit-header\">' + Test.ExpectTestPlanTitle + '</h1><h2 id=\"qunit-userAgent\">' + Test.ExpectUserAgent + '</h2>');\n\n      QUnitChainer.init(Plan);\n\n      // Spy on the setLocation function and prevent it from actually changing the document.location\n      spyOn(QUnitChainer, 'setLocation').andReturn();\n      spyOn(QUnitChainer, 'cleanUserAgent').andReturn('userAgent');\n      spyOn(QUnitChainer, 'cleanTestPlan').andReturn('testPlan');\n      spyOn(QUnitChainer, 'wipeQUnitOutput').andCallThrough();\n      spyOn(QUnitChainer, 'showControlPage').andCallThrough();\n\n      spyOn(QUnitChainer, 'maybeAlertStorage').andCallThrough();\n      spyOn(QUnitChainer, 'myAlert').andCallThrough();\n      spyOn(window, 'alert').andReturn();\n\n      QUnitChainer.setProperty('bFollowChain', true);\n      QUnitChainer.storeProperties();\n\n      QUnit.begin();\n      QUnit.moduleStart({\"name\": Test.ExpectTestModuleName});\n      QUnit.testStart({\"name\": Test.ExpectTestName});\n      QUnit.moduleDone({\"name\": Test.ExpectTestModuleName, \"failed\": 2, \"passed\": 4, \"total\": 6});\n\n      QUnit.done({\"failed\": 3, \"passed\": 7, \"total\": 10, \"runtime\": 164});\n\n      rTests = QUnitChainer.getTestResults();\n   });\n\n   afterEach(function () {\n      QUnitChainer.logIt(Test.bLog, 'afterEach(to restore title, QUnit, alert etc 4) called');\n      document.title = title;\n      Plan = {};\n      window.QUnit = null;\n      window.alert = rAlert;\n      delete QUnitChainer.cleanTestPlan;\n      delete QUnitChainer.cleanUserAgent;\n   });\n\n   it(\"should clean the userAgent and testPlan name then save data to storage and chain to the next test plan\", function () {\n      var testPlan = document.location.href.replace(/\\?.*$/, '');\n\n      expect(QUnitChainer.Tests.module).toBeUndefined();\n      expect(QUnitChainer.Tests.tests).toBeUndefined();\n      expect(QUnitChainer.Tests.userAgent).toEqual(Test.ExpectUserAgent);\n      expect(QUnitChainer.cleanUserAgent).toHaveBeenCalledWith(Test.ExpectUserAgent);\n      expect(QUnitChainer.cleanTestPlan).toHaveBeenCalledWith(testPlan);\n\n      // Verify that test plan records made it into storage\n      // Expected '{\"userAgent\":{\"testPlan\":{\"plan\":\"http://local.ft.com/qunit-chainer/SpecRunner.html\",\"userAgent\":\"userAgentMan\",\"header\":\"QUnit Test Example\",\n      // \"failed\":2,\"passed\":4,\"total\":6,\"log\":{}}}}'\n\n      expect(rTests.userAgent).toBeDefined();\n      expect(rTests.userAgent.testPlan).toBeDefined();\n      expect(rTests.userAgent.testPlan.plan).toEqual(document.location.href);\n      expect(rTests.userAgent.testPlan.userAgent).toEqual(Test.ExpectUserAgent);\n      expect(rTests.userAgent.testPlan.header).toEqual(Test.ExpectTestPlanTitle);\n      expect(rTests.userAgent.testPlan.failed).toEqual(2);\n      expect(rTests.userAgent.testPlan.passed).toEqual(4);\n      expect(rTests.userAgent.testPlan.total).toEqual(6);\n\n      // Verify that the alert dialog is shown since bPause is true\n      expect(message).toEqual(Test.ExpectEndAlertMessage);\n\n      expect(QUnitChainer.maybeAlertStorage).toHaveBeenCalled();\n      expect(QUnitChainer.myAlert).toHaveBeenCalled();\n      expect(window.alert).not.toHaveBeenCalled();\n\n      expect(QUnitChainer.maybeAlertStorage.callCount).toEqual(5);\n      expect(QUnitChainer.myAlert.callCount).toEqual(1);\n      expect(window.alert.callCount).toEqual(0);\n\n      // Verify that the next test plan is not invoked\n      expect(QUnitChainer.setLocation.callCount).toEqual(0);\n      expect(QUnitChainer.setLocation).not.toHaveBeenCalled();\n\n      // Verify that the control page is shown\n      expect(QUnitChainer.wipeQUnitOutput).toHaveBeenCalledWith('#test-dom-output');\n      expect(QUnitChainer.showControlPage).toHaveBeenCalledWith('#test-dom-output');\n      expect(jQuery('#qunit-banner').attr('class')).toEqual('qunit-fail');\n      expect(jQuery('#test-dom-output .module-name').length).toEqual(1);\n      expect(jQuery('#test-dom-output .module-name')[0].innerHTML).toEqual('userAgent');\n   });\n});\n\nfunction chainToNextTest() {\n   // Invoke QUnitChainer in normal mode to use it to go to the next test plan\n   // We take the jasmine test results and store them as QUnitChainer results\n   Plan = {\n      'nextTestPlan': '../sample/q-test.html', // REPLACE\n      'storage': \"localStorage\",\n      'skey': \"QUnitChainer\"\n   };\n   QUnitChainer.init(Plan);\n   if (QUnitChainer.getProperty('bFollowChain')) {\n      var failed = 0, passed = 0, total = 0, runtime = 0, Match;\n      Match = jQuery('a.description').html().match(/(\\d+) specs?, (\\d+) failures? in ([\\d\\.]+)s/);\n      if (Match) {\n         total   = parseInt(Match[1], 10);\n         failed  = parseInt(Match[2], 10);\n         runtime = parseFloat(Match[3]) * 1000;\n         passed  = total - failed;\n         QUnitChainer.Tests.failed = failed;\n         QUnitChainer.Tests.passed = passed;\n         QUnitChainer.Tests.total = total;\n         QUnitChainer.Tests.header = 'QUnitChainer Jasmine unit tests';\n         QUnitChainer.Tests.plan = document.location.href;\n         QUnitChainer.done({ 'failed': failed, 'passed': passed, 'total': total, 'runtime': runtime });\n      }\n      QUnitChainer.setLocation(Plan.nextTestPlan);\n   }\n}\n\ndescribe(\"END\", function () {\n   // Final case to hide the qunit control page output at top of test plan\n   // and verify that the correct number of tests have been run\n   it(\"should have correct number of describe() blocks\", function () {\n      expect(jasmine.currentEnv_.nextSuiteId_).toEqual(Test.totalSuites);\n   });\n   it(\"should have correct number of it() blocks\", function () {\n      expect(jasmine.currentEnv_.nextSpecId_).toEqual(Test.totalSpecs);\n\n      // Chain to the next test plan waiting a moment so that the DOM\n      // has time to be updated.\n      setTimeout(function () {\n         chainToNextTest();\n      }, 300);\n   });\n});\n\n// TODO if log is turned on store calls to log() in storage and display on the control page in a textarea\n// TODO store order of tests in storage and edit from control page\n",
-			"file": "QUnitChainer/spec/QUnitChainerSpec.js",
-			"file_size": 86047,
-			"file_write_time": 130374712521227714,
+			"file": "test/jasmine/jasmine-dark.css",
 			"settings":
 			{
-				"buffer_size": 86047,
+				"buffer_size": 4277,
+				"line_ending": "Windows",
+				"name": "jasmine.css"
+			}
+		},
+		{
+			"file": "test/qunit/qunit-test.html",
+			"settings":
+			{
+				"buffer_size": 685,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "QUnitChainer/sample/test-this-object.js",
+			"file": "test/jasmine/jasmine-test.html",
 			"settings":
 			{
-				"buffer_size": 95,
+				"buffer_size": 800,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "QUnitChainer/0-monitor.html",
+			"file": "test/qunit/qunit-test.js",
 			"settings":
 			{
-				"buffer_size": 2441,
-				"line_ending": "Unix"
+				"buffer_size": 9511,
+				"line_ending": "Windows",
+				"name": "qunit-test.js"
 			}
 		},
 		{
-			"contents": "/*\n * $Id$\n *\n * Test plan file containing FAILING tests\n * QUnit + QUnitChainer Sample Test plan\n *\n * https://github.com/bcowgill/QUnitChainer\n * http://www.swift-lizard.com/2009/11/24/test-driven-development-with-jquery-qunit/\n * http://net.tutsplus.com/tutorials/javascript-ajax/how-to-test-your-javascript-code-with-qunit/\n * http://twoguysarguing.wordpress.com/2010/11/02/make-javascript-tests-part-of-your-build-qunit-rhino/\n * http://martinfowler.com/articles/nonDeterminism.html\n *\n * BDD\n * https://github.com/joshuaclayton/specit\n */\n\n/*jslint browser: true, sloppy: true, white: true, nomen: false, plusplus: false, maxerr: 1000, indent: 3 */\n\n/*properties\n    cleanTestPlan, cleanUserAgent, extraTests, ready, replace, result, setup,\n    teardown\n*/\n\n/*global QUnitChainer, asyncTest, divide, document, equal, expect, jQuery, module, ok, run_tests, deepEqual, setTimeout, start, test\n*/\n\n// Clean up the user agent and test plan name for storage\nQUnitChainer.cleanUserAgent = function (/* userAgent */) {\n   return 'mozilla';\n};\nQUnitChainer.cleanTestPlan = function (testPlan) {\n   testPlan = testPlan.replace('http://sandbox.bsac.com/ipad-testing/', '');\n   return testPlan;\n};\n\nfunction run_tests() {\n   module(\"Basic Unit Test\");\n\n   test(\"Sample test\", function()\n   {\n      expect(1);\n      var expected = 2,  result = divide(4,2);\n      equal(result, expected, 'divide(4,2) should be ' + expected);\n   });\n\n   test(\"Sample test repeat\", function()\n   {\n      expect(1);\n      var expected = 2,  result = divide(4,2);\n      equal(result, expected, 'divide(4,2) should be ' + expected);\n   });\n\n   module(\"Failing Unit Test with setup and teardown code\", {\n      setup: function() {\n         this.extraTests = 2;\n         this.result = divide(4,2);\n         ok(true, \"setup tests: one extra assert per test\");\n      },\n      teardown: function() {\n         ok(true, \"teardown tests: and one extra assert after each test\");\n      }\n   });\n\n   test(\"Sample test fails\", function()\n   {\n      expect(1 + this.extraTests);\n      var expected = 3;\n      equal(this.result, expected, 'divide(4,2) should be ' + expected);\n   });\n\n   test(\"Sample test fails again\", function()\n   {\n      expect(1 + this.extraTests);\n      var expected = 3;\n      equal(this.result, expected, 'divide(4,2) should be ' + expected);\n   });\n\n   module(\"Broken Unit Test\");\n\n   test(\"Sample test count wrong\", function()\n   {\n      expect(2);\n      var expected = 2,  result = divide(4,2);\n      equal(result, expected, 'divide(4,2) should be ' + expected);\n   });\n\n   function myAjax(rcCallback, delay) {\n      setTimeout(function () {\n         rcCallback(true);\n      }, delay);\n   }\n\n   module(\"Asynchronous Test (ajax, etc)\");\n   asyncTest(\"Delayed action tests\", function()\n   {\n      // How long to wait for tests to complete before resume testing\n      var WAIT = 200;\n      // Number of assertions to expect before the timeout\n      expect(2);\n\n      myAjax(function (value) {\n         deepEqual(true, value, 'ajax result should be');\n      }, 100);\n      myAjax(function (value) {\n         deepEqual(true, value, 'another ajax result should be');\n      }, 10000);\n\n      // Wait for the tests to complete before continuing on the test plan\n      setTimeout(function () {\n         start();\n      }, WAIT);\n   });\n}\n\njQuery(document).ready(function() {\n   run_tests();\n});\n",
-			"file": "QUnitChainer/_test_failures/test-plan.js",
-			"file_size": 3370,
-			"file_write_time": 130374706092000907,
+			"file": "test/jasmine/jasmine-test.js",
 			"settings":
 			{
-				"buffer_size": 3370,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "/*!\n * QUnit 1.14.0\n * http://qunitjs.com/\n *\n * Copyright 2013 jQuery Foundation and other contributors\n * Released under the MIT license\n * http://jquery.org/license\n *\n * Date: 2014-01-31T16:40Z\n\n   Dark Color Scheme by Brent S.A. Cowgill\n(BSAC) */\n\n/** Font Family and Sizes */\n\nbody { background-color: black; color: white; } /* BSAC */\n\n#qunit-tests, #qunit-header, #qunit-banner, #qunit-testrunner-toolbar, #qunit-userAgent, #qunit-testresult {\n	font-family: \"Helvetica Neue Light\", \"HelveticaNeue-Light\", \"Helvetica Neue\", Calibri, Helvetica, Arial, sans-serif;\n}\n\n#qunit-testrunner-toolbar, #qunit-userAgent, #qunit-testresult, #qunit-tests li { font-size: small; }\n#qunit-tests { font-size: smaller; }\n\n\n/** Resets */\n\n#qunit-tests, #qunit-header, #qunit-banner, #qunit-userAgent, #qunit-testresult, #qunit-modulefilter {\n	margin: 0;\n	padding: 0;\n}\n\n\n/** Header */\n\n#qunit-header {\n	padding: 0.5em 0 0.5em 1em;\n\n	color: yellow; /* BSAC */\n	background-color: #0D3349; /* BSAC OK */\n	font-size: 1.5em;\n	line-height: 1em;\n	font-weight: 400;\n\n	border-radius: 5px 5px 0 0;\n}\n\n#qunit-header a {\n	text-decoration: none;\n	color: #C2CCD1; /* BSAC OK*/\n}\n\n#qunit-header a:hover,\n#qunit-header a:focus {\n	color: white; /* BSAC */\n}\n\n#qunit-testrunner-toolbar label {\n	display: inline-block;\n	padding: 0 0.5em 0 0.1em;\n}\n\n#qunit-banner {\n	height: 5px;\n}\n\n#qunit-testrunner-toolbar {\n	padding: 0.5em 0 0.5em 2em;\n	color: #DDD; /* BSAC */\n	background-color: #111; /* BSAC */\n	overflow: hidden;\n}\n\n#qunit-userAgent {\n	padding: 0.5em 0 0.5em 2.5em;\n	background-color: #2B81AF; /* BSAC OK */\n	color: white; /* BSAC */\n	text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 1px; /* BSAC OK */\n}\n\n#qunit-modulefilter-container {\n	float: right;\n}\n\n/** Tests: Pass/Fail */\n\n#qunit-tests {\n	list-style-position: inside;\n}\n\n#qunit-tests li {\n	padding: 0.4em 0.5em 0.4em 2.5em;\n	border-bottom: 1px solid black; /* BSAC */\n	list-style-position: inside;\n}\n\n#qunit-tests.hidepass li.pass, #qunit-tests.hidepass li.running  {\n	display: none;\n}\n\n#qunit-tests li strong {\n	cursor: pointer;\n}\n\n#qunit-tests li a {\n	padding: 0.5em;\n	color: yellow; /* BSAC */\n	text-decoration: none;\n}\n#qunit-tests li a:hover,\n#qunit-tests li a:focus {\n	color: white; /* BSAC */\n}\n\n#qunit-tests li .runtime {\n	float: right;\n	font-size: smaller;\n}\n\n.qunit-assert-list {\n	margin-top: 0.5em;\n	padding: 0.5em;\n\n	background-color: black; /* BSAC */\n\n	border-radius: 5px;\n}\n\n.qunit-collapsed {\n	display: none;\n}\n\n#qunit-tests table {\n	border-collapse: collapse;\n	margin-top: 0.2em;\n}\n\n#qunit-tests th {\n	text-align: right;\n	vertical-align: top;\n	padding: 0 0.5em 0 0;\n}\n\n#qunit-tests td {\n	vertical-align: top;\n}\n\n#qunit-tests pre {\n	margin: 0;\n	white-space: pre-wrap;\n	word-wrap: break-word;\n	font-family: \"ProFontWindows\"; /* BSAC */\n}\n\n#qunit-tests del {\n	background-color: green; /* BSAC */\n	color: yellow; /* BSAC */\n	text-decoration: none;\n}\n\n#qunit-tests ins {\n	background-color: red; /* BSAC */\n	color: black; /* BSAC */\n	text-decoration: none;\n}\n\n/*** Test Counts */\n\n#qunit-tests b.counts                       { color: white; } /* BSAC */\n#qunit-tests b.passed                       { color: lime; } /* BSAC */\n#qunit-tests b.failed                       { color: orange; } /* BSAC OK */\n\n#qunit-tests li li {\n	padding: 5px;\n	background-color: black; /* BSAC */\n	border-bottom: none;\n	list-style-position: inside;\n}\n\n/*** Passing Styles */\n\n#qunit-tests li li.pass {\n	color: lime; /* BSAC */\n	background-color: black; /* BSAC */\n	border-left: 10px solid green; /* BSAC */\n}\n\n#qunit-tests .pass                          { color: black; /* BSAC */ background-color: green; /* BSAC */ }\n#qunit-tests .pass .test-name               { color: lime; /* BSAC */}\n\n#qunit-tests .pass .test-actual,\n#qunit-tests .pass .test-expected           { color: #999; } /* BSAC OK */\n\n#qunit-banner.qunit-pass                    { background-color: #C6E746; } /* BSAC OK */\n\n/*** Failing Styles */\n\n#qunit-tests li li.fail {\n	color: red; /* BSAC */\n	background-color: black; /* BSAC */\n	border-left: 10px solid red; /* BSAC */\n	font-weight: bold; /* BSAC */\n	white-space: pre;\n}\n\n#qunit-tests > li:last-child {\n	border-radius: 0 0 5px 5px;\n}\n\n#qunit-tests .fail                          { color: black; /* BSAC */ background-color: red; } /* BSAC */\n#qunit-tests .fail .test-name               { color: lime; } /* BSAC */\n#qunit-tests .fail .module-name             { color: black; } /* BSAC */\n\n#qunit-tests .fail .test-actual             { color: #EE5757; } /* BSAC OK */\n#qunit-tests .fail .test-expected           { color: green;   } /* BSAC OK */\n\n#qunit-banner.qunit-fail                    { background-color: #EE5757; /* BSAC OK */ }\n\n\n/** Result */\n\n#qunit-testresult {\n	padding: 0.5em 0.5em 0.5em 2.5em;\n\n	color: #2B81AF; /* BSAC OK */\n	background-color: #D2E0E6; /* BSAC OK */\n\n	border-bottom: 1px solid black; /* BSAC */\n}\n#qunit-testresult .module-name {\n	font-weight: 700;\n}\n\n/** Fixture */\n\n#qunit-fixture {\n	position: absolute;\n	top: -10000px;\n	left: -10000px;\n	width: 1000px;\n	height: 1000px;\n}\n",
-			"file": "QUnitChainer/qunit/qunit.new.css",
-			"file_size": 5044,
-			"file_write_time": 130374683785584486,
-			"settings":
-			{
-				"buffer_size": 5044,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "QUnitChainer/sample/test-plan.js",
-			"settings":
-			{
-				"buffer_size": 3393,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "<!DOCTYPE HTML>\n<!--\n   $Id$\n\n   QUnit + QUnitChainer Sample Test plan\n   https://github.com/bcowgill/QUnitChainer\n   http://docs.jquery.com/Qunit\n   http://www.swift-lizard.com/2009/11/24/test-driven-development-with-jquery-qunit/\n   http://net.tutsplus.com/tutorials/javascript-ajax/how-to-test-your-javascript-code-with-qunit/\n   http://twoguysarguing.wordpress.com/2010/11/02/make-javascript-tests-part-of-your-build-qunit-rhino/\n   http://martinfowler.com/articles/nonDeterminism.html\n\n   BDD\n   https://github.com/joshuaclayton/specit\n-->\n<html>\n  <head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\">\n    <title>Tests with QUnitChainer TEMPLATE</title>\n    <link rel=\"stylesheet\" href=\"../qunit/qunit.css\" type=\"text/css\"/>\n    <script src=\"../qunit/qunit.js\"></script>\n\n    <script src=\"../jquery/jquery-1.6.2.min.js\"> </script>\n    <script src=\"../QUnitChainer.js\"></script>\n<!--[if lt IE 8 ]> <script src=\"../json2/json2.js\"></script> <![endif]-->\n    <script>\n/*jslint browser: true, sloppy: true, white: true, nomen: false, plusplus: false, maxerr: 1000, indent: 3 */\n\n/*properties\n    '-', cleanTestPlan, cleanUserAgent, init, nextTestPlan, ready, replace\n*/\n\n/*global Plan, QUnitChainer, document, jQuery, module\n*/\n\nvar Plan = {\n  // Specify the test plan to run after this one\n  nextTestPlan: 'q-test4.html',\n  '-': '-'\n};\nQUnitChainer.init(Plan);\n\n     // --- Unittest Code goes here ---\n\n// Clean up the user agent and test plan name for storage\nQUnitChainer.cleanUserAgent = function (/* userAgent */) {\n   return 'mozilla';\n};\nQUnitChainer.cleanTestPlan = function (testPlan) {\n   testPlan = testPlan.replace('http://sandbox.bsac.com/ipad-testing/', '');\n   return testPlan;\n};\n\njQuery(document).ready(function() {\n\n   module(\"Module with no Tests\");\n\n   test(\"Sample test\", function()\n   {\n      expect(1);\n      var result = 2;\n      var expected = 2;\n      equal(result, expected, 'divide(4,2) should be ' + expected);\n   });\n});\n\n    </script>\n\n    <!-- Object being tested is included here -->\n\n    <!-- Unit test plan is in separate javascript -->\n\n  </head>\n  <body>\n    <h1 id=\"qunit-header\">QUnit example - no tests</h1>\n    <h2 id=\"qunit-banner\"></h2>\n    <div id=\"qunit-testrunner-toolbar\"></div>\n    <h2 id=\"qunit-userAgent\"></h2>\n    <ol id=\"qunit-tests\">\n    </ol>\n\n    <!--\n       The fixture is any DOM structure you need in place for each test.\n       It won't be visible on screen but the initial state is recorded\n       and restored at the start of each test.\n    -->\n    <div id=\"qunit-fixture\"></div>\n  </body>\n</html>\n",
-			"file": "QUnitChainer/_test_passes/q-test3.html",
-			"file_size": 2585,
-			"file_write_time": 130374701032058578,
-			"settings":
-			{
-				"buffer_size": 2585,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "QUnitChainer/sample/q-test4.html",
-			"settings":
-			{
-				"buffer_size": 2727,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "/*\n * $Id$\n *\n * Test plan file containing PASSING tests\n * QUnit + QUnitChainer Sample Test plan\n *\n * https://github.com/bcowgill/QUnitChainer\n * http://www.swift-lizard.com/2009/11/24/test-driven-development-with-jquery-qunit/\n * http://net.tutsplus.com/tutorials/javascript-ajax/how-to-test-your-javascript-code-with-qunit/\n * http://twoguysarguing.wordpress.com/2010/11/02/make-javascript-tests-part-of-your-build-qunit-rhino/\n * http://martinfowler.com/articles/nonDeterminism.html\n *\n * BDD\n * https://github.com/joshuaclayton/specit\n */\n\n/*jslint browser: true, sloppy: true, white: true, nomen: false, plusplus: false, maxerr: 1000, indent: 3 */\n\n/*properties\n    cleanTestPlan, cleanUserAgent, extraTests, ready, replace, result, setup,\n    teardown\n*/\n\n/*global QUnitChainer, asyncTest, divide, document, equal, expect, jQuery, module, ok, run_tests, deepEqual, setTimeout, start, test\n*/\n\n// Clean up the user agent and test plan name for storage\nQUnitChainer.cleanUserAgent = function (/* userAgent */) {\n   return 'mozilla';\n};\nQUnitChainer.cleanTestPlan = function (testPlan) {\n   testPlan = testPlan.replace('http://sandbox.bsac.com/ipad-testing/', '');\n   return testPlan;\n};\n\nfunction run_tests() {\n   module(\"Basic Unit Test\");\n\n   test(\"Sample test\", function()\n   {\n      expect(1);\n      var expected = 2,  result = divide(4,2);\n      equal(result, expected, 'divide(4,2) should be ' + expected);\n   });\n\n   test(\"Sample test repeat\", function()\n   {\n      expect(1);\n      var expected = 2,  result = divide(4,2);\n      equal(result, expected, 'divide(4,2) should be ' + expected);\n   });\n\n   module(\"Failing Unit Test with setup and teardown code\", {\n      setup: function() {\n         this.extraTests = 2;\n         this.result = divide(4,2);\n         ok(true, \"setup tests: one extra assert per test\");\n      },\n      teardown: function() {\n         ok(true, \"teardown tests: and one extra assert after each test\");\n      }\n   });\n\n   test(\"Sample test fails\", function()\n   {\n      expect(1 + this.extraTests);\n      var expected = 2;\n      equal(this.result, expected, 'divide(4,2) should be ' + expected);\n   });\n\n   test(\"Sample test fails again\", function()\n   {\n      expect(1 + this.extraTests);\n      var expected = 2;\n      equal(this.result, expected, 'divide(4,2) should be ' + expected);\n   });\n\n   module(\"Broken Unit Test\");\n\n   test(\"Sample test count wrong\", function()\n   {\n      expect(1);\n      var expected = 2,  result = divide(4,2);\n      equal(result, expected, 'divide(4,2) should be ' + expected);\n   });\n\n   function myAjax(rcCallback, delay) {\n      setTimeout(function () {\n         rcCallback(true);\n      }, delay);\n   }\n\n   module(\"Asynchronous Test (ajax, etc)\");\n   asyncTest(\"Delayed action tests\", function()\n   {\n      // How long to wait for tests to complete before resume testing\n      var WAIT = 300;\n      // Number of assertions to expect before the timeout\n      expect(2);\n\n      myAjax(function (value) {\n         deepEqual(true, value, 'ajax result should be');\n      }, 100);\n      myAjax(function (value) {\n         deepEqual(true, value, 'another ajax result should be');\n      }, 100);\n      // Wait for the tests to complete before continuing on the test plan\n      setTimeout(function () {\n         start();\n      }, WAIT);\n   });\n}\n\njQuery(document).ready(function() {\n   run_tests();\n});\n",
-			"file": "QUnitChainer/_test_passes/test-plan.js",
-			"file_size": 3367,
-			"file_write_time": 130374704982316115,
-			"settings":
-			{
-				"buffer_size": 3367,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/someJavascript.js",
-			"settings":
-			{
-				"buffer_size": 194,
-				"line_ending": "Unix",
-				"name": "function someJavascript () {"
-			}
-		},
-		{
-			"file": "node_modules/qunitjs/test/headless.html",
-			"settings":
-			{
-				"buffer_size": 673,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": ".npmignore",
-			"settings":
-			{
-				"buffer_size": 95,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "LICENSE",
-			"settings":
-			{
-				"buffer_size": 1209,
-				"line_ending": "Unix",
-				"name": "This is free and unencumbered software released in"
+				"buffer_size": 6582,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -219,13 +114,7 @@
 	},
 	"console":
 	{
-		"height": 773.0,
-		"history":
-		[
-			"ls",
-			"git-repocheck.sh",
-			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
-		]
+		"height": 773.0
 	},
 	"distraction_free":
 	{
@@ -238,6 +127,31 @@
 	},
 	"file_history":
 	[
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/.gitignore",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/.jshintignore",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/test/qunit/_badJS.js",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/css/style.css",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/html/index.html",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/html/benchmark-test.html",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/test/benchmark-this.js",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/test/qunit/qunit-test.html",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/test/benchmark-test.html",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/QUnitChainer/sample/test-plan.js",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/lib/someJavascript.js",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/QUnitChainer/QUnitChainer.js",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/QUnitChainer/qunitchainer.css",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/QUnitChainer/spec/SpecHelper.js",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/QUnitChainer/spec/QUnitChainerSpec.js",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/QUnitChainer/sample/test-this-object.js",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/QUnitChainer/0-monitor.html",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/QUnitChainer/_test_failures/test-plan.js",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/QUnitChainer/qunit/qunit.new.css",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/QUnitChainer/_test_passes/q-test3.html",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/QUnitChainer/sample/q-test4.html",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/QUnitChainer/_test_passes/test-plan.js",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/node_modules/qunitjs/test/headless.html",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/.npmignore",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/LICENSE",
 		"/home/brent.cowgill/.config/sublime-text-3/Packages/sublime-grunt-build/grunt-build-on-save.py",
 		"/home/brent.cowgill/workspace/play/d3/WebContent/grunt-test/grunt-test-jshint-uglify/grunt-test.sublime-project",
 		"/home/brent.cowgill/.config/sublime-text-3/Packages/Grunt/Default.sublime-commands",
@@ -259,7 +173,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 104.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"/home/brent.cowgill/workspace/play/d3/WebContent"
@@ -270,6 +184,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"real",
+			"background-color",
+			"background",
+			"#a6b779",
+			"#5e7d00",
+			"{",
+			"color",
+			"html-reporter",
+			"module",
+			"regex",
+			"RegExp",
+			"regexp",
+			">\n",
+			"Benchmark",
 			"module",
 			"console",
 			"same",
@@ -336,6 +264,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"green",
 			"QUnit.module",
 			"deepEqual",
 			"note(\">>"
@@ -349,24 +278,23 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
 					"file": "package.json",
-					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1006,
+						"buffer_size": 1195,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								617,
-								617
+								981,
+								981
 							]
 						],
 						"settings":
@@ -376,18 +304,45 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 212.0,
+						"translation.y": 673.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": ".gitignore",
-					"semi_transient": false,
+					"file": "Gruntfile.js",
 					"settings":
 					{
-						"buffer_size": 19,
+						"buffer_size": 5655,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1466,
+								1466
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1140.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": ".jshintignore",
+					"settings":
+					{
+						"buffer_size": 95,
 						"regions":
 						{
 						},
@@ -409,223 +364,24 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "README.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2056,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								140,
-								140
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 3,
-					"file": "Gruntfile.js",
-					"semi_transient": false,
+					"file": "lib/object-to-test.js",
 					"settings":
 					{
-						"buffer_size": 2151,
+						"buffer_size": 2707,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								649,
-								649
+								130,
+								130
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1246.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "QUnitChainer/QUnitChainer.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 56608,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								36554,
-								36554
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 21482.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "QUnitChainer/qunitchainer.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5676,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1340,
-								1340
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 969.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": ".jshintignore",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 54,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								12,
-								12
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "QUnitChainer/spec/SpecHelper.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2903,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								371,
-								371
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "QUnitChainer/spec/QUnitChainerSpec.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 86047,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								591,
-								591
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 264.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "QUnitChainer/sample/test-this-object.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 95,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								42,
-								42
-							]
-						],
-						"settings":
-						{
+							"auto_name": "object-to-test.js",
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -635,250 +391,98 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "QUnitChainer/0-monitor.html",
-					"semi_transient": true,
+					"buffer": 4,
+					"file": "README.txt",
 					"settings":
 					{
-						"buffer_size": 2441,
+						"buffer_size": 2810,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								456,
+								456
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "QUnitChainer/_test_failures/test-plan.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3370,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								821,
-								821
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "QUnitChainer/qunit/qunit.new.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5044,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2733,
-								2733
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2774.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "QUnitChainer/sample/test-plan.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3393,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								945,
-								945
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 373.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "QUnitChainer/_test_passes/q-test3.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2585,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2043,
-								2043
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1038.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "QUnitChainer/sample/q-test4.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2727,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1826,
-								1826
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 860.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "QUnitChainer/_test_passes/test-plan.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3367,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1041,
-								1041
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 132.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "lib/someJavascript.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 194,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_name": "function someJavascript () {",
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1476.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 18,
-					"file": "node_modules/qunitjs/test/headless.html",
-					"semi_transient": false,
+					"buffer": 5,
+					"file": "test/jasmine/jasmine-dark.css",
 					"settings":
 					{
-						"buffer_size": 673,
+						"buffer_size": 4277,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2079,
+								2079
+							]
+						],
+						"settings":
+						{
+							"auto_name": "jasmine.css",
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 480.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "test/qunit/qunit-test.html",
+					"settings":
+					{
+						"buffer_size": 685,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								422,
+								422
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "test/jasmine/jasmine-test.html",
+					"settings":
+					{
+						"buffer_size": 800,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								612,
+								612
 							]
 						],
 						"settings":
@@ -887,62 +491,60 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 23.0,
+						"translation.y": 156.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 19,
-					"file": ".npmignore",
-					"semi_transient": false,
+					"buffer": 8,
+					"file": "test/qunit/qunit-test.js",
 					"settings":
 					{
-						"buffer_size": 95,
+						"buffer_size": 9511,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								20,
-								20
+								7854,
+								7854
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"auto_name": "qunit-test.js",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 7312.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 20,
-					"file": "LICENSE",
-					"semi_transient": false,
+					"buffer": 9,
+					"file": "test/jasmine/jasmine-test.js",
 					"settings":
 					{
-						"buffer_size": 1209,
+						"buffer_size": 6582,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								6533,
+								6533
 							]
 						],
 						"settings":
 						{
-							"auto_name": "This is free and unencumbered software released in",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1702.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -983,9 +585,8 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 367.0
+		"height": 349.0
 	},
-	"project": "pj-ProjectBuilder.sublime-project",
 	"replace":
 	{
 		"height": 72.0
@@ -1015,24 +616,10 @@
 		],
 		"width": 0.0
 	},
-	"select_symbol":
-	{
-		"height": 375.0,
-		"selected_items":
-		[
-		],
-		"width": 408.0
-	},
-	"settings":
-	{
-	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 289.0,
-	"status_bar_visible": true,
-	"template_settings":
-	{
-	}
+	"status_bar_visible": true
 }
