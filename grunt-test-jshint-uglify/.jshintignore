@@ -1,4 +1,5 @@
 **/*.min.js
+dist/qunit/*.js
 lib/3rdparty/**/*.js
 node_modules/**/*.js
 QUnitChainer/**/*.js

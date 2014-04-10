@@ -1,0 +1,88 @@
+NAME                  DESCRIPTION                                                   AUTHOR                DATE              VERSION     KEYWORDS
+angular-cl2           Angular macros for ChlorineJS (a subset of Clojure)           =myguidingstar        2014-04-10 11:36  0.4.0-SNAPSHOT chlorinejs clojure macro angular qunit atom
+AQ                    App which automates QUnit tests                               =krisk                2012-04-26 03:20  0.0.1
+aq                    App which automates QUnit tests                               =krisk                2012-05-13 00:48  0.0.6
+arango.client         ArangoDB javascript client                                    =kaerus               2012-10-26 17:34  0.5.6       arangodb nosql qunit amd
+auto-grunt            A task-based command line auto build tool for static resource. =mozhuoying          2012-08-22 11:12  0.0.2       async cli minify uglify build underscore unit test qunit nodeunit server init scaffold make jake tool
+auto-qunit            Automatically run QUnit tests in browser under NodeJS control =jacek.p              2012-03-09 22:42  0.1.1       qunit browser test auto
+buster-qunit          Execute QUnit tests from buster.js                            =reebalazs            2013-02-12 04:21  0.0.1
+buster-static         QUnit style browser based test runner                         =cjohansen =augustl =dwittner 2013-09-27 10:47 0.6.2
+cl2-contrib           The ChlorineJS user contributions library.                    =myguidingstar        2013-07-10 11:56  0.2.3       qunit chlorinejs clojure contrib macro
+dexter                Dexter is a simple Test Helper to mock methods and to fake the Ajax interface. It's framework independent, running with QUnit, Jasmine, Mocha, etc. =leobalter 2014-02-26 23:01  0.5.1       javascript testing unit mock tdd bdd
+easy-bake             EasyBake provides an efficient environment for CoffeeScript library developers: CoffeeScript/Javascript-based configuration files (no coding needed), workflow (build, watch, clean, preview) tests (QUnit, Jasime, NodeUnit, server-side emulation with ModuleBundler), publishing (git, npm, NuGet). Replace your Cakefile with a Bakefile today! =kmalakoff 2013-11-24 03:48  0.1.9       easybake easy-bake coffeescript library build packaging package utility util
+ember-qunit           unit test helpers for ember                                   =ryanflorence         2014-04-04 20:39  0.1.7
+fis-postpackager-qunit A test plugin for fis to test js file.                       =jasonzhoujc          2014-01-06 07:39  0.0.2       fis qunit
+fis-test-qunit        A test plugin for fis to test js file.                        =jasonzhoujc          2014-01-06 07:29  0.0.1       fis qunit
+grunt                 The JavaScript Task Runner                                    =cowboy =tkellen      2014-03-13 17:36  0.4.4       async cli minify uglify build lodash unit test qunit nodeunit server init scaffold make jake tool
+grunt-amd-test        Generates test runners for AMD-based projects, with QUnit and jasmine support =zship 2013-08-27 18:47  0.4.7       gruntplugin amd
+grunt-blanket-qunit   Headless Blanket.js code coverage and QUnit testing via PhantomJS =dcadwallader     2013-06-19 22:57  0.2.0       gruntplugin
+grunt-contrib-qunit   Run QUnit unit tests in a headless PhantomJS instance.        =cowboy =tkellen =shama =jsoverson =jzaefferer =vladikoff 2014-01-28 04:07 0.4.0
+grunt-croc-qunit      Run QUnit unit tests in a headless PhantomJS instance with code coverage support. Despite grunt-contrib-qunit it has no direct dependency on phantomjs module =shrike 2013-10-28 20:41  0.3.0       gruntplugin qunit grunt phantomjs CROC Istanbul codecoverage code coverage
+grunt-dev-exitprocess The JavaScript Task Runner                                    =dnevnik              2013-03-11 14:02  0.4.0       async cli minify uglify build lodash unit test qunit nodeunit server init scaffold make jake tool
+grunt-junit           A small alteration to grunt's default phantom.js and qunit.js files to generate JUnit xml for qunit test results =johnbender 2013-01-29 22:12  0.1.6       gruntplugin
+grunt-node-qunit      Grunt task running node-qnuit [https://github.com/kof/node-qunit] =axemclion =axemclion-travis 2013-07-07 17:01 2.0.2       gruntplugin grunt node-qunit qunit test
+grunt-nodequnit       Run QUnit tests in the Node.js environment.                   =tbranyen             2013-09-05 03:11  0.2.0       grunt gruntplugin
+grunt-qc              基于grunt修改，支持目录递归[XX/~.js]                                     =vece                 2013-12-20 06:04  0.1.1       task async cli minify uglify build lodash unit test qunit nodeunit server init scaffold make jake tool
+grunt-qunit-amd       Grunt plugin to run Qunit tests on your AMD libraries without having to create html pages. =cedmax 2013-07-25 09:21  0.1.1       gruntplugin
+grunt-qunit-cov       Grunt plugin for qunit unit test with coverage                =afonsof              2013-12-06 17:38  0.3.6       gruntplugin
+grunt-qunit-istanbul  Run QUnit unit tests in a headless PhantomJS instance and create coverage reports with istanbul. =asciidisco =jgerigmeyer 2014-03-16 19:16 0.4.0       gruntplugin
+grunt-qunit-junit     Produce JUnit XML reports for QUnit tests                     =sbrandwoo            2013-12-28 21:50  0.1.0       gruntplugin
+grunt-qunit-minimalist Minimalist phantomjs-based qunit test runner.                =gotdibbs             2013-07-12 23:10  0.1.3       gruntplugin grunt phantomjs qunit minimalist
+grunt-qunit-notifier  Grunt plugin for qunit_notifier.                              =tiveron              2013-10-31 22:50  0.1.0       gruntplugin
+grunt-qunit-serverless A serverless version of the grunt-qunit task                 =jgable               2013-12-29 00:07  0.3.2       gruntplugin grunt qunit phantomjs serverless
+grunt-qunit-sonar     Grunt plugin for qunit unit test with coverage and create jstestdriver report =dovchar 2013-12-23 11:11  0.5.0       gruntplugin sonar sonar qube code health qunit caverage
+grunt-qunit-tap       Grunt plugin for running QUnit tests with TAP reporting       =avaly                2014-04-09 09:59  2.0.0       gruntplugin qunit tap
+grunt-saucelabs       Grunt task running tests using Sauce Labs. Supports QUnit, Jasmine, Mocha and YUI tests =axemclion =axemclion-travis =sourishkrout =jonahss 2014-03-28 00:10 5.1.1       gruntplugin grunt saucelabs test jasmine mocha qunit yui
+grunt-saucelabs-qunit Grunt task running Qunit tests using Saucelabs                =axemclion            2012-11-23 19:24  1.1.1       gruntplugin grunt saucelabs test
+grunt-webdriver-qunit grunt-webdriver-qunit is a grunt plugin to run qunit with webdriver in grunt =bulain 2014-01-12 14:30  0.2.6       grunt webdriver selenium qunit
+gt                    JavaScript native QUnit runner with code coverage and multiple extensions =bahmutov 2014-03-25 15:23  0.8.36      testing unit test unit testing js javascript coverage code coverage istanbul qunit node
+gulp-jasmine          Run Jasmine tests                                             =sindresorhus         2014-03-03 20:11  0.2.0       gulpplugin jasmine test testing unit framework runner tdd bdd qunit spec tap
+gulp-mocha            Run Mocha tests                                               =sindresorhus         2014-01-21 21:14  0.4.1       gulpplugin mocha test testing unit framework runner tdd bdd qunit spec tap
+gulp-mocha-co         Run Mocha tests with co generators                            =rafinskipg           2014-03-26 10:21  0.4.1-co.3  gulpplugin mocha test testing unit framework runner tdd bdd qunit spec tap
+gulp-qunit            Run QUnit unit tests in a headless PhantomJS instance.        =jonkemp              2014-03-26 01:57  0.3.2       gulpplugin test testing qunit
+jsquickunit           Quickly define and run unit tests in any test framework.      =clagms               2013-06-30 21:48  0.4.0       quick-unit qunit test tests jsquickunit js-quick-unit unit js-test-driver
+karma-qunit           A Karma plugin. Adapter for QUnit testing framework.          =vojtajina            2013-09-12 06:55  0.1.1       karma-plugin karma-adapter qunit
+karma-qunit-special-blend A QUnit plugin/hack/wrapper which allows the user to designiate single tests or modules to run. =jarrodctaylor 2014-02-07 04:45  0.0.1       karma-plugin qunit-plugin qunit unit testing test case
+lrqunitrun            run qunit tests on liferay                                    =upwards              2012-12-20 10:35  0.0.1
+macchiato             Testing microframework that runs tests in-browser (QUnit) and under Node.js (expresso + jsdom) =andreyvit 2011-09-19 18:55  0.0.1
+mocha-qunit-ui        An interface for Mocha that implements QUnit's API.           =jugglinmike          2013-12-07 02:13  0.1.1
+nodeunit-dsl          A simple DSL built on top of nodeunit                         =gerad                (prehistoric)     0.0.2       test qunit nodeunit tdd bdd
+patsy                 A CLI based build system for frontend developers              =phun-ky              2014-03-31 08:41  0.2.13-beta gruntjs node javascript css jshint minify handlebars mustache concat templating templates proxy frontend build system framework routing recess uglify dox-foundation grunt qunit nodeunit reload reloadr reloading bake test testing
+qqunit                Testing for sad people                                        =hornairs             2013-05-09 20:15  0.6.0
+qunit                 QUnit testing framework for nodejs                            =kof                  2014-03-10 17:28  0.6.2       TDD QUnit unit testing tests async
+qunit-assert-canvas   A QUnit plugin for asserting individual pixel values within a Canvas element. =jamesmgreene 2013-05-05 07:53  1.0.1       qunit-plugin qunit-assert qunit assert canvas drawImage image draw render
+qunit-assert-close    A QUnit plugin for asserting that a number is approximately equal (or not) to an expected number, within a given tolerance. =jamesmgreene 2014-03-13 11:40  1.1.0       qunit-plugin qunit-assert qunit assert close close-enough roughlyEquals closeTo approximate
+qunit-assert-nodes    A QUnit plugin providing a convenient API for batch acceptance assertions =dsheiko  2013-06-25 07:56  0.0.3       jquery qunit-plugin qunit-assert qunit assert order
+qunit-assert-step     A QUnit plugin for asserting the proper sequence in which the code should execute. =jamesmgreene 2013-05-05 06:19  1.0.1       qunit-plugin qunit-assert qunit assert order step
+qunit-bdd             BDD-style testing for QUnit.                                  =eventualbuddha       2014-04-09 18:57  0.2.0       qunit bdd
+qunit-cli             A command line interface for the QUnit testing framework      =devongovett          2014-02-23 08:58  0.1.4
+qunit-clib            QUnit CLIB helps extend QUnit’s CLI support to many common CLI environments. =jdalton 2013-12-09 01:23  1.3.0       qunit cli
+qunit-composite       Run multiple QUnit test suite pages.                          =krinkle              2013-04-24 12:09  1.0.1       qunit qunit-plugin composite
+qunit-dark            A kind of dark theme for qunit                                =royriojas            2014-03-20 17:47  0.1.5       qunit qunit-plugin qunit-theme qunit theme dark
+qunit-extras          Extends QUnit with extra features and CLI support.            =jdalton              2013-12-09 01:47  1.0.0       qunit cli
+qunit-mocha-ui        A QUnit Interface for Mocha that supports all QUnit's assertion types. =itaylor     2013-12-10 12:37  0.0.5
+qunit-once            QUnit plugin for running module setup and teardown once       =bahmutov             2013-11-09 20:07  0.0.5       test qunit plugin once
+qunit-parameterize    Parameterize - A QUnit plugin For Running Parameterized Tests =astepaniuk           2013-06-09 16:31  0.4.0       qunit unit testing parapeterized test test case
+qunit-parser          qunit-parser ============                                     =aaronshaf            2014-01-31 23:29  0.2.0
+qunit-promises        QUnit plugin that adds assertions to check promises quickly   =bahmutov             2014-03-18 22:15  0.1.3       test qunit plugin promises
+qunit-reporter-junit  Produce JUnit-style XML test reports with QUnit.              =krinkle              2013-04-24 11:49  1.0.1       qunit qunit-plugin qunit-reporter junit
+qunit-special-blend   A QUnit plugin/hack/wrapper which allows the user to designiate single tests or modules to run. =jarrodctaylor 2014-02-07 04:56  0.0.3       qunit-plugin qunit unit testing test case
+qunit-tap             A TAP Output Producer Plugin for QUnit                        =twada                2014-03-20 08:22  1.4.2       TDD QUnit test tests testing TAP
+qunit-theme-gabe      A QUnit theme by Gabe Hendry.                                 =krinkle              2013-05-06 23:33  1.0.1       qunit qunit-plugin qunit-theme
+qunit-theme-ninja     A QUnit theme for ninjas.                                     =krinkle              2013-05-07 00:44  1.0.1       qunit qunit-plugin qunit-theme
+qunit-theme-nv        A QUnit theme.                                                =krinkle              2013-05-07 00:46  1.0.1       qunit qunit-plugin qunit-theme
+qunit-ui              Simple server for reporting the results of qunit tests run against node.js applications. =danderson00 2013-12-05 09:45  0.1.5       PackScript combine minify build
+qunit2node            [QUnit](http://docs.jquery.com/QUnit) adapter for [nodeunit](https://github.com/caolan/nodeunit) =thanpolas 2012-07-07 17:46  0.3.1       qunit nodeunit test testing unit tests
+qunit_notifier        Run Qunit tests headless and show results on a notification system like Growl/Snarl/Libnorify =tiveron 2013-10-31 22:30  0.1.5       qunit notifier growl snarl
+qunitjs               An easy-to-use JavaScript Unit Testing framework.             =jzaefferer =jamesmgreene 2014-01-31 16:57 1.14.0      testing unit jquery
+run-qunit             Run QUnit in the browser and get the results reported back in Node =peterbraden     2013-06-20 00:18  0.5.0       qunit runner test browser
+socket-cl2            Websocket/sockjs wrappers/macros for ChlorineJS               =myguidingstar        2014-01-14 22:06  0.2.0       qunit chlorinejs clojure websocket sockjs macro
+steel                 QUnit-compatible test interface                               =tantalor             2012-03-04 06:09  0.0.1
+strider-qunit         --                                                            =peterbraden =niallo  2013-08-02 17:50  0.2.0
+tere                  Simple Javascript Test Driven Development                     =dgalvez              2013-04-06 16:57  0.1.0       javascript testing unit qunit
+united                QUnit and PhantomJS based testrunner and code coverage generator =asciidisco        2012-04-03 14:16  0.1.0
+where.js              data-driven test method for JavaScript test libraries         =dfkaye               2014-03-16 06:18  0.0.11      where where-data data-table data-driven jasmine mocha nodeunit qunit tape testem
+yadda                 A true BDD framework for JavaScript                           =cressie176           2014-03-25 20:32  0.10.7      BDD Specification Natural Test Behaviour Driven Jasmine Mocha QUnit Nodeunit
+yeti                  Yeti automates browser testing.                               =reid                 2014-02-13 19:21  0.2.11      YUI yuitest TDD BDD test mocha doh jasmine qunit
+zombiewalk            Command line tool for unit testing under zombie.js            =fragphace            2012-08-02 13:43  0.0.1       zombie unit tests qunit
+zuul                  simple browser testing                                        =shtylman             2014-04-03 17:19  1.6.2       zuul testing browser qunit mocha saucelabs

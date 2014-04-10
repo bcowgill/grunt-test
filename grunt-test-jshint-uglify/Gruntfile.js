@@ -20,6 +20,13 @@ module.exports = function(grunt) {
       dist: {
         src: ['lib/*.js'],
         dest: 'dist/<%= pkg.name %>.js'
+      },
+      qunit: {
+        src: [
+          'node_modules/qunitjs/qunit/qunit.js',
+          'node_modules/qunit-assert-close/qunit-assert-close.js'
+        ],
+        dest: 'dist/qunit/qunit-bundle.js'
       }
     },
     uglify: {
