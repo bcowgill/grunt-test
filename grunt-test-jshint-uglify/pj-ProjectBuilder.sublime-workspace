@@ -382,7 +382,8 @@
 						"settings":
 						{
 							"auto_name": "object-to-test.js",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -402,8 +403,8 @@
 						"selection":
 						[
 							[
-								456,
-								456
+								1835,
+								1835
 							]
 						],
 						"settings":
@@ -411,7 +412,7 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1476.0,
+						"translation.y": 1127.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -461,7 +462,8 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -515,7 +517,8 @@
 						"settings":
 						{
 							"auto_name": "qunit-test.js",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 7312.0,
@@ -541,7 +544,8 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 1702.0,
