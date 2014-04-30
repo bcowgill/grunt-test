@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- http://docs.telerik.com/kendo-ui/getting-started/javascript-dependencies -->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Kendo UI Test Page</title>
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.blueopal.min.css" />
+
+    <script src="http://cdn.kendostatic.com/2014.1.318/js/jquery.min.js"></script>
+    <script>
+        if (typeof jQuery == "undefined") {
+            // fallback to local jQuery
+            alert("unable to get jQuery from cdn");
+            //document.write(decodeURIComponent('%3Cscript src="/path/to/local/jquery.min.js" %3E%3C/script%3E'));
+        }
+    </script>
+
+    <script src="http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min.js"></script>
+    <script>
+        if (typeof kendo == "undefined") {
+            alert("unable to get kendo from cdn");
+            // checking for loaded CSS files is cumbersome,
+            // that's why we assume that if the scripts have failed, so have the stylesheets
+
+            // fallback to local Kendo UI stylesheets
+            //document.write(decodeURIComponent('%3Clink rel="stylesheet" href="/path/to/local/kendo.common.min.css" %3C/%3E'));
+            //document.write(decodeURIComponent('%3Clink rel="stylesheet" href="/path/to/local/kendo.blueopal.min.css" %3C/%3E'));
+
+            // fallback to local Kendo UI scripts
+            //document.write(decodeURIComponent('%3Cscript src="/path/to/local/kendo.all.min.js" %3E%3C/script%3E'));
+            // also add kendo.aspnetmvc.min.js or kendo.timezones.min.js, if needed
+        }
+    </script>
+</head>
+<body>
+   <h1>Kendo UI Test Page</h1>
+   <div id="all-kendo-ui">
+
+   <!-- HTML element from which the Kendo DatePicker would be initialized -->
+   <div>
+   <label for="datepicker">datepicker</label><input id="datepicker" />
+   </div>
+
+   <div>
+   <label for="numerictextbox">numerictextbox</label><input data-role="numerictextbox" data-change="numerictextbox_change" id="numerictextbox" />
+   </div>
+
+   <div>
+   <label for="view">view</label><div data-role="view" id="view">
+   <div data-role="kendo.ui.ListView" style="height: 40px;"></div>
+   </div>
+   </div>
+
+   <div>
+   <label for="autocomplete">autocomplete</label>
+   <input data-role="autocomplete"
+           data-ignore-case="true"
+           data-text-field="name"
+           data-template="autocomplete-template"
+           data-source="{data: [{firstName: 'John', lastName: 'Doe', name: 'John Doe'},{firstName: 'Jane', lastName: 'Doe', name: 'Jane Doe'}]}" />
+
+   <!-- HTML element from which the Kendo Radial Gauge would be initialized -->
+   <div>
+   <script id="autocomplete-template" type="text/x-kendo-template">
+        <span>#: lastName #, #: firstName #</span>
+   </script>
+
+   <label for="gauge">gauge</label><div id="gauge"></div>
+   </div>
+
+   </div>
+
+   <script>
+      $(function() {
+         // Initialize the Kendo DatePicker by calling the kendoDatePicker jQuery plugin
+         $("#datepicker").kendoDatePicker();
+         $("#gauge").kendoRadialGauge();
+         kendo.init($('#all-kendo-ui'));
+      });
+
+      function numerictextbox_change() {
+         console.dir({ 'where': 'numerictextbox_change()', 'this': this, 'arguments': arguments });
+      }
+   </script>
+</body>
+</html>
