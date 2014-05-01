@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Test of prevention of indentation spaces from affecting layout</title>
+    <link rel="stylesheet" href="../css/zerowidthspaces.css" />
+</head>
+<body>
+   <h1>Test of prevention of indentation spaces from affecting layout</h1>
+   <div id="indentation-layout">
+   <h2>A table where indentation affects layout</h2>
+						<table class="blistable">
+							<tr valign="top">
+								<td colspan="2">
+									<h4>Volume Estimation</h4>
+									<br/>
+									<label>
+										<input data-bind="checked: estimate_volume" id="estimate_volume" name="estimate_volume" type="checkbox"/>
+										Test as ghost campaign for volume estimation
+									</label>
+								</td>
+							</tr>
+							<tr valign="top">
+								<td colspan="2">
+									<h4>Total Delivery and Budget *</h4>
+									<br/>
+									<table cellpadding="0" cellspacing="0" width="100%">
+										<tr>
+											<td width="50">
+												<table cellpadding="0" cellspacing="0" width="100%">
+													<tr valign="top">
+														<td width="120">Total Budget (BUY) $ *</td>
+														<td>
+															<input class="k-textbox" data-bind="value: budget" id="total_budget" name="total_budget" readonly onchange="updateTotalImpressions();" type="text"/>
+															<br/>
+															<div id="total_budget_error" style="clear: both;"></div>
+														</td>
+													</tr>
+													<tr valign="top">
+														<td width="120">Total Budget (Agency) *</td>
+														<td>
+															<input class="k-textbox" data-bind="value: s_budget" id="sell_total_budget" name="sell_total_budget" onchange="updateTotalImpressions();" readonly type="text"/>
+															<br/>
+															<div id="sell_total_budget_error" style="clear: both;"></div>
+														</td>
+													</tr>
+													<tr valign="top">
+														<td>Total Impressions</td>
+														<td>
+															<input class="k-textbox" disabled id="total_impression_limit" size="15" type="text"/>
+															<div id="total_impression_limit_error"></div>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									<h4>CPM or CPC rate (BUY) $ *</h4>
+									<br/>
+									<table cellpadding="0" cellspacing="0" width="100%">
+										<tr>
+											<td align="center" height="40" width="150"><input type="text" data-bind="value: cpm" class="k-textbox" style="width: 150px;" id="bid_price" name="bid_price" /></td>
+										</tr>
+									</table>
+									<h4>CPM or CPC rate (SELL)
+										<span style="color: red;">(LOCKED)</span> $</h4>
+									<br/>
+									<table cellpadding="0" cellspacing="0" width="100%">
+										<tr>
+											<td align="center" height="40" width="150"><input type="text" data-bind="value: s_cpm" class="k-textbox" style="width: 150px;" id="s_bid_price" name="s_bid_price" disabled /></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<h4>Daily Delivery *</h4>
+									<br/>
+									<table cellpadding="0" cellspacing="0" width="100%">
+										<tr>
+											<td width="50">
+												<table cellpadding="0" cellspacing="0" width="100%">
+
+													<tr valign="top">
+														<td width="120">Daily Budget $ *</td>
+														<td>
+															<input class="k-textbox" data-bind="value: daily_limit_static" id="daily_limit_static" name="daily_limit_static" readonly  type="text"/>
+															<br/>
+															<div id="daily_limit_static_error" style="clear: both;"></div>
+														</td>
+													</tr>
+													<tr valign="top">
+														<td width="120">Daily Budget (Agency) $ *</td>
+														<td>
+															<input class="k-textbox" data-bind="value: s_daily_limit_static" id="sell_daily_limit_static" name="sell_daily_limit_static" onchange="updateDailyImpressions();" readonly type="text"/>
+															<br/>
+															<div id="sell_daily_limit_static_error" style="clear: both;"></div>
+														</td>
+													</tr>
+
+													<tr valign="top">
+														<td>Daily Impressions</td>
+														<td>
+															<input class="k-textbox" data-bind="value: impression_limit" id="impression_limit" readonly size="15" type="text"/>
+															<div id="impression_limit_error"></div>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									<table cellpadding="0" cellspacing="0" width="100%">
+										<tr>
+											<td height="40" width="100">
+												<h4>Click Capping</h4>
+												<br/>
+												<table cellpadding="0" cellspacing="0" class="label_hightlight" width="100%">
+													<tr>
+														<td width="15px">
+															<input class="checkbox" data-bind="checked: has_click_limit" id="ccapping_no" name="ccapping" type="radio" value="no"/>
+														</td>
+														<td><label class="checkbox" for="ccapping_no">No cap on clicks</label></td>
+													</tr>
+													<tr>
+														<td width="15px">
+															<input class="checkbox" data-bind="checked: has_click_limit" id="ccapping_yes" name="ccapping" type="radio" value="yes"/>
+														</td>
+														<td><label class="checkbox" for="ccapping_yes">Clicks a day</label></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td><input class="k-textbox" data-bind="value: click_limit" id="click_limit" size="15" style="width: 150px" type="text"/></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+   </div>
+   <hr/>
+   <div id="indentation-immune-layout">
+   <h2>A table where indentation does not affect layout</h2>
+						<table class="blistable no-spacing">
+							<tr valign="top">
+								<td colspan="2">
+									<h4>Volume Estimation</h4>
+									<br/>
+									<label>
+										<input data-bind="checked: estimate_volume" id="estimate_volume" name="estimate_volume" type="checkbox"/>
+										Test as ghost campaign for volume estimation
+									</label>
+								</td>
+							</tr>
+							<tr valign="top">
+								<td colspan="2">
+									<h4>Total Delivery and Budget *</h4>
+									<br/>
+									<table cellpadding="0" cellspacing="0" class="no-spacing" width="100%">
+										<tr>
+											<td width="50">
+												<table cellpadding="0" cellspacing="0" class="no-spacing" width="100%">
+													<tr valign="top">
+														<td width="120">Total Budget (BUY) $ *</td>
+														<td>
+															<input class="k-textbox" data-bind="value: budget" id="total_budget" name="total_budget" readonly onchange="updateTotalImpressions();" type="text"/>
+															<br/>
+															<div id="total_budget_error" style="clear: both;"></div>
+														</td>
+													</tr>
+													<tr valign="top">
+														<td width="120">Total Budget (Agency) *</td>
+														<td>
+															<input class="k-textbox" data-bind="value: s_budget" id="sell_total_budget" name="sell_total_budget" onchange="updateTotalImpressions();" readonly type="text"/>
+															<br/>
+															<div id="sell_total_budget_error" style="clear: both;"></div>
+														</td>
+													</tr>
+													<tr valign="top">
+														<td>Total Impressions</td>
+														<td>
+															<input class="k-textbox" disabled id="total_impression_limit" size="15" type="text"/>
+															<div id="total_impression_limit_error"></div>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									<h4>CPM or CPC rate (BUY) $ *</h4>
+									<br/>
+									<table cellpadding="0" cellspacing="0" class="no-spacing" width="100%">
+										<tr>
+											<td align="center" height="40" width="150"><input type="text" data-bind="value: cpm" class="k-textbox" style="width: 150px;" id="bid_price" name="bid_price" /></td>
+										</tr>
+									</table>
+									<h4>CPM or CPC rate (SELL)
+										<span style="color: red;">(LOCKED)</span> $</h4>
+									<br/>
+									<table cellpadding="0" cellspacing="0" class="no-spacing" width="100%">
+										<tr>
+											<td align="center" height="40" width="150"><input type="text" data-bind="value: s_cpm" class="k-textbox" style="width: 150px;" id="s_bid_price" name="s_bid_price" disabled /></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<h4>Daily Delivery *</h4>
+									<br/>
+									<table cellpadding="0" cellspacing="0" class="no-spacing" width="100%">
+										<tr>
+											<td width="50">
+												<table cellpadding="0" cellspacing="0" class="no-spacing" width="100%">
+
+													<tr valign="top">
+														<td width="120">Daily Budget $ *</td>
+														<td>
+															<input class="k-textbox" data-bind="value: daily_limit_static" id="daily_limit_static" name="daily_limit_static" readonly  type="text"/>
+															<br/>
+															<div id="daily_limit_static_error" style="clear: both;"></div>
+														</td>
+													</tr>
+													<tr valign="top">
+														<td width="120">Daily Budget (Agency) $ *</td>
+														<td>
+															<input class="k-textbox" data-bind="value: s_daily_limit_static" id="sell_daily_limit_static" name="sell_daily_limit_static" onchange="updateDailyImpressions();" readonly type="text"/>
+															<br/>
+															<div id="sell_daily_limit_static_error" style="clear: both;"></div>
+														</td>
+													</tr>
+
+													<tr valign="top">
+														<td>Daily Impressions</td>
+														<td>
+															<input class="k-textbox" data-bind="value: impression_limit" id="impression_limit" readonly size="15" type="text"/>
+															<div id="impression_limit_error"></div>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									<table cellpadding="0" cellspacing="0" class="no-spacing" width="100%">
+										<tr>
+											<td height="40" width="100">
+												<h4>Click Capping</h4>
+												<br/>
+												<table cellpadding="0" cellspacing="0" class="label_hightlight no-spacing" width="100%">
+													<tr>
+														<td width="15px">
+															<input class="checkbox" data-bind="checked: has_click_limit" id="ccapping_no" name="ccapping" type="radio" value="no"/>
+														</td>
+														<td><label class="checkbox" for="ccapping_no">No cap on clicks</label></td>
+													</tr>
+													<tr>
+														<td width="15px">
+															<input class="checkbox" data-bind="checked: has_click_limit" id="ccapping_yes" name="ccapping" type="radio" value="yes"/>
+														</td>
+														<td><label class="checkbox" for="ccapping_yes">Clicks a day</label></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td><input class="k-textbox" data-bind="value: click_limit" id="click_limit" size="15" style="width: 150px" type="text"/></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+   </div>
+</body>
+</html>

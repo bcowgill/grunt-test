@@ -1,0 +1,66 @@
+/*  Font NoSpace
+ *    a font with zero width spaces to prevent spaces from affecting layout in inline-block elements.
+ *
+ *    http://davidwalsh.name/remove-whitespace-inline-block
+ *    Jason P. Cochrane December 9, 2013
+ *    There’s actually a really clean way to remove whitespace that’s both easy *and* semantic.
+ *    It’s called a custom font with zero-width spaces. You just change the font on the container to
+ *    the linked font, the children back again, and voila. Here’s a download to the font I just cooked
+ *    up in font-forge with the css @font-face declaration included. Suit to taste. (This link is to
+ *    Google Drive; click File > Download to save to your computer)
+ *    https://drive.google.com/file/d/0B8W6UmdG-DTVbThfWkI5M1NYRVE/edit?usp=sharing
+ *
+ *    The problem occurs when you have:
+ *    <table>
+ *      <tr>
+ *         <td> content </td>
+ *         <td> content </td>
+ *      </tr>
+ *    </table>
+ *
+ *    The spaces between table tr td elements can affect alignment of table elements.
+ *    You would normally have to remove all spacing to prevent this:
+ *
+ *    <table><tr><td> content </td><td> content </td></tr></table>
+ *
+ *    Using this font you can instead tag the table with no-spacing class to prevent spaces affecting layout
+ *
+ *    <table class="no-spacing">
+ *      <tr>
+ *         <td> content </td>
+ *         <td> content </td>
+ *      </tr>
+ *    </table>
+ *
+ *    -------------------------------------------------------
+ *
+ *    License
+ *    -------------------------------------------------------
+ *
+ *    Contact
+ *    -------------------------------------------------------
+ *
+ */
+@font-face{
+	font-family: 'NoSpace';
+	src: url('../font/zerowidthspaces.eot');
+	src: url('../font/zerowidthspaces.eot?#iefix') format('embedded-opentype'),
+	     url('../font/zerowidthspaces.woff') format('woff'),
+	     url('../font/zerowidthspaces.ttf') format('truetype'),
+	     url('../font/zerowidthspaces.svg#NoSpace') format('svg');
+}
+
+/* default font to use */
+body {
+	font-family: "Open Sans Condensed", sans-serif;
+}
+
+/* class to apply no spacing font so that indentation spacing doesn't affect layout
+   for example between table/tr/td elements and ol/li ul/li */
+.no-spacing, table.no-spacing tbody, table.no-spacing thead, table.no-spacing tfoot, table.no-spacing tr {
+	font-family: 'NoSpace';
+}
+/* rules to restore font within no-spacing table cells */
+table.no-spacing th, table.no-spacing td, table.no-spacing th *, table.no-spacing td * {
+	font-family: "Open Sans Condensed", sans-serif;
+}
