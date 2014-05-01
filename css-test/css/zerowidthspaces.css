@@ -57,10 +57,22 @@ body {
 
 /* class to apply no spacing font so that indentation spacing doesn't affect layout
    for example between table/tr/td elements and ol/li ul/li */
-.no-spacing, table.no-spacing tbody, table.no-spacing thead, table.no-spacing tfoot, table.no-spacing tr {
+.no-spacing,
+table.no-spacing tbody,
+table.no-spacing thead,
+table.no-spacing tfoot,
+table.no-spacing colgroup,
+table.no-spacing col,
+table.no-spacing tr {
 	font-family: 'NoSpace';
 }
+
 /* rules to restore font within no-spacing table cells */
-table.no-spacing th, table.no-spacing td, table.no-spacing th *, table.no-spacing td * {
+table.no-spacing th,
+table.no-spacing td,
+table.no-spacing caption,
+table.no-spacing th *,
+table.no-spacing td *,
+table.no-spacing caption * {
 	font-family: "Open Sans Condensed", sans-serif;
 }
