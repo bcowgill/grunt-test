@@ -89,6 +89,26 @@
 				"buffer_size": 6582,
 				"line_ending": "Windows"
 			}
+		},
+		{
+			"file": "html/test-ignore-space-inline-block.html",
+			"settings":
+			{
+				"buffer_size": 731,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "li {  }\n\n.yui3-g {\n    letter-spacing: -0.31em; /* Webkit: collapse white-space between units */\n    *letter-spacing: normal; /* reset IE < 8 */\n    *word-spacing: -0.43em; /* IE < 8: collapse white-space between units */\n    text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */\n}\n\n/* Opera as of 12 on Windows needs word-spacing.\n   The \".opera-only\" selector is used to prevent actual prefocus styling\n   and is not required in markup.\n*/\n.opera-only :-o-prefocus,\n.yui3-g {\n    word-spacing: -0.43em;\n}\n\n.yui3-u {\n    display: inline-block;\n    zoom: 1; *display: inline; /* IE < 8: fake inline-block */\n    letter-spacing: normal;\n    word-spacing: normal;\n    vertical-align: top;\n    text-rendering: auto;\n}",
+			"file": "css/test-ignore-space-inline-block.css",
+			"file_size": 7,
+			"file_write_time": 130430823347266986,
+			"settings":
+			{
+				"buffer_size": 746,
+				"line_ending": "Windows",
+				"name": "test-ignore-space-inline-block.css"
+			}
 		}
 	],
 	"build_system": "Packages/sublime-grunt-build/grunt.sublime-build",
@@ -278,7 +298,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 11,
 			"sheets":
 			[
 				{
@@ -549,6 +569,61 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 1702.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "html/test-ignore-space-inline-block.html",
+					"settings":
+					{
+						"buffer_size": 731,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								550,
+								550
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "css/test-ignore-space-inline-block.css",
+					"settings":
+					{
+						"buffer_size": 746,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								314,
+								314
+							]
+						],
+						"settings":
+						{
+							"auto_name": "test-ignore-space-inline-block.css",
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 186.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
