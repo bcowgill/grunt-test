@@ -34,7 +34,9 @@
     "grunt-lint5": "~0.3.0",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-uglify": "~0.2.7"
+    "grunt-contrib-uglify": "~0.2.7",
+    "less": "~1.7.0",
+    "grunt-contrib-less": "~0.11.0"
   },
   "optionalDevDependencies": {
     "sublime-grunt-build": "~1.1.1"
