@@ -1,0 +1,42 @@
+{
+  "private": true,
+  "license": "Unlicense",
+  "version": "0.0.1",
+  "name": "css-test",
+  "title": "css-test",
+  "main": "css-test.js",
+  "description": "A package.json and Gruntfile.js for private build use. csslint, less, etc.",
+  "keywords": [
+    "less",
+    "csslint",
+    "uglify",
+    "concat"
+  ],
+  "author": "Brent S.A. Cowgill",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "directories": {
+    "doc": "./doc",
+    "man": "./man",
+    "lib": "./lib",
+    "bin": "./bin"
+  },
+  "config": {
+    "port": "8919"
+  },
+  "scripts": {
+    "devwebserver": "webserver.sh"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-csslint": "~0.2.0",
+    "grunt-lint5": "~0.3.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.7"
+  },
+  "optionalDevDependencies": {
+    "sublime-grunt-build": "~1.1.1"
+  }
+}
