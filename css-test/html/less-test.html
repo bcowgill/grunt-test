@@ -3,10 +3,13 @@
 <html>
 <head>
 <title>Test of Less.js on the server side</title>
-<!-- Must compile style sheet with lessc less/styles.less > dist/styles.less.css -->
+<!-- Must compile style sheet with
+   lessc --line-numbers=comments --modify-var='frontend=false' --modify-var='theme=server' less/styles.less > dist/styles.less.css -->
 <link rel="stylesheet" type="text/css" href="../dist/styles.less.css" />
 </head>
 <body>
-<p>Some text, is it styled right?</p>
+<h1>Server Side Less</h1>
+<p>Some text styled by less on the back end, is it styled right? [yellow on black]</p>
+<p class="theme">Some text controlled by the imported theme. [lime on black]</p>
 </body>
 </html>

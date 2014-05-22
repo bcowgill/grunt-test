@@ -1,13 +1,36 @@
 /* styles.less */
+/* Docs: http://lesscss.org/features/  */
 
-@bg: #000;
-@fg: #FFF;
+/* Use this command to build on back end:
+	lessc --line-numbers=comments --modify-var='frontend=false' --modify-var='theme=server' less/styles.less > dist/styles.less.css
+*/
+@frontend: true;
+@theme: front;
+
+@bg: black;
+@fg: yellow;
+@fgfront: white;
 @font: ProFontWindows, monospace, serif;
 @fsize: 24px;
+
+/* Another way to override, change the import path... */
+@import "@{theme}/my/theme.less";
 
 body {
 	font-family: @font;
 	font-size: @fsize;
 	color: darken(@fg, 30%);
 	background-color: @bg;
+}
+/* in front end we will set a value to change foreground color */
+body when (@frontend = true) {
+	color: darken(@fgfront, 30%);
+}
+
+.theme {
+	color: @fgtheme; /* var defined in the appropriate theme.less file */
+}
+
+.in-styles-less {
+	display: block;
 }

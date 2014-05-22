@@ -17,6 +17,9 @@ lessc --clean-css styles.less > styles.min.css
 # include filename and line numbers in included ouput
 lessc --line-numbers=comments mediaquery or all
 
+# override a value defined in the .less file
+lessc --modify-var='mode=debug' styles.less > styles.css
+
 Grunt, package.json
 
 npm install less --save-dev
