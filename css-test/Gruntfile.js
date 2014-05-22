@@ -12,16 +12,6 @@ module.exports = function(grunt) {
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
-    concat: {
-      options: {
-        banner: '<%= banner %>',
-        stripBanners: true
-      },
-      dist: {
-        src: ['css/*.css'],
-        dest: 'dist/<%= pkg.name %>.css'
-      },
-    },
     jshint: {
       options: {
         //'indent': 3,
@@ -57,15 +47,40 @@ module.exports = function(grunt) {
       gruntfile: {
         src: ['package.json', 'Gruntfile.js']
       },
-	},
+    },
+	// See docs for options supported: https://github.com/gruntjs/grunt-contrib-less
+    less: {
+      development: {
+        options: {
+          paths: ['css'],
+		  dumpLineNumbers: 'comments',  // comments, mediaquery, all
+          modifyVars: {
+            frontend: false,
+            theme: 'server'
+          }
+        },
+        files: {
+          'dist/styles.less.css': 'less/styles.less'
+        }
+      },
+      production: {
+        options: {
+          paths: ['css'],
+          cleancss: false // true
+        },
+        files: {
+          'dist/styles.front.css': 'less/styles.less'
+        }
+      }
+    },
     csslint: {
       strict: {
         options: { import: 2 },
-        src: ['css/*.css']
+        src: ['dist/*.css']
       },
       lax: {
         options: { import: false },
-        src: ['css/*.css']
+        src: ['dist/*.css']
       }
     },
     lint5: {
@@ -75,7 +90,8 @@ module.exports = function(grunt) {
         'username': 'abcd'
       },
       templates: [
-        'html/index.html'
+        'html/less-test.html',
+        'html/less-test-client-side.html'
       ],
       ignoreList: [
         'message to be ignored'
@@ -94,17 +110,15 @@ module.exports = function(grunt) {
   });
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-lint5');
+  grunt.loadNpmTasks('grunt-contrib-less');
 
   // Default task.
   grunt.registerTask('default', ['all']);
-  grunt.registerTask('all', ['jshint:gruntfile', 'concat', 'uglify',
-    'csslint:strict', 'lint5']);
-  grunt.registerTask('single', ['jshint:single']);
+  grunt.registerTask('all', ['jshint:gruntfile', 'less', 'csslint:strict', 'lint5']);
+  grunt.registerTask('single', ['jshint:gruntfile', 'less']);
 
 };
