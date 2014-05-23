@@ -118,7 +118,8 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['all']);
-  grunt.registerTask('all', ['jshint:gruntfile', 'less', 'csslint:strict', 'lint5']);
+  grunt.registerTask('all', ['jshint:gruntfile', 'less',
+    'csslint:strict', 'lint5:validate', 'lint5:legacy']);
   grunt.registerTask('single', ['jshint:gruntfile', 'less']);
 
 };

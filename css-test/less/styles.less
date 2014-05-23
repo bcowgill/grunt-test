@@ -19,10 +19,12 @@
 body {
 	font-family: @font;
 	font-size: @fsize;
-	color: darken(@fg, 30%);
 	background-color: @bg;
 }
 /* in front end we will set a value to change foreground color */
+body when (@frontend = false) {
+	color: darken(@fg, 30%);
+}
 body when (@frontend = true) {
 	color: darken(@fgfront, 30%);
 }
