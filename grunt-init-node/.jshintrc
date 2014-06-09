@@ -14,7 +14,7 @@
   "forin": true,
   "freeze": true,
   "immed": true,
-  "latedef": true, // was nofunc 
+  "latedef": true,     // was nofunc
   "newcap": true,
   "noarg": true,
   "sub": false,        // was true
