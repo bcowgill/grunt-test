@@ -13,7 +13,10 @@
     "uglify",
     "concat"
   ],
-  "author": "Brent S.A. Cowgill",
+  "author": {
+    "name": "Brent S.A. Cowgill",
+    "email": "brent@blismedia.com"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
