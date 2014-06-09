@@ -1,4 +1,5 @@
-// Comments are allowed, coolio
+// jshint warning codes are in:
+// node_modules/grunt-contrib-jshint/node_modules/jshint/src/messages.js
 {
   "node": true,
   "indent": 2,  // my default usually 3
