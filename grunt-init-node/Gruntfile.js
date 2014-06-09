@@ -1,6 +1,7 @@
-'use strict';
-
+/*jshint indent: 2, maxstatements: 100 */
+/*global module:false*/
 module.exports = function(grunt) {
+  'use strict';
 
   // Project configuration.
   grunt.initConfig({
@@ -12,7 +13,10 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc'
       },
       gruntfile: {
-        src: 'Gruntfile.js'
+        src: ['package.json', 'Gruntfile.js']
+      },
+      single: {
+        src: ['package.json'] // set to just check a single file
       },
       lib: {
         src: ['lib/**/*.js']
@@ -43,6 +47,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'nodeunit']);
+  grunt.registerTask('default', ['all']);
+  grunt.registerTask('all', ['jshint:gruntfile', 'jshint:lib', 'jshint:test', 'nodeunit']);
+  grunt.registerTask('single', ['jshint:single']);
 
 };

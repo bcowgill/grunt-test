@@ -22,7 +22,7 @@ var grunt_init_test_node = require('../lib/grunt-init-test-node.js');
     test.ifError(value)
 */
 
-exports['awesome'] = {
+exports.awesome = {
   setUp: function(done) {
     // setup here
     done();

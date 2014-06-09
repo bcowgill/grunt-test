@@ -1,14 +1,36 @@
+// Comments are allowed, coolio
 {
+  "node": true,
+  "indent": 2,  // my default usually 3
+  "maxparams": 4,
+  "maxdepth": 3,
+  "maxstatements": 11,
+  "maxcomplexity": 5,
+  "maxlen": 100,
+  "maxerr": 5000,
+  "bitwise": true,
   "curly": true,
   "eqeqeq": true,
+  "forin": true,
+  "freeze": true,
   "immed": true,
-  "latedef": "nofunc",
+  "latedef": true, // was nofunc 
   "newcap": true,
   "noarg": true,
-  "sub": true,
+  "sub": false,        // was true
+  "noempty": true,
+  "nonew": true,
+  "plusplus": true,
+  "quotmark": true,
   "undef": true,
-  "unused": true,
-  "boss": true,
-  "eqnull": true,
-  "node": true
+  "unused": "strict",  // was true
+  "boss": false,       // was true
+  "eqnull": false,     // was true
+  "strict": true,
+  "trailing": true,
+  "laxcomma": true,
+  "laxbreak": true,
+  "multistr": true,
+  "smarttabs": true,
+  "globals": {}
 }
