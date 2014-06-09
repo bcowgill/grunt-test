@@ -1,0 +1,33 @@
+// jshint warning codes are in:
+// node_modules/grunt-contrib-jshint/node_modules/jshint/src/messages.js
+{
+	"indent": 3,
+	"maxparams": 4,
+	"maxdepth": 3,
+	"maxstatements": 11,
+	"maxcomplexity": 5,
+	"maxlen": 100,
+	"bitwise": true,
+	"curly": true,
+	"eqeqeq": true,
+	"forin": true,
+	"freeze": true,
+	"immed": true,
+	"latedef": true,
+	"newcap": true,
+	"noarg": true,
+	"noempty": true,
+	"nonew": true,
+	"plusplus": true,
+	"quotmark": true,
+	"undef": true,
+	"unused": "strict",
+	"strict": true,
+	"trailing": true,
+	"laxcomma": true,
+	"laxbreak": true,
+	"multistr": true,
+	"smarttabs": true,
+	"maxerr": 5000,
+	"globals": "{}"
+}
