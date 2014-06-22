@@ -54,11 +54,11 @@ module.exports = function(grunt) {
         dest: 'dist/jasmine/jasmine-bundle.min.js'
       }
     },
-    // jshint warning codes are in:
+    // the jshint warning codes are in:
     // node_modules/grunt-contrib-jshint/node_modules/jshint/src/messages.js
     jshint: {
       options: {
-        //jshintrc: '.jshintrc',
+        //j s hintrc: '.jshintrc',
         //'indent': 3,
         'maxparams': 4,
         'maxdepth': 3,
