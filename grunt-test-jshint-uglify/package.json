@@ -30,6 +30,8 @@
     "port": "8919"
   },
   "scripts": {
+    "docs": "jsdoc --destination doc --recurse test/ lib/",
+    "test": "mocha --reporter spec test/jasmine/ test/mocha-chai/",
     "devwebserver": "webserver.sh"
   },
   "devDependencies": {
@@ -45,7 +47,8 @@
     "qunit-assert-close": "~1.1.0",
     "extend": "~1.2.1",
     "benchmark": "~1.0.0",
-    "jasmine-core": "~2.0.0"
+    "jasmine-core": "~2.0.0",
+    "chai": "^1.9.1"
   },
   "optionalDevDependencies": {
     "QUnitChainer": "bcowgill/QUnitChainer",

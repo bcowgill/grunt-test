@@ -56,7 +56,12 @@ added test/qunit/qunit-test.html .js and lib/object-to-test.js
 Getting jasmine testing (in browser) going
    npm install jasmine-core --save-dev
 
+Getting Mocha/Chai testing going
+npm install -g mocha
+npm install chai --save-dev
 
+Getting jsdoc documentation generation going
+npm install -g jsdoc
 
 
 
