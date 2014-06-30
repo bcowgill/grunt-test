@@ -1,7 +1,7 @@
 /**
-	Test plan for XXX module
+	Test plan for XXX module (chai)
 
-	@file test/XXX-test.js
+	@file test/mocha-chai/XXX-test.js
 	@author Brent S.A. Cowgill
 	@requires XXX
 	@requires chai
@@ -10,6 +10,8 @@
 	@see {@link http://chaijs.com/api/ Chai API Documentation}
 	@see {@link http://visionmedia.github.io/mocha/ Mocha Documentation}
 */
+/*jshint node: true, indent: 4, smarttabs: true, maxlen: 128 */
+/*global beforeEach, describe, it */
 'use strict';
 
 /*
@@ -19,8 +21,8 @@
 	http://visionmedia.github.io/mocha/
 
 	Test suites (mocha):
-		describe(suite, fn);
-		it(tests, fn);
+		describe(suite, [fn]);  // omitting function marks it as a pending suite/spec
+		it(tests, [fn]);
 		describe/it.only(description, fn) // run only one test/case
 		describe/it.skip(suite, fn); // test marked pending and skips execution
 		before(fn);
@@ -83,7 +85,7 @@ var chai = require('chai'),
 	should = chai.should(), // note function call here
 	XXX = {
 		do: function (s) { return s.toUpperCase(); },
-		die: function(s) { throw(Error(s)); }
+		die: function(s) { throw(new Error(s)); }
 	};//require('../lib/XXX');
 
 chai.config.includeStack = true;   // turn on stack trace on assertion failure
@@ -91,31 +93,30 @@ chai.config.showDiff = false;      // turn off reporter diff display
 chai.config.truncateThreshold = 0; // disable truncating actual/expected values
 
 beforeEach(function() {
-	;
-})
+	// setup code before every test
+});
 
 describe('#XXX.method()', function() {
-	it('does something useful', function() {
+	it('.should do something useful', function() {
 		XXX.do('something useful').should.equal('SOMETHING USEFUL');
 	});
-	it('throws an error', function() {
-		assert.throws(function () { XXX.die('horribly and slow') });
+	it('assert.throws an error', function() {
+		assert.throws(function () { XXX.die('horribly and slow'); });
 	});
-	it('throws an error matching regex', function() {
+	it('assert.throws an error matching regex', function() {
 		assert.throws(
-			function () { XXX.die('horribly and slow') },
+			function () { XXX.die('horribly and slow'); },
 			/slow/);
 	});
-	it('throws an error matching regex', function() {
+	it('should.throw an error matching regex', function() {
 		should.Throw(
-			function () { XXX.die('horribly and slow') },
+			function () { XXX.die('horribly and slow'); },
 			/slow/);
 	});
-	it('found within an array', function() {
-		assert.match(
+	it('expect.to.match found within an array', function() {
+		expect(
 			['string in array', 'does it match?'],
-			/match/,
-			"does .match() look in array elements?");
+			'does .match() look in array elements?').to.match(/match/);
 	});
 
 	it('no callback is a pending test.');
