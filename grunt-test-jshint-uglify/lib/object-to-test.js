@@ -1,10 +1,23 @@
-/*jshint indent: 4, maxstatements: 40 */
+/**
+	@classdesc A simple object to be tested.
+	@file lib/object-to-test.js
+
+	@module TestMe
+	@constructor
+	@author Brent S.A. Cowgill
+	@see {@link http://usejsdoc.org/index.html JSDoc Index}
+
+*/
+/*jshint indent: 4, smarttabs: true, maxstatements: 40 */
 /*exported TestMe */
-// lib/object-to-test.js
 
 var TestMe = function () {
 	'use strict';
 
+	/**
+		Used to force tests to fail so you can see what that looks like.
+		@constant
+	*/
 	var FAIL = false ? {
 		mode: 'failure',
 		string: ' FAIL',
@@ -17,26 +30,63 @@ var TestMe = function () {
 		real: 0
 	};
 
+	/**
+		answers with a self reference.
+		@method me
+		@memberof TestMe#
+	*/
 	this.me = function () {
 		return FAIL.mode === 'failure' ? new TestMe() : this;
 	};
 
+	/**
+		answers with the failure mode of the object.
+		@method mode
+		@memberof TestMe#
+	*/
 	this.mode = function () {
 		return FAIL.mode;
 	};
 
+	/**
+		answers with the string converted to upper case.
+		@method name
+		@memberof TestMe#
+		@param {string} string to be converted to upper case.
+		@return {string} the string converted to upper case.
+	*/
 	this.name = function (string) {
 		return string.toUpperCase() + FAIL.string;
 	};
 
+	/**
+		answers with upper cased string
+		@method something
+		@memberof TestMe#
+		@param {string} string to be converted to upper case.
+		@return {string} the string converted to upper case.
+	*/
 	this.something = function (string) {
 		return FAIL.mode === 'failure' ? string : string.toUpperCase();
 	};
 
+	/**
+		answers with a numerical value.
+		@method number
+		@memberof TestMe#
+		@return {number} the numerical value.
+	*/
 	this.number = function () {
 		return 42 + FAIL.number;
 	};
 
+	/**
+		answers with a real number value.
+		@method real
+		@memberof TestMe#
+		@param {string} resultExpect what type of test result is being performed.
+		@return {number} the real number value.
+	*/
 	this.real = function (resultExpect) {
 		if (FAIL.mode === 'failure' && resultExpect === 'resultnot') {
 			return 0.3;
