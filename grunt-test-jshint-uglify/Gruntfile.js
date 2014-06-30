@@ -1,5 +1,7 @@
 /*jshint indent: 2, maxstatements: 100 */
 /*global module:false*/
+
+/* @todo Need to add a test and jsdoc build target. */
 module.exports = function(grunt) {
   'use strict';
   // Project configuration.
