@@ -3,7 +3,8 @@ test:
 
 docs:
 	rm -rf doc
-	jsdoc --destination doc --recurse lib/
+	jsdoc --destination doc --recurse lib/ --tutorials tutorial/ --configure jsdoc.conf.json
+
 
 doc: docs
 

@@ -20,7 +20,7 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['lib/*.js'],
+        src: ['lib/object-to-test.js'],
         dest: 'dist/<%= pkg.name %>.js'
       },
       qunit: {
@@ -184,6 +184,7 @@ module.exports = function(grunt) {
     jsdoc : {
       docs : {
         dest: 'doc',
+        tutorials: 'tutorial',
         src: [
           //'test/**/*.js',
           'lib/**/*.js'

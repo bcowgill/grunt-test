@@ -5,5 +5,9 @@
 		"includePattern":".+(\\.js(doc)?)$",
 		"excludePattern":"(^|\\/|\\\\)_"
 	},
-	"plugins":[]
+	"plugins": [ "plugins/markdown" ],
+	"markdown": {
+		"parser": "gfm",
+		"hardwrap": false
+	}
 }
