@@ -14,6 +14,11 @@ module.exports = function(grunt) {
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
+    clean: {
+      jsdoc: {
+        src: ['doc/']
+      }
+    },
     concat: {
       options: {
         banner: '<%= banner %>',
@@ -209,18 +214,24 @@ module.exports = function(grunt) {
   });
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-qunit');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-csslint');
-  grunt.loadNpmTasks('grunt-lint5');
-  grunt.loadNpmTasks('grunt-jsdoc');
-  grunt.loadNpmTasks('grunt-contrib-watch');
+  [
+    'grunt-contrib-clean',
+    'grunt-contrib-concat',
+    'grunt-contrib-uglify',
+    'grunt-contrib-qunit',
+    'grunt-contrib-jshint',
+    'grunt-contrib-csslint',
+    'grunt-lint5',
+    'grunt-jsdoc',
+    'grunt-contrib-watch'
+  ].forEach(function (task) {
+    grunt.loadNpmTasks(task);
+  });
 
 
   // Default task.
   grunt.registerTask('default', ['all']);
+  grunt.registerTask('docs', ['clean:jsdoc', 'jsdoc']);
   grunt.registerTask('all', [
     'jshint:gruntfile',
     'concat',
@@ -229,7 +240,7 @@ module.exports = function(grunt) {
     'lint5',
     'jshint:lib_test',
     'jshint:dist',
-    'jsdoc'
+    'docs'
   ]);
   grunt.registerTask('single', ['jshint:single']);
   grunt.registerTask('permissive', ['jshint:permissive']);
