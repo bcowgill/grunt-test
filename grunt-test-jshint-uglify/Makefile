@@ -1,8 +1,11 @@
 test:
-    ./node_modules/.bin/mocha --reporter spec test/jasmine/ test/mocha-chai/
+	./node_modules/.bin/mocha --reporter spec test/jasmine/ test/mocha-chai/
 
 docs:
-    jsdoc --destination doc --recurse test/
+	rm -rf doc
+	jsdoc --destination doc --recurse lib/
+
+doc: docs
 
 .PHONY: test
 

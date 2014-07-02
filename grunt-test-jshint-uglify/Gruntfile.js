@@ -180,6 +180,21 @@ module.exports = function(grunt) {
     qunit: {
       files: ['test/**/*.html']
     },
+    // about jsdoc documentation tags: http://usejsdoc.org/
+    jsdoc : {
+      docs : {
+        dest: 'doc',
+        src: [
+          //'test/**/*.js',
+          'lib/**/*.js'
+          //'README.md'
+        ],
+        // jsdoc options: http://usejsdoc.org/about-commandline.html
+        options: {
+          configure: 'jsdoc.conf.json'
+        }
+      }
+    },
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
@@ -197,14 +212,24 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-lint5');
+  grunt.loadNpmTasks('grunt-jsdoc');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
 
   // Default task.
   grunt.registerTask('default', ['all']);
-  grunt.registerTask('all', ['jshint:gruntfile', 'concat', 'uglify',
-    'csslint:strict', 'lint5', 'jshint:lib_test', 'jshint:dist']);
+  grunt.registerTask('all', [
+    'jshint:gruntfile',
+    'concat',
+    'uglify',
+    'csslint:strict',
+    'lint5',
+    'jshint:lib_test',
+    'jshint:dist',
+    'jsdoc'
+  ]);
   grunt.registerTask('single', ['jshint:single']);
   grunt.registerTask('permissive', ['jshint:permissive']);
   grunt.registerTask('qunit', ['jshint', 'qunit', 'concat', 'uglify']);
