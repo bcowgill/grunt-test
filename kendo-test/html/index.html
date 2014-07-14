@@ -35,62 +35,66 @@
     </script>
 </head>
 <body>
-   <h1>Kendo UI Test Page</h1>
-   <div id="all-kendo-ui">
+	<h1>Kendo UI Test Page</h1>
+	<div id="all-kendo-ui">
+		<!-- HTML element from which the Kendo DatePicker would be initialized -->
+		<div>
+			<label for="datepicker">datepicker</label><input id="datepicker" />
+		</div>
 
-   <!-- HTML element from which the Kendo DatePicker would be initialized -->
-   <div>
-   <label for="datepicker">datepicker</label><input id="datepicker" />
-   </div>
+		<div>
+			<label for="numerictextbox">numerictextbox</label><input data-role="numerictextbox" data-change="numerictextbox_change" id="numerictextbox" />
+		</div>
 
-   <div>
-   <label for="numerictextbox">numerictextbox</label><input data-role="numerictextbox" data-change="numerictextbox_change" id="numerictextbox" />
-   </div>
+		<div>
+			<label for="view">view</label>
+			<div data-role="view" id="view">
+				<div data-role="kendo.ui.ListView" style="height: 40px;"></div>
+			</div>
+		</div>
 
-   <div>
-   <label for="view">view</label><div data-role="view" id="view">
-   <div data-role="kendo.ui.ListView" style="height: 40px;"></div>
-   </div>
-   </div>
+		<!-- http://docs.telerik.com/kendo-ui/api/web/autocomplete -->
+		<div>
+			<label for="autocomplete">autocomplete</label>
+			<input
+				data-role="autocomplete"
+				data-text-field="category_name"
+				data-placeholder="what IAB category is it?"
+				data-filter="contains"
+				data-separator="; "
+				data-ignore-case="true"
+				data-highlight-first="true"
+				data-min-length="1"
+				data-delay="5000"
+				data-animation-open-effects="fadeIn zoom:in"
+				data-animation-close-effects="fadeOut zoom:out"
+				data-template="autocomplete-template"
+				data-source="{data: [{id: 1, category_id: 'IAB1', category_name: 'Arts &amp; Entertainment', search: 'IAB1: Arts &amp; Entertainment'},{id: 2, category_id: 'IAB2', category_name: 'Automotive', search: 'IAB2: Automotive'}]}" />
 
-   <!-- http://docs.telerik.com/kendo-ui/api/web/autocomplete -->
-   <div>
-   <label for="autocomplete">autocomplete</label>
-   <input data-role="autocomplete"
-           data-text-field="name"
-           data-placeholder="who do you want?"
-           data-filter="contains"
-           data-separator="; "
-           data-ignore-case="true"
-           data-highlight-first="true"
-           data-min-length="1"
-           data-animation-open-effects="fadeIn zoom:in"
-           data-animation-close-effects="fadeOut zoom:out"
-           data-template="autocomplete-template"
-           data-source="{data: [{firstName: 'John', lastName: 'Doe', name: 'John Doe'},{firstName: 'Jane', lastName: 'Doe', name: 'Jane Doe'}]}" />
+		</div>
+		<script id="autocomplete-template" type="text/x-kendo-template">
+			<span>#: category_id #: #: category_name #</span>
+		</script>
 
-   <!-- HTML element from which the Kendo Radial Gauge would be initialized -->
-   <div>
-   <script id="autocomplete-template" type="text/x-kendo-template">
-        <span>#: lastName #, #: firstName #</span>
-   </script>
+		<div>
+			<!-- HTML element from which the Kendo Radial Gauge would be initialized -->
+			<label for="gauge">gauge</label>
+			<div id="gauge"></div>
+		</div>
 
-   <label for="gauge">gauge</label><div id="gauge"></div>
-   </div>
+	</div>
 
-   </div>
+	<script>
+		$(function() {
+			// Initialize the Kendo DatePicker by calling the kendoDatePicker jQuery plugin
+			$("#datepicker").kendoDatePicker();
+			$("#gauge").kendoRadialGauge();
+			kendo.init($('#all-kendo-ui'));
+		});
 
-   <script>
-      $(function() {
-         // Initialize the Kendo DatePicker by calling the kendoDatePicker jQuery plugin
-         $("#datepicker").kendoDatePicker();
-         $("#gauge").kendoRadialGauge();
-         kendo.init($('#all-kendo-ui'));
-      });
-
-      function numerictextbox_change() {
-         console.dir({ 'where': 'numerictextbox_change()', 'this': this, 'arguments': arguments });
-      }
-   </script>
+		function numerictextbox_change() {
+			console.dir({ 'where': 'numerictextbox_change()', 'this': this, 'arguments': arguments });
+		}
+	</script>
 </body>
 </html>

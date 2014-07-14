@@ -1,11 +1,12 @@
 /**
-	Test plan for XXX module (chai)
-
 	@file test/mocha-chai/XXX-test.js
 	@author Brent S.A. Cowgill
 	@requires XXX
 	@requires chai
 	@requires mocha
+
+	@description
+	Test plan for {@link module:XXX} module (chai)
 
 	@see {@link http://chaijs.com/api/ Chai API Documentation}
 	@see {@link http://visionmedia.github.io/mocha/ Mocha Documentation}
@@ -86,51 +87,62 @@ var chai = require('chai'),
 	XXX = {
 		do: function (s) { return s.toUpperCase(); },
 		die: function(s) { throw(new Error(s)); }
-	};//require('../lib/XXX');
+	},//require('../lib/XXX'),
+	MUSTDO = function () { it('MUSTDO test something'); };
 
 chai.config.includeStack = true;   // turn on stack trace on assertion failure
 chai.config.showDiff = false;      // turn off reporter diff display
 chai.config.truncateThreshold = 0; // disable truncating actual/expected values
 
+describe('jshint', function() {
+	it('expect to be happy', function () { expect(expect).to.be.a('function'); });
+	it('should be happy', function () { should.exist(should); });
+	it('must do something useful', function () { expect(MUSTDO).to.be.a('function'); });
+});
+
 beforeEach(function() {
 	// setup code before every test
 });
 
-describe('#XXX.method()', function() {
-	it('.should do something useful', function() {
-		XXX.do('something useful').should.equal('SOMETHING USEFUL');
-	});
-	it('assert.throws an error', function() {
-		assert.throws(function () { XXX.die('horribly and slow'); });
-	});
-	it('assert.throws an error matching regex', function() {
-		assert.throws(
-			function () { XXX.die('horribly and slow'); },
-			/slow/);
-	});
-	it('should.throw an error matching regex', function() {
-		should.Throw(
-			function () { XXX.die('horribly and slow'); },
-			/slow/);
-	});
-	it('expect.to.match found within an array', function() {
-		expect(
-			['string in array', 'does it match?'],
-			'does .match() look in array elements?').to.match(/match/);
+describe('#XXX', function () {
+
+	describe('.method()', function() {
+		it('.should do something useful', function() {
+			XXX.do('something useful').should.equal('SOMETHING USEFUL');
+		});
+		it('assert.throws an error', function() {
+			assert.throws(function () { XXX.die('horribly and slow'); });
+		});
+		it('assert.throws an error matching regex', function() {
+			assert.throws(
+				function () { XXX.die('horribly and slow'); },
+				/slow/);
+		});
+		it('should.throw an error matching regex', function() {
+			should.Throw(
+				function () { XXX.die('horribly and slow'); },
+				/slow/);
+		});
+		it('expect.to.match found within an array', function() {
+			expect(
+				['string in array', 'does it match?'],
+				'does .match() look in array elements?').to.match(/match/);
+		});
+
+		it('no callback is a pending test.');
+		it.skip('SKIPPED TEST does something useful', function() {
+			XXX.do('with data').should.equal('something useful');
+		});
 	});
 
-	it('no callback is a pending test.');
-	it.skip('SKIPPED TEST does something useful', function() {
-		XXX.do('with data').should.equal('something useful');
+	describe.skip('SKIPPED SUITE .method()', function() {
+		it('does something useful', function() {
+			XXX.do('with data').should.equal('something useful');
+		});
 	});
+
+	describe('IMPLEMENT THIS suite', MUSTDO);
 });
-
-describe.skip('SKIPPED SUITE #XXX.method()', function() {
-	it('does something useful', function() {
-		XXX.do('with data').should.equal('something useful');
-	});
-});
-
 /*
 	======== A Handy Big Chai Test Reference ========
 	http://chaijs.com/guide/styles/
