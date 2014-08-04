@@ -25,6 +25,10 @@ module.exports = function(grunt) {
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
+    /**
+      concatenate files into one big file.
+      @see {@link https://github.com/gruntjs/grunt-contrib-concat About concat grunt plugin}
+    */
     concat: {
       options: {
         banner: '<%= banner %>',
@@ -35,6 +39,10 @@ module.exports = function(grunt) {
         dest: 'dist/<%= pkg.name %>.js'
       }
     },
+    /**
+      minimize the size of code with uglify.
+      @see {@link https://github.com/gruntjs/grunt-contrib-uglify About uglify grunt plugin}
+    */
     uglify: {
       options: {
         banner: '<%= banner %>'

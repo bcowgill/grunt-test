@@ -1,6 +1,5 @@
 /*jshint indent: 2, maxlen: 110, maxstatements: 100 */
 /*global module:false*/
-
 /**
   @file Gruntfile.js
   @author Brent S.A. Cowgill
@@ -28,11 +27,19 @@ module.exports = function(grunt) {
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
+    /**
+      clean up files on disk before build.
+      @see {@link https://github.com/gruntjs/grunt-contrib-clean About clean grunt plugin}
+    */
     clean: {
       jsdoc: {
         src: ['doc/']
       }
     },
+    /**
+      concatenate files into one big file.
+      @see {@link https://github.com/gruntjs/grunt-contrib-concat About concat grunt plugin}
+    */
     concat: {
       options: {
         banner: '<%= banner %>',
@@ -58,6 +65,10 @@ module.exports = function(grunt) {
         dest: 'dist/jasmine/jasmine-bundle.js'
       }
     },
+    /**
+      minimize the size of code with uglify.
+      @see {@link https://github.com/gruntjs/grunt-contrib-uglify About uglify grunt plugin}
+    */
     uglify: {
       options: {
         banner: '<%= banner %>'
@@ -190,7 +201,7 @@ module.exports = function(grunt) {
       }
     },
     /**
-	  Validate html with lint5
+      Validate html with lint5
       @see {@link https://www.npmjs.org/package/grunt-lint5 Grunt lint5 plugin}
     */
     lint5: {
@@ -212,7 +223,7 @@ module.exports = function(grunt) {
       files: ['test/**/*.html']
     },
     /**
-	  Create code documentation
+      Create code documentation
       @see {@link https://github.com/krampstudio/grunt-jsdoc Grunt jsdoc plugin}
       @see {@link http://usejsdoc.org/ jsdoc documentation tags}
       @see {@link http://usejsdoc.org/about-commandline.html jsdoc command line options}
@@ -232,6 +243,10 @@ module.exports = function(grunt) {
         }
       }
     },
+    /**
+      Watch files and run build targets on change
+      @see {@link https://github.com/gruntjs/grunt-contrib-watch Grunt watch plugin}
+    */
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',

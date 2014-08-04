@@ -49,6 +49,10 @@ module.exports = function(grunt) {
     nodeunit: {
       files: ['test/**/*_test.js']
     },
+    /**
+      Watch files and run build targets on change
+      @see {@link https://github.com/gruntjs/grunt-contrib-watch Grunt watch plugin}
+    */
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',

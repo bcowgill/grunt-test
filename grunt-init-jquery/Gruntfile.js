@@ -26,9 +26,17 @@ module.exports = function(grunt) {
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
+    /**
+      clean up files on disk before build.
+      @see {@link https://github.com/gruntjs/grunt-contrib-clean About clean grunt plugin}
+    */
     clean: {
       files: ['dist']
     },
+    /**
+      concatenate files into one big file.
+      @see {@link https://github.com/gruntjs/grunt-contrib-concat About concat grunt plugin}
+    */
     concat: {
       options: {
         banner: '<%= banner %>',
@@ -39,6 +47,10 @@ module.exports = function(grunt) {
         dest: 'dist/<%= pkg.name %>.js'
       },
     },
+    /**
+      minimize the size of code with uglify.
+      @see {@link https://github.com/gruntjs/grunt-contrib-uglify About uglify grunt plugin}
+    */
     uglify: {
       options: {
         banner: '<%= banner %>'
@@ -77,6 +89,10 @@ module.exports = function(grunt) {
         src: ['test/**/*.js']
       },
     },
+    /**
+      Watch files and run build targets on change
+      @see {@link https://github.com/gruntjs/grunt-contrib-watch Grunt watch plugin}
+    */
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
