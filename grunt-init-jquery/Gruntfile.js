@@ -1,5 +1,19 @@
 'use strict';
 
+/**
+  @file Gruntfile.js
+  @author Brent S.A. Cowgill
+  @see {@link module:Gruntfile}
+  @description
+  Grunt build configuration.
+
+  @see {@link http://usejsdoc.org/ JSDoc Documentation}
+*/
+
+/**
+  Grunt build configuration.
+  @module Gruntfile
+*/
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -37,6 +51,12 @@ module.exports = function(grunt) {
     qunit: {
       files: ['test/**/*.html']
     },
+    /**
+      jshint validation of javascript code.
+      @see {@link https://github.com/gruntjs/grunt-contrib-jshint About jshint grunt plugin}
+      @see {@link http://jshint.com/docs/options/ jshint options}
+      @see {@link https://github.com/jshint/jshint/blob/master/src/messages.js Warning codes for jshint}
+    */
     jshint: {
       gruntfile: {
         options: {
