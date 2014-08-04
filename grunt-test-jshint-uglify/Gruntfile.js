@@ -1,7 +1,21 @@
-/*jshint indent: 2, maxstatements: 100 */
+/*jshint indent: 2, maxlen: 110, maxstatements: 100 */
 /*global module:false*/
 
-/* @todo Need to add a test and jsdoc build target. */
+/**
+  @file Gruntfile.js
+  @author Brent S.A. Cowgill
+  @see {@link module:Gruntfile}
+  @description
+  Grunt build configuration.
+
+  @see {@link http://usejsdoc.org/ JSDoc Documentation}
+*/
+
+/**
+  Grunt build configuration.
+  @module Gruntfile
+  @todo Need to add a test and jsdoc build target.
+*/
 module.exports = function(grunt) {
   'use strict';
   // Project configuration.
@@ -61,8 +75,12 @@ module.exports = function(grunt) {
         dest: 'dist/jasmine/jasmine-bundle.min.js'
       }
     },
-    // the jshint warning codes are in:
-    // node_modules/grunt-contrib-jshint/node_modules/jshint/src/messages.js
+    /**
+      jshint validation of javascript code.
+      @see {@link https://github.com/gruntjs/grunt-contrib-jshint About jshint grunt plugin}
+      @see {@link http://jshint.com/docs/options/ jshint options}
+      @see {@link https://github.com/jshint/jshint/blob/master/src/messages.js Warning codes for jshint}
+    */
     jshint: {
       options: {
         //j s hintrc: '.jshintrc',
@@ -157,6 +175,10 @@ module.exports = function(grunt) {
         src: ['lib/**/*.js', 'test/**/*.js']
       }
     },
+    /**
+	  Validate css with csslint
+      @see {@link https://github.com/gruntjs/grunt-contrib-csslint Grunt csslint plugin}
+    */
     csslint: {
       strict: {
         options: { import: 2 },
@@ -167,6 +189,10 @@ module.exports = function(grunt) {
         src: ['css/*.css']
       }
     },
+    /**
+	  Validate html with lint5
+      @see {@link https://www.npmjs.org/package/grunt-lint5 Grunt lint5 plugin}
+    */
     lint5: {
       dirPath: './',
       defaults: {
@@ -185,17 +211,22 @@ module.exports = function(grunt) {
     qunit: {
       files: ['test/**/*.html']
     },
-    // about jsdoc documentation tags: http://usejsdoc.org/
+    /**
+	  Create code documentation
+      @see {@link https://github.com/krampstudio/grunt-jsdoc Grunt jsdoc plugin}
+      @see {@link http://usejsdoc.org/ jsdoc documentation tags}
+      @see {@link http://usejsdoc.org/about-commandline.html jsdoc command line options}
+    */
     jsdoc : {
       docs : {
         dest: 'doc',
         tutorials: 'tutorial',
         src: [
           //'test/**/*.js',
-          'lib/**/*.js'
+          'lib/**/*.js',
+          'Gruntfile.js'
           //'README.md'
         ],
-        // jsdoc options: http://usejsdoc.org/about-commandline.html
         options: {
           configure: 'jsdoc.conf.json'
         }
