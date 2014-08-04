@@ -1,5 +1,19 @@
-/*jshint indent: 2, maxstatements: 100 */
+/*jshint indent: 2, maxlen: 110, maxstatements: 100 */
 /*global module:false*/
+/**
+  @file Gruntfile.js
+  @author Brent S.A. Cowgill
+  @see {@link module:Gruntfile}
+  @description
+  Grunt build configuration.
+
+  @see {@link http://usejsdoc.org/ JSDoc Documentation}
+*/
+
+/**
+  Grunt build configuration.
+  @module Gruntfile
+*/
 module.exports = function(grunt) {
   'use strict';
   // Project configuration.
@@ -12,6 +26,12 @@ module.exports = function(grunt) {
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
+    /**
+      jshint validation of javascript code.
+      @see {@link https://github.com/gruntjs/grunt-contrib-jshint About jshint grunt plugin}
+      @see {@link http://jshint.com/docs/options/ jshint options}
+      @see {@link https://github.com/jshint/jshint/blob/master/src/messages.js Warning codes for jshint}
+    */
     jshint: {
       options: {
         //'indent': 3,
@@ -48,7 +68,11 @@ module.exports = function(grunt) {
         src: ['package.json', 'Gruntfile.js']
       },
     },
-	// See docs for options supported: https://github.com/gruntjs/grunt-contrib-less
+    /**
+      less compiler for css.
+      @see {@link https://github.com/gruntjs/grunt-contrib-less About less grunt plugin}
+	  @see {@link http://lesscss.org/ less compiler documentation}
+    */
     less: {
       development: {
         options: {
@@ -73,6 +97,10 @@ module.exports = function(grunt) {
         }
       }
     },
+    /**
+	  Validate css with csslint
+      @see {@link https://github.com/gruntjs/grunt-contrib-csslint Grunt csslint plugin}
+    */
     csslint: {
       strict: {
         options: { import: 2 },
@@ -83,6 +111,10 @@ module.exports = function(grunt) {
         src: ['dist/*.css']
       }
     },
+    /**
+	  Validate html with lint5
+      @see {@link https://www.npmjs.org/package/grunt-lint5 Grunt lint5 plugin}
+    */
     lint5: {
       dirPath: './',
       defaults: {
