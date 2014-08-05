@@ -22,6 +22,8 @@
 	external (built-in type) {@link external:String}
 
 	@see Tutorial {@tutorial helpme}
+	@see {@link Person}
+	@see {@link MarkdownPlugin}
 */
 /* jshint node: true */
 /* global Person: true */

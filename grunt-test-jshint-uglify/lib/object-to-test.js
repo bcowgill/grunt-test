@@ -1,16 +1,20 @@
-/**
-	@classdesc A simple object to be tested.
-	@file lib/object-to-test.js
-
-	@module TestMe
-	@constructor
-	@author Brent S.A. Cowgill
-	@see {@link http://usejsdoc.org/index.html JSDoc Index}
-
-*/
 /*jshint indent: 4, smarttabs: true, maxstatements: 40 */
 /*exported TestMe */
+/**
+	@file lib/object-to-test.js
+	@author Brent S.A. Cowgill
+	@see {@link http://usejsdoc.org/index.html JSDoc Index}
+	@see {@link TestMe}
 
+	@description
+
+	A file with a simple object to be tested
+*/
+/**
+	@classdesc A simple object to be tested.
+	@module TestMe
+	@constructor
+*/
 var TestMe = function () {
 	'use strict';
 
