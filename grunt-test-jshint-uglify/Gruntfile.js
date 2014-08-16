@@ -277,16 +277,16 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['all']);
+  grunt.registerTask('all', ['windows', 'docs']);
   grunt.registerTask('docs', ['clean:jsdoc', 'jsdoc']);
-  grunt.registerTask('all', [
+  grunt.registerTask('windows', [
     'jshint:gruntfile',
     'concat',
     'uglify',
     'csslint:strict',
     'lint5',
     'jshint:lib_test',
-    'jshint:dist',
-    'docs'
+    'jshint:dist'
   ]);
   grunt.registerTask('single', ['jshint:single']);
   grunt.registerTask('permissive', ['jshint:permissive']);

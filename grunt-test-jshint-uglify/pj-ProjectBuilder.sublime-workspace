@@ -19,7 +19,7 @@
 			"file": "Gruntfile.js",
 			"settings":
 			{
-				"buffer_size": 5867,
+				"buffer_size": 6354,
 				"line_ending": "Unix"
 			}
 		},
@@ -107,10 +107,50 @@
 			}
 		},
 		{
+			"file": "dist/project-builder.js",
+			"settings":
+			{
+				"buffer_size": 4195,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "jsdoc.conf.json",
+			"settings":
+			{
+				"buffer_size": 318,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "test/mocha-chai/chai-test.js",
 			"settings":
 			{
 				"buffer_size": 10653,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/jsdoc.js",
+			"settings":
+			{
+				"buffer_size": 1957,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/jsdoc-defs.js",
+			"settings":
+			{
+				"buffer_size": 249,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "tutorial/helpme.html",
+			"settings":
+			{
+				"buffer_size": 91,
 				"line_ending": "Windows"
 			}
 		}
@@ -209,6 +249,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"uglify",
+			"    ",
+			"name",
+			"\\t",
+			"^\\t",
 			"string",
 			"toMatch",
 			"toEqual",
@@ -293,9 +338,12 @@
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"\\t",
+			"  ",
+			"    ",
 			"green",
 			"QUnit.module",
 			"deepEqual",
@@ -310,7 +358,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 13,
 			"sheets":
 			[
 				{
@@ -346,15 +394,15 @@
 					"file": "Gruntfile.js",
 					"settings":
 					{
-						"buffer_size": 5867,
+						"buffer_size": 6354,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								119,
-								119
+								5132,
+								5132
 							]
 						],
 						"settings":
@@ -364,7 +412,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 5382.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -640,15 +688,68 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "dist/project-builder.js",
+					"settings":
+					{
+						"buffer_size": 4195,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								130,
+								130
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "jsdoc.conf.json",
+					"settings":
+					{
+						"buffer_size": 318,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								312,
+								312
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
-					"buffer": 12,
+					"buffer": 14,
 					"file": "test/mocha-chai/chai-test.js",
 					"settings":
 					{
@@ -666,6 +767,85 @@
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "lib/jsdoc.js",
+					"settings":
+					{
+						"buffer_size": 1957,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1608,
+								1608
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1841.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "lib/jsdoc-defs.js",
+					"settings":
+					{
+						"buffer_size": 249,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								249,
+								249
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "tutorial/helpme.html",
+					"settings":
+					{
+						"buffer_size": 91,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								91,
+								91
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -705,7 +885,7 @@
 		"cols":
 		[
 			0.0,
-			0.878295524218,
+			0.567443286327,
 			1.0
 		],
 		"rows":
