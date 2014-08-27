@@ -5,6 +5,21 @@
 (function () {
   'use strict';
 
+  if ('object' === typeof navigator)
+  {
+    console.log(navigator.vendor, navigator.vendorSub);
+    console.log(navigator.platform, navigator.language);
+    console.log(navigator.product, navigator.productSub);
+    console.log(navigator.appName, navigator.appCodeName, navigator.appVersion);
+    console.log(navigator.userAgent, navigator);
+  }
+  if ('object' === typeof process)
+  {
+    console.log(process.platform, process.arch);
+    console.log(process.execPath, process.version);
+    console.dir(process.versions);
+  }
+
 /*jshint -W027 */ // : Unreachable 'suite' after 'return'.
   var suite = new Benchmark.Suite();
   console.log('Benchmark different ways to locate [o] in a string');
