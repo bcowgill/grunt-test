@@ -1,12 +1,14 @@
 /*jshint indent: 2 */
 // test/benchmark-this.js
-/*global console, Benchmark */
+/*global console, Benchmark, navigator, process */
 // Sample benchmarking tests http://benchmarkjs.com/
 (function () {
+  /* jshint maxstatements: 14 */
   'use strict';
 
   if ('object' === typeof navigator)
   {
+    // running in some browser
     console.log(navigator.vendor, navigator.vendorSub);
     console.log(navigator.platform, navigator.language);
     console.log(navigator.product, navigator.productSub);
@@ -15,6 +17,7 @@
   }
   if ('object' === typeof process)
   {
+    // running in nodejs
     console.log(process.platform, process.arch);
     console.log(process.execPath, process.version);
     console.dir(process.versions);

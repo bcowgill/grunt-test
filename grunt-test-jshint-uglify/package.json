@@ -32,6 +32,7 @@
   "scripts": {
     "docs": "jsdoc --destination doc --recurse test/ lib/",
     "test": "mocha --reporter spec test/jasmine/ test/mocha-chai/",
+    "benchmark": "node test/benchmark-test.js",
     "devwebserver": "webserver.sh"
   },
   "devDependencies": {
