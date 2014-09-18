@@ -3,7 +3,7 @@
 /*global console, Benchmark, navigator, process */
 // Sample benchmarking tests http://benchmarkjs.com/
 (function () {
-  /* jshint maxstatements: 14 */
+  /* jshint maxstatements: 17 */
   'use strict';
 
   if ('object' === typeof navigator)

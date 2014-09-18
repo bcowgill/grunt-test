@@ -11,7 +11,7 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 1399,
+				"buffer_size": 1513,
 				"line_ending": "Unix"
 			}
 		},
@@ -19,7 +19,7 @@
 			"file": "Gruntfile.js",
 			"settings":
 			{
-				"buffer_size": 6354,
+				"buffer_size": 7970,
 				"line_ending": "Unix"
 			}
 		},
@@ -35,7 +35,7 @@
 			"file": "lib/object-to-test.js",
 			"settings":
 			{
-				"buffer_size": 3866,
+				"buffer_size": 3949,
 				"line_ending": "Windows",
 				"name": "object-to-test.js"
 			}
@@ -102,7 +102,7 @@
 			"file": "Makefile",
 			"settings":
 			{
-				"buffer_size": 162,
+				"buffer_size": 229,
 				"line_ending": "Windows"
 			}
 		},
@@ -110,7 +110,7 @@
 			"file": "dist/project-builder.js",
 			"settings":
 			{
-				"buffer_size": 4195,
+				"buffer_size": 3987,
 				"line_ending": "Windows"
 			}
 		},
@@ -126,7 +126,7 @@
 			"file": "test/mocha-chai/chai-test.js",
 			"settings":
 			{
-				"buffer_size": 10653,
+				"buffer_size": 11107,
 				"line_ending": "Windows"
 			}
 		},
@@ -134,7 +134,7 @@
 			"file": "lib/jsdoc.js",
 			"settings":
 			{
-				"buffer_size": 1957,
+				"buffer_size": 2008,
 				"line_ending": "Windows"
 			}
 		},
@@ -142,7 +142,7 @@
 			"file": "lib/jsdoc-defs.js",
 			"settings":
 			{
-				"buffer_size": 249,
+				"buffer_size": 469,
 				"line_ending": "Windows"
 			}
 		},
@@ -151,6 +151,14 @@
 			"settings":
 			{
 				"buffer_size": 91,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "test/benchmark-this.js",
+			"settings":
+			{
+				"buffer_size": 1504,
 				"line_ending": "Windows"
 			}
 		}
@@ -358,7 +366,6 @@
 	"groups":
 	[
 		{
-			"selected": 13,
 			"sheets":
 			[
 				{
@@ -366,15 +373,15 @@
 					"file": "package.json",
 					"settings":
 					{
-						"buffer_size": 1399,
+						"buffer_size": 1513,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								275,
-								275
+								0,
+								0
 							]
 						],
 						"settings":
@@ -394,15 +401,15 @@
 					"file": "Gruntfile.js",
 					"settings":
 					{
-						"buffer_size": 6354,
+						"buffer_size": 7970,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5132,
-								5132
+								0,
+								0
 							]
 						],
 						"settings":
@@ -448,7 +455,7 @@
 					"file": "lib/object-to-test.js",
 					"settings":
 					{
-						"buffer_size": 3866,
+						"buffer_size": 3949,
 						"regions":
 						{
 						},
@@ -668,15 +675,15 @@
 					"file": "Makefile",
 					"settings":
 					{
-						"buffer_size": 162,
+						"buffer_size": 229,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								82,
-								36
+								0,
+								0
 							]
 						],
 						"settings":
@@ -694,15 +701,15 @@
 					"file": "dist/project-builder.js",
 					"settings":
 					{
-						"buffer_size": 4195,
+						"buffer_size": 3987,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								130,
-								130
+								0,
+								0
 							]
 						],
 						"settings":
@@ -728,13 +735,14 @@
 						"selection":
 						[
 							[
-								312,
-								312
+								224,
+								224
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -745,7 +753,7 @@
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -753,14 +761,14 @@
 					"file": "test/mocha-chai/chai-test.js",
 					"settings":
 					{
-						"buffer_size": 10653,
+						"buffer_size": 11107,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								283,
+								0,
 								0
 							]
 						],
@@ -780,23 +788,24 @@
 					"file": "lib/jsdoc.js",
 					"settings":
 					{
-						"buffer_size": 1957,
+						"buffer_size": 2008,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1608,
-								1608
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1841.0,
+						"translation.y": 1665.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -806,15 +815,15 @@
 					"file": "lib/jsdoc-defs.js",
 					"settings":
 					{
-						"buffer_size": 249,
+						"buffer_size": 469,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								249,
-								249
+								0,
+								0
 							]
 						],
 						"settings":
@@ -850,6 +859,34 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "test/benchmark-this.js",
+					"settings":
+					{
+						"buffer_size": 1504,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								289,
+								289
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 120.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
