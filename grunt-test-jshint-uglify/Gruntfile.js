@@ -1,4 +1,4 @@
-/*jshint indent: 2, maxlen: 110, maxstatements: 100 */
+/*jshint node: true, indent: 2, maxlen: 110, maxstatements: 100 */
 /*global module:false*/
 /**
   @file Gruntfile.js
@@ -15,8 +15,12 @@
   @module Gruntfile
   @todo Need to add a test and jsdoc build target.
 */
+
+
 module.exports = function(grunt) {
   'use strict';
+  var glob = require('glob'), oGlobOptions = {}, aTemplates = glob.sync('test/**/*-test.html', oGlobOptions);
+  aTemplates.push('html/index.html');
   // Project configuration.
   grunt.initConfig({
     // Metadata.
@@ -210,11 +214,7 @@ module.exports = function(grunt) {
         'email': 'a@a.com',
         'username': 'abcd'
       },
-      templates: [
-        'html/index.html',
-        'test/benchmark-test.html',
-        'test/qunit/qunit-test.html'
-      ],
+      templates: aTemplates,
       ignoreList: [
         'message to be ignored'
       ]

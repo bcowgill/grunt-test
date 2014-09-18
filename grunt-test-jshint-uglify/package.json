@@ -51,7 +51,8 @@
     "extend": "~1.2.1",
     "benchmark": "~1.0.0",
     "jasmine-core": "~2.0.0",
-    "chai": "^1.9.1"
+    "chai": "^1.9.1",
+    "glob": "^4.0.6"
   },
   "optionalDevDependencies": {
     "QUnitChainer": "bcowgill/QUnitChainer",
