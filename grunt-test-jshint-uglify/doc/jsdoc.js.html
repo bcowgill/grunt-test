@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: lib/jsdoc.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: lib/jsdoc.js</h1>
+
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+	@file lib/jsdoc.js
+	@author Brent S.A. Cowgill
+	@version 0.0.0
+	@license {@link http://unlicense.org The Unlicense}
+
+	@description
+
+	File to test jsdoc markup.
+
+	@todo the next linkcode shows as monospace but not an active link
+	@todo installation: {@linkcode npm install -g grunt # a code snippet}
+
+	@todo the next linkplain shows as normal font but not an active link
+	@todo installation: {@linkplain always a plain font link $escaped->{curlies}}
+
+	@todo referring to a specific method or symbol you need a namespaced description
+	static {@linkcode Person#say}
+	instance {@link Person.say}
+	inner {@link Person~say}
+	module {@link module:foo/bar}
+	external (built-in type) {@link external:String}
+
+	@see Tutorial {@tutorial helpme}
+	@see {@link Person}
+	@see {@link MarkdownPlugin}
+*/
+/* jshint node: true */
+/* global Person: true */
+
+'use strict';
+
+/**
+	a Person object
+	@constructor
+*/
+Person = function() {
+	/**
+		instance method to say something
+		@instance
+	*/
+	this.say = function() {
+		say();
+		return 'I\'m an instance.';
+	};
+
+	/**
+		inner method to say something
+		@inner
+	*/
+	function say() {
+		return 'I\'m inner.';
+	}
+};
+/**
+	static (prototype) method to say something
+	@static
+*/
+Person.say = function() {
+	return 'I\'m static.';
+};
+
+var p = new Person();
+p.say();	  // I'm an instance.
+Person.say(); // I'm static.
+// there is no way to directly access the inner function from here
+
+/*jshint -W101*/ // Line is too long.
+/**
+ * @constant MarkdownPlugin
+ * @global
+ * @default true
+ * @description
+ *	Markdown Plugin
+ *	===============
+ *	> *is* enabled
+ *	> **if** the above is underlined.
+ *	~~NOT~~ GitHub
+ * Busted
+ * ======
+ * TODO this is not working how I expected it
+ *	autolink url https://help.github.com/articles/github-flavored-markdown
+ *	but your comments must use leading asterisks
+ *	@see {@link https://help.github.com/articles/github-flavored-markdown GitHub Flavoured Markdown}
+ *	@see {@link https://github.com/evilstreak/markdown-js Default Markdown Evilstreak}
+ */
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="bar.html">foo/bar</a></li><li><a href="module-JSDocModule.html">JSDocModule</a></li><li><a href="AMD.html">JSDocModule/AMD</a></li><li><a href="Exports.html">JSDocModule/Exports</a></li><li><a href="ExportVar.html">JSDocModule/ExportVar</a></li><li><a href="module-JSDocModuleClass.html">JSDocModuleClass</a></li><li><a href="DOM.html">JSDocMultiModules/DOM</a></li><li><a href="HTMLTag.html">JSDocMultiModules/HTMLTag</a></li><li><a href="Module.html">JSDocNamepath/Module</a></li></ul><h3>Externals</h3><ul><li><a href="external-number.html">number</a></li><li><a href="external-String.html">String</a></li><li><a href="external-string_.html">string</a></li></ul><h3>Classes</h3><ul><li><a href="_.html">"JSDocNS.util.Point2D"</a></li><li><a href="FactoryInstance.html">FactoryInstance</a></li><li><a href="FactoryStatic.html">FactoryStatic</a></li><li><a href="JSDocKlass.JSDCookieManager.html">JSDCookieManager</a></li><li><a href="JSDocNamepath.html">JSDocNamepath</a></li><li><a href="module-JSDocModuleClass.JSDocClass.html">JSDocClass</a></li><li><a href="HTMLTag.Tag.html">Tag</a></li><li><a href="Person.html">Person</a></li><li><a href="TestMe.html">TestMe</a></li></ul><h3>Events</h3><ul><li><a href="__.html#event:"op:announce-motd"">"op:announce-motd"</a></li><li><a href="bar.html#event:event:MyEvent">event:MyEvent</a></li><li><a href="Module.html#event:event:MyEvent">event:MyEvent</a></li></ul><h3>Namespaces</h3><ul><li><a href="document.html">document</a></li><li><a href="funnyChars.html">funnyChars</a></li><li><a href="funnyChars_channel.html">channel</a></li><li><a href="JSDocKlass.html">JSDocKlass</a></li><li><a href="JSDocMultiModules.html">JSDocMultiModules</a></li><li><a href="JSDocNamespace.html">JSDocNamespace</a></li><li><a href="JSDocNamespace.ui.html">ui</a></li><li><a href="JSDocNS.html">JSDocNS</a></li><li><a href="JSDocNS.util.html">util</a></li><li><a href="JSDocTopNS.html">JSDocTopNS</a></li><li><a href="JSDocTopNS.JSDocCore.html">JSDocCore</a></li><li><a href="JSDocVirtualNamespace.html">JSDocVirtualNamespace</a></li><li><a href="ui.html">ui</a></li><li><a href="window.html">window</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-helpme.html">helpme</a></li></ul><h3>Global</h3><ul><li><a href="global.html#MarkdownPlugin">MarkdownPlugin</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha8</a> on Sun Nov 23 2014 23:11:49 GMT+0000 (GMT Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

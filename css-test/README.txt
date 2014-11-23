@@ -34,3 +34,12 @@ wget https://raw.github.com/less/less.js/master/dist/less-1.7.0.min.js
 
 Also available on CDN
 <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.0/less.min.js"></script>
+
+
+Installing Sass, compass, foundation
+
+with ruby installed
+
+gem install sass --version=3.4.2
+gem install compass compass-validator foundation
+

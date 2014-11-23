@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: test/qunit/qunit-test.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: test/qunit/qunit-test.js</h1>
+
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*jshint indent: 4, maxstatements: 50 */
+// test/qunit/quint-test.js
+/*global TestMe, QUnit, test, deepEqual, expect, equal, notDeepEqual,
+	notEqual, notPropEqual, notStrictEqual, ok, propEqual, strictEqual, throws */
+
+(function () {
+	'use strict';
+
+	// TODO pull this out into an npm module qunit-assert-match-regex
+	// Custom assertion handlers for regular expression matching
+	/**
+	 * Checks that the first argument matches the regular expression second argument.
+	 *
+	 * @example assert.matches("line 34: error", '^line \d+: error$');
+	 * @example assert.matches("line 34: error", /^line \d+: error$/);
+	 *
+	 * @param String result
+	 * @param RegExp regex (converted to RegExp if a string passed in)
+	 * @param String message (optional)
+	 */
+	QUnit.assert.matches = function( result, regex, message ) {
+		if ('string' === typeof regex) {
+			regex = new RegExp(regex);
+		}
+		var match = regex.test(result);
+		QUnit.push(match, result, regex,
+			message || (result + ' should match RegExp ' + regex));
+	};
+	/**
+	 * Checks that the first argument does not match the regular expression second argument.
+	 *
+	 * @example assert.notMatches("line 34: error", '^line \d+: error$');
+	 * @example assert.notMatches("line 34: error", /^line \d+: error$/);
+	 *
+	 * @param String result
+	 * @param RegExp notRegex (converted to RegExp if a string passed in)
+	 * @param String message (optional)
+	 */
+	QUnit.assert.notMatches = function( result, notRegex, message ) {
+		if ('string' === typeof notRegex) {
+			notRegex = new RegExp(notRegex);
+		}
+		var match = notRegex.test(result);
+		QUnit.push(!match, result, 'not ' + notRegex,
+			message || (result + ' should not match RegExp' + notRegex));
+	};
+
+	QUnit.module('QUnit core assert tests', {
+		setup: function() {
+			this.oTest = new TestMe();
+			this.extraTests = 2;
+			ok(true, 'setup tests: one extra assert per test');
+		},
+		teardown: function() {
+			ok(true, 'teardown tests: and one extra assert after each test');
+		}
+	});
+	test('deepEqual() test', function()
+	{
+		expect(1 + this.extraTests);
+		var expected = { 'name': 'JO DOE', 'mode': 'success', 'age': 32 },
+		    result = this.oTest.deep();
+		deepEqual(result, expected, 'deep() should be ' + JSON.stringify(expected));
+	});
+	test('notDeepEqual() test', function()
+	{
+		expect(1 + this.extraTests);
+		var shouldnotbe = { 'name': 'JO DOE FAIL', 'mode': 'failure', 'age': 32 },
+		    result = this.oTest.deep();
+		notDeepEqual(result, shouldnotbe, 'deep() should not be ' + JSON.stringify(shouldnotbe));
+	});
+
+	test('equal() test', function()
+	{
+		expect(1 + this.extraTests);
+		var expected = 'BILLY BOB',
+		    result = this.oTest.name('Billy Bob');
+		equal(result, expected, 'name(Billy Bob) should be ' + expected);
+	});
+	test('notEqual() test', function()
+	{
+		expect(1 + this.extraTests);
+		var shouldnotbe = 'BILLY BOB FAIL',
+		    result = this.oTest.name('Billy Bob');
+		notEqual(result, shouldnotbe, 'name(Billy Bob) should not be ' + shouldnotbe);
+	});
+
+	test('strictEqual() test', function()
+	{
+		expect(1 + this.extraTests);
+		var expected = 42,
+		    result = this.oTest.number();
+		strictEqual(result, expected, 'number() should strictly be (number) ' + expected);
+	});
+	test('notStrictEqual() test', function()
+	{
+		expect(1 + this.extraTests);
+		var shouldnotbe = '42',
+		    result = this.oTest.number();
+		notStrictEqual(result, shouldnotbe,
+		    'number() should not strictly be (string) ' + shouldnotbe);
+	});
+
+	test('propEqual() test', function()
+	{
+		expect(1 + this.extraTests);
+		var expected = { 'x': 1, 'y': '2', 'z': [] },
+		    result = new this.oTest.Prop( 'result', 1, '2', [] );
+		propEqual(result, expected, 'Prop ' + JSON.stringify(result) +
+		    ' properties should be ' + JSON.stringify(expected));
+	});
+
+	test('notPropEqual() test', function()
+	{
+		expect(1 + this.extraTests);
+		var shouldnotbe = new this.oTest.Prop( 'expected', 1, '2', [] ),
+		    result = new this.oTest.Prop( '!result', '1', 2, [] );
+		notPropEqual(result, shouldnotbe, 'Prop ' + JSON.stringify(result) +
+		    ' should not be ' + JSON.stringify(shouldnotbe));
+	});
+
+	test('throws() something test', function()
+	{
+		expect(1 + this.extraTests);
+		var self = this,
+			result = function () {
+				self.oTest.error('result');
+			};
+		throws(result, 'error() should throw some message');
+	});
+	test('throws a message test', function()
+	{
+		expect(1 + this.extraTests);
+		var self = this, expected = 'error message',
+			result = function () {
+				self.oTest.error('resultmsg');
+			};
+		throws(result, expected, 'error() should throw "' + expected + '"');
+	});
+	test('throws a custom error message test', function()
+	{
+		expect(1 + this.extraTests);
+		var self = this,
+			expected = this.oTest.CustomError,
+			result = function () {
+				self.oTest.error('resultcustom',
+					new self.oTest.CustomError('custom error message type'));
+			};
+		throws(result, expected, 'error() should throw custom "' +
+			expected.prototype.typeName + '"');
+	});
+	test('regex match thrown custom error message test', function()
+	{
+		expect(1 + this.extraTests);
+		var self = this,
+			expected = new RegExp('custom error'),
+			result = function () {
+				self.oTest.error('resultcustomregex',
+					new self.oTest.CustomError('custom error message type'));
+			};
+
+		throws(result, expected, 'error() thrown should match ' +
+			expected);
+	});
+
+	// TODO pull this out into an npm module qunit-assert-match-regex
+	QUnit.module('Custom assert for regexes test suite', {
+		setup: function() {
+			this.oTest = new TestMe();
+			this.extraTests = 0;
+		},
+		teardown: function() {
+		}
+	});
+
+	test('assert.matches/notMatches tests', function(assert)
+	{
+		expect(4 + this.extraTests);
+		assert.matches('line 34: error', '^line \\d+: error$');
+		assert.matches('line 34: error', /^line \d+: error$/);
+		assert.notMatches('line AB: error', '^line \\d+: error$');
+		assert.notMatches('line AB: error', /^line \d+: error$/);
+	});
+
+	QUnit.module('Custom assert for regex', {
+		setup: function() {
+			this.oTest = new TestMe();
+			this.extraTests = 0;
+		},
+		teardown: function() {
+		}
+	});
+	test('assert.matches string test', function(assert)
+	{
+		expect(2 + this.extraTests);
+		var expected = 'BOB$',
+		    result = this.oTest.name('Billy Bob');
+		assert.matches(result, expected, 'name(Billy Bob) should match ' + expected);
+		// omit message see what it says on failure
+		assert.matches(result, expected);
+	});
+	test('assert.matches regex test', function(assert)
+	{
+		expect(2 + this.extraTests);
+		var expected = new RegExp('BOB$'),
+		    result = this.oTest.name('Billy Bob');
+		assert.matches(result, expected, 'name(Billy Bob) should match ' + expected);
+		// omit message see what it says on failure
+		assert.matches(result, expected);
+	});
+
+	test('assert.notMatches string test', function(assert)
+	{
+		expect(2 + this.extraTests);
+		var shouldnotbe = 'BOB FAIL$',
+		    result = this.oTest.name('Billy Bob');
+		assert.notMatches(result, shouldnotbe, 'name(Billy Bob) should not match ' + shouldnotbe);
+		// omit message see what it says on failure
+		assert.notMatches(result, shouldnotbe);
+	});
+	test('assert.notMatches regex test', function(assert)
+	{
+		expect(2 + this.extraTests);
+		var shouldnotbe = new RegExp('BOB FAIL$'),
+		    result = this.oTest.name('Billy Bob');
+		assert.notMatches(result, shouldnotbe, 'name(Billy Bob) should not match ' + shouldnotbe);
+		// omit message see what it says on failure
+		assert.notMatches(result, shouldnotbe);
+	});
+
+/* Will always fail
+	test('QUnit deepEqual() real number test', function()
+	{
+		expect(1 + this.extraTests);
+		var expected = 0.3,
+		    result = this.oTest.real();
+		deepEqual(result, expected, 'real() should be ' + expected);
+	});
+*/
+	QUnit.module('qunit-assert-close module for real numbers', {
+		setup: function() {
+			this.oTest = new TestMe();
+			this.extraTests = 0;
+		},
+		teardown: function() {
+		}
+	});
+
+	test('assert.close() real number test', function(assert)
+	{
+		expect(2 + this.extraTests);
+		var epsilon = 1e-16,
+		    expected = 0.3,
+		    result = this.oTest.real('result');
+		assert.close(result, expected, epsilon,
+			'real() should be close[' + epsilon + '] to ' + expected);
+		// omit message because it explains well enough on failure
+		assert.close(result, expected, epsilon);
+	});
+	test('assert.notClose() real number test', function(assert)
+	{
+		expect(2 + this.extraTests);
+		var epsilon = 1e-18,
+		    expected = 0.3,
+		    result = this.oTest.real('resultnot');
+		assert.notClose(result, expected, epsilon,
+			'real() should not be close[' + epsilon + '] to ' + expected);
+		// omit message because it explains well enough on failure
+		assert.notClose(result, expected, epsilon);
+	});
+	test('assert.close.percent() real number test', function(assert)
+	{
+		expect(2 + this.extraTests);
+		var percent = 1e-13,
+		    expected = 0.3,
+		    result = this.oTest.real('result');
+		assert.close.percent(result, expected, percent,
+			'real() should be close[' + percent + '%] to ' + expected);
+		// omit message because it explains well enough on failure
+		assert.close.percent(result, expected, percent);
+	});
+	test('assert.notClose.percent() real number test', function(assert)
+	{
+		expect(2 + this.extraTests);
+		var percent = 1e-15,
+		    expected = 0.3,
+		    result = this.oTest.real('resultnot');
+		assert.notClose.percent(result, expected, percent,
+			'real() should not be close[' + percent + '%] to ' + expected);
+		// omit message because it explains well enough on failure
+		assert.notClose.percent(result, expected, percent);
+	});
+})();
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="bar.html">foo/bar</a></li><li><a href="module-JSDocModule.html">JSDocModule</a></li><li><a href="AMD.html">JSDocModule/AMD</a></li><li><a href="Exports.html">JSDocModule/Exports</a></li><li><a href="ExportVar.html">JSDocModule/ExportVar</a></li><li><a href="module-JSDocModuleClass.html">JSDocModuleClass</a></li><li><a href="DOM.html">JSDocMultiModules/DOM</a></li><li><a href="HTMLTag.html">JSDocMultiModules/HTMLTag</a></li><li><a href="Module.html">JSDocNamepath/Module</a></li></ul><h3>Externals</h3><ul><li><a href="external-number.html">number</a></li><li><a href="external-String.html">String</a></li><li><a href="external-string_.html">string</a></li></ul><h3>Classes</h3><ul><li><a href="_.html">"JSDocNS.util.Point2D"</a></li><li><a href="FactoryInstance.html">FactoryInstance</a></li><li><a href="FactoryStatic.html">FactoryStatic</a></li><li><a href="JSDocKlass.JSDCookieManager.html">JSDCookieManager</a></li><li><a href="JSDocNamepath.html">JSDocNamepath</a></li><li><a href="module-JSDocModuleClass.JSDocClass.html">JSDocClass</a></li><li><a href="HTMLTag.Tag.html">Tag</a></li><li><a href="Person.html">Person</a></li><li><a href="TestMe.html">TestMe</a></li></ul><h3>Events</h3><ul><li><a href="__.html#event:"op:announce-motd"">"op:announce-motd"</a></li><li><a href="bar.html#event:event:MyEvent">event:MyEvent</a></li><li><a href="Module.html#event:event:MyEvent">event:MyEvent</a></li></ul><h3>Namespaces</h3><ul><li><a href="document.html">document</a></li><li><a href="funnyChars.html">funnyChars</a></li><li><a href="funnyChars_channel.html">channel</a></li><li><a href="JSDocKlass.html">JSDocKlass</a></li><li><a href="JSDocMultiModules.html">JSDocMultiModules</a></li><li><a href="JSDocNamespace.html">JSDocNamespace</a></li><li><a href="JSDocNamespace.ui.html">ui</a></li><li><a href="JSDocNS.html">JSDocNS</a></li><li><a href="JSDocNS.util.html">util</a></li><li><a href="JSDocTopNS.html">JSDocTopNS</a></li><li><a href="JSDocTopNS.JSDocCore.html">JSDocCore</a></li><li><a href="JSDocVirtualNamespace.html">JSDocVirtualNamespace</a></li><li><a href="ui.html">ui</a></li><li><a href="window.html">window</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-helpme.html">helpme</a></li></ul><h3>Global</h3><ul><li><a href="global.html#MarkdownPlugin">MarkdownPlugin</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha8</a> on Sun Nov 23 2014 23:11:50 GMT+0000 (GMT Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
