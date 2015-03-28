@@ -1,5 +1,6 @@
 **/*.min.js
 dist/**/*-bundle.js
+test/mocha-chai/mocha-dark.js
 lib/3rdparty/**/*.js
 node_modules/**/*.js
 QUnitChainer/**/*.js

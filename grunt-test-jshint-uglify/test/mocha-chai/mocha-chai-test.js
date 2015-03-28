@@ -100,6 +100,13 @@
 	chai.config.showDiff = false;      // turn off reporter diff display
 	chai.config.truncateThreshold = 0; // disable truncating actual/expected values
 
+	// If a memory leak happens, show a stack trace for the leaker
+	Object.defineProperty(global, 'name_of_leaking_property', {
+		set : function() {
+			throw new Error('MEMORY LEAK DETECTED');
+		}
+	});
+
 	describe('jshint', function() {
 		// it('should fail', function () { expect(expect).to.be.a('failure'); });
 		it('expect to be happy', function () { expect(expect).to.be.a('function'); });
