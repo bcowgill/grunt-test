@@ -23,6 +23,7 @@
 		describe(suite, [fn]);  // omitting function marks it as a pending suite/spec
 		it(spec, [fn]);
 		xdescribe/xit(suite, fn); // test marked pending and skips execution
+		pending(); // call anywhere in a test to mark it pending
 		beforeEach(fn);
 		afterEach(fn);
 

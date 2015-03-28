@@ -156,6 +156,9 @@ body {
     background-color: cyan; /* DARK was #bababa */
     color: black; /* DARK added */
 }
+.jasmine_html-reporter .bar.skipped a {
+    color: black; /* DARK added */
+}
 .jasmine_html-reporter .bar.errored {
     background-color: red; /* DARK was #ca3a11 */
 }
