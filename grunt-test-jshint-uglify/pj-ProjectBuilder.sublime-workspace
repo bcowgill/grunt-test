@@ -11,7 +11,7 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 1513,
+				"buffer_size": 1535,
 				"line_ending": "Unix"
 			}
 		},
@@ -19,7 +19,7 @@
 			"file": "Gruntfile.js",
 			"settings":
 			{
-				"buffer_size": 7970,
+				"buffer_size": 7131,
 				"line_ending": "Unix"
 			}
 		},
@@ -65,6 +65,15 @@
 			}
 		},
 		{
+			"file": "test/mocha-chai/chai-test.html",
+			"settings":
+			{
+				"buffer_size": 979,
+				"line_ending": "Windows",
+				"name": "chai-test.html"
+			}
+		},
+		{
 			"file": "test/qunit/qunit-test.js",
 			"settings":
 			{
@@ -77,7 +86,7 @@
 			"file": "test/jasmine/jasmine-test.js",
 			"settings":
 			{
-				"buffer_size": 7619,
+				"buffer_size": 7589,
 				"line_ending": "Windows"
 			}
 		},
@@ -119,6 +128,14 @@
 			"settings":
 			{
 				"buffer_size": 318,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/cygwin.sh",
+			"settings":
+			{
+				"buffer_size": 750,
 				"line_ending": "Unix"
 			}
 		},
@@ -242,7 +259,7 @@
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 65.0
 	},
 	"find_in_files":
 	{
@@ -257,6 +274,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"jsdoc:",
+			"  ",
 			"uglify",
 			"    ",
 			"name",
@@ -366,6 +385,7 @@
 	"groups":
 	[
 		{
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -373,7 +393,7 @@
 					"file": "package.json",
 					"settings":
 					{
-						"buffer_size": 1513,
+						"buffer_size": 1535,
 						"regions":
 						{
 						},
@@ -401,25 +421,25 @@
 					"file": "Gruntfile.js",
 					"settings":
 					{
-						"buffer_size": 7970,
+						"buffer_size": 7131,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								5805,
+								5805
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 5382.0,
+						"translation.y": 9200.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -543,8 +563,8 @@
 						"selection":
 						[
 							[
-								417,
-								417
+								0,
+								854
 							]
 						],
 						"settings":
@@ -553,13 +573,41 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1555.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 7,
+					"file": "test/mocha-chai/chai-test.html",
+					"settings":
+					{
+						"buffer_size": 979,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								847,
+								847
+							]
+						],
+						"settings":
+						{
+							"auto_name": "chai-test.html",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1429.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
 					"file": "test/qunit/qunit-test.js",
 					"settings":
 					{
@@ -587,19 +635,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "test/jasmine/jasmine-test.js",
 					"settings":
 					{
-						"buffer_size": 7619,
+						"buffer_size": 7589,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								145,
-								145
+								0,
+								0
 							]
 						],
 						"settings":
@@ -614,7 +662,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 10,
 					"file": "html/test-ignore-space-inline-block.html",
 					"settings":
 					{
@@ -642,7 +690,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 11,
 					"file": "css/test-ignore-space-inline-block.css",
 					"settings":
 					{
@@ -671,7 +719,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 12,
 					"file": "Makefile",
 					"settings":
 					{
@@ -697,7 +745,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 13,
 					"file": "dist/project-builder.js",
 					"settings":
 					{
@@ -724,7 +772,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 14,
 					"file": "jsdoc.conf.json",
 					"settings":
 					{
@@ -749,15 +797,41 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "scripts/cygwin.sh",
+					"settings":
+					{
+						"buffer_size": 750,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								196,
+								196
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 673.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
-					"buffer": 14,
+					"buffer": 16,
 					"file": "test/mocha-chai/chai-test.js",
 					"settings":
 					{
@@ -768,8 +842,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								10808,
+								10808
 							]
 						],
 						"settings":
@@ -778,13 +852,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3120.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 17,
 					"file": "lib/jsdoc.js",
 					"settings":
 					{
@@ -811,7 +885,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 18,
 					"file": "lib/jsdoc-defs.js",
 					"settings":
 					{
@@ -837,7 +911,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 19,
 					"file": "tutorial/helpme.html",
 					"settings":
 					{
@@ -864,7 +938,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 20,
 					"file": "test/benchmark-this.js",
 					"settings":
 					{
@@ -875,8 +949,8 @@
 						"selection":
 						[
 							[
-								289,
-								289
+								263,
+								263
 							]
 						],
 						"settings":
@@ -922,7 +996,7 @@
 		"cols":
 		[
 			0.0,
-			0.567443286327,
+			0.47546068844,
 			1.0
 		],
 		"rows":
@@ -938,7 +1012,7 @@
 	},
 	"replace":
 	{
-		"height": 72.0
+		"height": 172.0
 	},
 	"save_all_on_build": true,
 	"select_file":

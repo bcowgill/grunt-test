@@ -13,7 +13,8 @@
 /**
 	Grunt build configuration.
 	@module Gruntfile
-	@todo Need to add a test and jsdoc build target.
+	@todo Need to add a test and build target. got mocha test running in browser, 
+	need to get running on command line see perljs or jsclass-test for example
 */
 
 

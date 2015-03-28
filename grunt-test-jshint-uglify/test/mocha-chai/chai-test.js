@@ -80,7 +80,7 @@
 		actual.should.have.property(property).with.length(length);
 */
 
-var chai = require('chai'),
+var chai = chai || require('chai'),
 	assert = chai.assert,
 	expect = chai.expect,
 	should = chai.should(), // note function call here
@@ -95,6 +95,7 @@ chai.config.showDiff = false;      // turn off reporter diff display
 chai.config.truncateThreshold = 0; // disable truncating actual/expected values
 
 describe('jshint', function() {
+	// it('should fail', function () { expect(expect).to.be.a('failure'); });
 	it('expect to be happy', function () { expect(expect).to.be.a('function'); });
 	it('should be happy', function () { should.exist(should); });
 	it('must do something useful', function () { expect(MUSTDO).to.be.a('function'); });
