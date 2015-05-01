@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test of moment.js</title>
+<script src="../node_modules/moment/moment.js
+"></script>
+<style>
+#time {
+	font-family: ProFontWindows, monospace;
+	font-weight: 900;
+	font-size: 24px;
+//	font-size: 11px;
+}
+</style>
+</head>
+<body>
+<h1>Test of moment.js</h1>
+<p id="time"></p>
+</body>
+<script>
+// Display a locale and GMT time ticker footer.
+var dom, count = 0;
+setInterval(function () {
+	if (!dom) {
+		dom = document.getElementById('time');
+		var now = new Date();
+		console.log(now.toJSON());
+	}
+	if (dom) {
+		if (count++ > 10) {
+			//return;
+		}
+		// Alternative: http://momentjs.com/timezone/docs/
+		var now = new Date(),
+			utc = now.toUTCString(),
+			offset = Number(now.getTimezoneOffset() / 10000)
+				.toFixed(4).replace('-0.', '-').replace('0.', '+');
+
+		dom.innerHTML = "<span><span style='float: left; margin-left: 5px; margin-bottom: 5px;'>" + now.toLocaleString()
+			+ " GMT" + offset
+			+ "</span><span style='float: right; margin-right: 5px;'>"
+			+ utc + "</span></span>";
+	}
+}, 1000 / 2);
+
+</script>
+</html>
