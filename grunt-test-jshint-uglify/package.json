@@ -54,7 +54,8 @@
     "chai": "^1.9.1",
     "glob": "^4.0.6",
     "mocha": "^2.2.1",
-    "moment": "^2.10.2"
+    "moment": "^2.10.2",
+    "moment-timezone": "^0.3.1"
   },
   "optionalDevDependencies": {
     "QUnitChainer": "bcowgill/QUnitChainer",

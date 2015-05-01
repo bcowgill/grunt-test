@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Test of moment.js</title>
-<script src="../node_modules/moment/moment.js
-"></script>
+<script src="../node_modules/moment/moment.js"></script>
+<script src="moment-timezone-with-data-2010-2020.js"></script>
+<!-- <script src="../node_modules/moment-timezone/moment-timezone.js"></script> -->
+
 <style>
 #time {
 	font-family: ProFontWindows, monospace;
@@ -16,6 +18,7 @@
 </head>
 <body>
 <h1>Test of moment.js</h1>
+<a href="http://momentjs.com/">http://momentjs.com/</a>
 <p id="time"></p>
 </body>
 <script>
@@ -26,6 +29,9 @@ setInterval(function () {
 		dom = document.getElementById('time');
 		var now = new Date();
 		console.log(now.toJSON());
+		var momNow = moment();
+		console.log(momNow.format());
+		//moment.tz.add('America/Los_Angeles|PST PDT|80 70|0101|1Lzm0 1zb0 Op0');
 	}
 	if (dom) {
 		if (count++ > 10) {
@@ -37,10 +43,17 @@ setInterval(function () {
 			offset = Number(now.getTimezoneOffset() / 10000)
 				.toFixed(4).replace('-0.', '-').replace('0.', '+');
 
-		dom.innerHTML = "<span><span style='float: left; margin-left: 5px; margin-bottom: 5px;'>" + now.toLocaleString()
+		var momUTC = moment.utc(),
+			where = "Europe/London", //Asia/Singapore",//America/Los_Angeles",
+			format = 'MMMM Do YYYY, h:mm:ss a',
+			momOther = moment.tz(momUTC, where);
+
+		dom.innerHTML = "<div><span style='float: left; margin-left: 5px; margin-bottom: 5px;'>" + now.toLocaleString()
 			+ " GMT" + offset
 			+ "</span><span style='float: right; margin-right: 5px;'>"
-			+ utc + "</span></span>";
+			+ utc + "</span></div>"
+
+			+ "<div style='clear: both;'><span style='float: left; margin-left: 5px; margin-bottom: 5px;'><p>" + where + "</p>" + momOther.format(format) + "</span><span style='float: right; margin-right: 5px;'><p>UTC</p>" + momUTC.format() + "</span></div>";
 	}
 }, 1000 / 2);
 
