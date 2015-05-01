@@ -11,7 +11,7 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 1535,
+				"buffer_size": 1558,
 				"line_ending": "Unix"
 			}
 		},
@@ -19,7 +19,7 @@
 			"file": "Gruntfile.js",
 			"settings":
 			{
-				"buffer_size": 7131,
+				"buffer_size": 7237,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,7 +27,7 @@
 			"file": ".jshintignore",
 			"settings":
 			{
-				"buffer_size": 95,
+				"buffer_size": 125,
 				"line_ending": "Windows"
 			}
 		},
@@ -65,10 +65,13 @@
 			}
 		},
 		{
+			"contents": "<!DOCTYPE html>\n<!-- test/mocha-chai/chai-test.html\n	http://localhost:9999/test/mocha-chai/chai-test.html\n-->\n<html>\n<head>\n	<meta charset=\"UTF-8\">\n	<title>Example Chai Test Suite</title>\n	<!-- <link rel=\"stylesheet\" media=\"all\" href=\"../../node_modules/mocha/mocha.css\"> -->\n	<link rel=\"stylesheet\" media=\"all\" href=\"mocha-dark.css\">\n	<script src=\"../../node_modules/mocha/mocha.js\"></script>\n	<script>mocha.setup('bdd');</script>\n	<script src=\"../../node_modules/chai/chai.js\"></script>\n<!-- 	<script src=\"../../lib/object-to-test.js\"></script> -->\n	<script src=\"chai-test.js\"></script>\n</head>\n<body>\n	<div id=\"mocha\"><p><a href=\".\">Index</a></p></div>\n	<div id=\"messages\"></div>\n	<div id=\"fixtures\"></div>\n	<script>mocha.run();</script>\n</body>\n</html>\n",
 			"file": "test/mocha-chai/chai-test.html",
+			"file_size": 780,
+			"file_write_time": 130672069048125360,
 			"settings":
 			{
-				"buffer_size": 979,
+				"buffer_size": 757,
 				"line_ending": "Windows",
 				"name": "chai-test.html"
 			}
@@ -86,15 +89,15 @@
 			"file": "test/jasmine/jasmine-test.js",
 			"settings":
 			{
-				"buffer_size": 7589,
+				"buffer_size": 7648,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "html/test-ignore-space-inline-block.html",
+			"file": "/D/d/s/blismedia/checkout/infinity-plus-dashboard/test/public/lib/jasmine/jasmine-test.js",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 7822,
 				"line_ending": "Windows"
 			}
 		},
@@ -140,10 +143,43 @@
 			}
 		},
 		{
-			"file": "test/mocha-chai/chai-test.js",
+			"file": "test/mocha-chai/mocha-chai-test.html",
 			"settings":
 			{
-				"buffer_size": 11107,
+				"buffer_size": 814,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "test/mocha-chai/make-mocha-dark.sh",
+			"settings":
+			{
+				"buffer_size": 272,
+				"line_ending": "Unix",
+				"name": "make-mocha-dark.sh"
+			}
+		},
+		{
+			"file": "test/mocha-chai/mocha-dark.js",
+			"settings":
+			{
+				"buffer_size": 142297,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test/jasmine/jasmine-dark.css",
+			"settings":
+			{
+				"buffer_size": 21138,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/d/s/blismedia/checkout/infinity-plus-dashboard/test/public/lib/jasmine/jasmine-dark.css",
+			"settings":
+			{
+				"buffer_size": 21138,
 				"line_ending": "Windows"
 			}
 		},
@@ -176,6 +212,14 @@
 			"settings":
 			{
 				"buffer_size": 1504,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "test/mocha-chai/mocha-chai-test.js",
+			"settings":
+			{
+				"buffer_size": 17543,
 				"line_ending": "Windows"
 			}
 		}
@@ -216,6 +260,12 @@
 	},
 	"file_history":
 	[
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/test/mocha-chai/mocha.js",
+		"/D/d/s/blismedia/checkout/infinity-plus-dashboard/test/public/lib/jasmine/jasmine-dark.css.oneline.css",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/html/test-ignore-space-inline-block.html",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/test/jasmine/jasmine-dark.css.oneline.css",
+		"/D/d/s/blismedia/pj-blismedia.sublime-workspace",
+		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/test/mocha-chai/chai-test.js",
 		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/test/jasmine/jasmine-dark.css",
 		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/.gitignore",
 		"/D/d/s/github/grunt-test/grunt-test-jshint-uglify/.jshintignore",
@@ -274,6 +324,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"fillText",
+			"HTML",
+			"new HTML",
+			"progress",
+			"colour",
+			"    ",
 			"jsdoc:",
 			"  ",
 			"uglify",
@@ -385,7 +441,7 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 19,
 			"sheets":
 			[
 				{
@@ -393,7 +449,7 @@
 					"file": "package.json",
 					"settings":
 					{
-						"buffer_size": 1535,
+						"buffer_size": 1558,
 						"regions":
 						{
 						},
@@ -421,15 +477,15 @@
 					"file": "Gruntfile.js",
 					"settings":
 					{
-						"buffer_size": 7131,
+						"buffer_size": 7237,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5805,
-								5805
+								0,
+								0
 							]
 						],
 						"settings":
@@ -439,7 +495,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 9200.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -449,15 +505,15 @@
 					"file": ".jshintignore",
 					"settings":
 					{
-						"buffer_size": 95,
+						"buffer_size": 125,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								19,
-								19
+								0,
+								0
 							]
 						],
 						"settings":
@@ -519,7 +575,7 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2321.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -573,7 +629,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1555.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -583,15 +639,15 @@
 					"file": "test/mocha-chai/chai-test.html",
 					"settings":
 					{
-						"buffer_size": 979,
+						"buffer_size": 757,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								847,
-								847
+								0,
+								0
 							]
 						],
 						"settings":
@@ -601,7 +657,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1429.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -629,7 +685,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7312.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -639,15 +695,42 @@
 					"file": "test/jasmine/jasmine-test.js",
 					"settings":
 					{
-						"buffer_size": 7589,
+						"buffer_size": 7648,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								809,
+								809
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 240.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/D/d/s/blismedia/checkout/infinity-plus-dashboard/test/public/lib/jasmine/jasmine-test.js",
+					"settings":
+					{
+						"buffer_size": 7822,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								930,
+								930
 							]
 						],
 						"settings":
@@ -657,34 +740,6 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "html/test-ignore-space-inline-block.html",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -823,42 +878,153 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
 					"buffer": 16,
-					"file": "test/mocha-chai/chai-test.js",
+					"file": "test/mocha-chai/mocha-chai-test.html",
 					"settings":
 					{
-						"buffer_size": 11107,
+						"buffer_size": 814,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10808,
-								10808
+								418,
+								418
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3120.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 17,
+					"file": "test/mocha-chai/make-mocha-dark.sh",
+					"settings":
+					{
+						"buffer_size": 272,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								252,
+								252
+							]
+						],
+						"settings":
+						{
+							"auto_name": "make-mocha-dark.sh",
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "test/mocha-chai/mocha-dark.js",
+					"settings":
+					{
+						"buffer_size": 142297,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "test/jasmine/jasmine-dark.css",
+					"settings":
+					{
+						"buffer_size": 21138,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "/D/d/s/blismedia/checkout/infinity-plus-dashboard/test/public/lib/jasmine/jasmine-dark.css",
+					"settings":
+					{
+						"buffer_size": 21138,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 21,
 					"file": "lib/jsdoc.js",
 					"settings":
 					{
@@ -879,13 +1045,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1665.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 22,
 					"file": "lib/jsdoc-defs.js",
 					"settings":
 					{
@@ -911,7 +1077,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 19,
+					"buffer": 23,
 					"file": "tutorial/helpme.html",
 					"settings":
 					{
@@ -938,7 +1104,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 20,
+					"buffer": 24,
 					"file": "test/benchmark-this.js",
 					"settings":
 					{
@@ -960,7 +1126,60 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 120.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 25,
+					"file": "test/mocha-chai/mocha-chai-test.js",
+					"settings":
+					{
+						"buffer_size": 17543,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								336,
+								336
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "test/jasmine/jasmine-dark.css",
+					"settings":
+					{
+						"buffer_size": 21138,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -996,7 +1215,7 @@
 		"cols":
 		[
 			0.0,
-			0.47546068844,
+			0.738453760364,
 			1.0
 		],
 		"rows":
@@ -1008,7 +1227,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 326.0
+		"height": 40.0
 	},
 	"replace":
 	{
@@ -1043,6 +1262,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 289.0,
+	"side_bar_width": 485.0,
 	"status_bar_visible": true
 }
