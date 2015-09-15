@@ -1,4 +1,4 @@
-/*jshint indent: 2, maxlen: 110, maxstatements: 100 */
+/*jshint indent: 2, maxstatements: 100, maxlen: 110 */
 /*global module:false*/
 /**
   @file Gruntfile.js
@@ -30,7 +30,8 @@ module.exports = function(grunt) {
     */
     jshint: {
       options: {
-        jshintrc: '.jshintrc'
+        jshintrc: '.jshintrc',
+        globals: {},
       },
       gruntfile: {
         src: ['package.json', 'Gruntfile.js']
@@ -67,13 +68,16 @@ module.exports = function(grunt) {
   });
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-nodeunit');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-watch');
+  [
+    'grunt-contrib-nodeunit',
+    'grunt-contrib-jshint',
+    'grunt-contrib-watch'
+  ].forEach(function (task) {
+    grunt.loadNpmTasks(task);
+  });
 
   // Default task.
   grunt.registerTask('default', ['all']);
   grunt.registerTask('all', ['jshint:gruntfile', 'jshint:lib', 'jshint:test', 'nodeunit']);
   grunt.registerTask('single', ['jshint:single']);
-
 };

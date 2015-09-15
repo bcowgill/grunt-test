@@ -1,4 +1,4 @@
-/*jshint node: true, indent: 4, maxlen: 110, maxstatements: 100 */
+/*jshint node: true, indent: 4, maxstatements: 100, maxlen: 110 */
 /*global module:false*/
 /**
 	@file Gruntfile.js
@@ -277,7 +277,6 @@ module.exports = function(grunt) {
 		grunt.loadNpmTasks(task);
 	});
 
-
 	// Default task.
 	grunt.registerTask('default', ['all']);
 	grunt.registerTask('all', ['windows', 'docs']);
@@ -294,5 +293,4 @@ module.exports = function(grunt) {
 	grunt.registerTask('single', ['jshint:single']);
 	grunt.registerTask('permissive', ['jshint:permissive']);
 	grunt.registerTask('qunit', ['jshint', 'qunit', 'concat', 'uglify']);
-
 };
