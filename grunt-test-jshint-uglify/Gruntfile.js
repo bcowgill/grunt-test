@@ -135,7 +135,8 @@ module.exports = function(grunt) {
 				src: ['package.json', 'Gruntfile.js']
 			},
 			single: {
-				src: ['package.json'] // set to just check a single file
+				// grunt jshint:single --check-file filename
+				src: [grunt.option('check-file') || 'package.json']
 			},
 			lib_test: {
 				src: ['lib/**/*.js', 'test/**/*.js']

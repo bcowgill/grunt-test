@@ -1,2 +1,5 @@
 node_modules/
 dist/
+
+# Webstorm Editor files
+.idea/
